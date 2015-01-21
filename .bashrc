@@ -118,6 +118,6 @@ fi
 
 # Custom bash settings
 # I that file I can put my custom bash setting
-if [ -f ~/.bash_aliases ]; then
+if [ -f ~/.bash_profile ]; then
     . ~/.bash_profile
 fi
