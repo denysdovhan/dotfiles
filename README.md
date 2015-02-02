@@ -9,3 +9,5 @@
 * **after-install.sh** - install apt-get packages
 * **autostart** - script that starts after load system
 * **make-links.sh** - make links from `/windows/` to `~`
+* **enable-hibernate.sh** - enable hiberdinate.
+* **bash-settings.sh** - make links for `.bashrc`, `.bash_profile` and `.bash_aliases` to `~`
