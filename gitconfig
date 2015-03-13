@@ -1,0 +1,63 @@
+[color]
+  ui = auto
+
+[color "diff"]
+  meta = white bold
+  frag = cyan bold
+  old = red bold
+  new = green bold
+
+[core]
+  editor = nano
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
+
+[alias]
+  a = add
+  b = branch
+  c = commit
+  co = checkout
+  ca = commit -a   # Add all files and commit
+  cm = commit -m   # Commit message
+  cam = commit -am # Add all files and commit with message
+  s = status -sb   # Short status with current branch
+
+  # Commits log with pretty format
+  l = log --graph --pretty=format:'%C(yellow bold)%h%C(cyan)%d%Creset %s %C(blue bold)- %an, %ar%Creset'
+
+  # Fully commits log with statistic
+  ll = log --stat --abbrev-commit
+
+  # Ignore files: append file to .ginignore
+  ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo `\n$2` >> .gitignore
+
+  # Initialize, add all files and commit
+  this = !git init && git add . && git commit -m 'Initial commit'
+
+  # Ammend last commit
+  amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+
+[push]
+  default = current
+
+# URL shorthands
+[url "git@github.com:"]
+  insteadOf = "gh:"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/" # From HTTPS to SSH
+[url "git://github.com/"]
+  insteadOf = "github:"
+[url "git@gist.github.com:"]
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/" # From HTTP to SSH
+[url "git://gist.github.com/"]
+  insteadOf = "gist:"
+
+# Include local settings from .gitlocal
+# Example .gitlocal:
+# [user]
+#   name = Denys Dovhan
+#   email = email@denysdovhan.com
+[include]
+  path = ~/.gitlocal
