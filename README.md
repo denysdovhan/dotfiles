@@ -1,13 +1,28 @@
-# Bash scripts for Ubuntu
+# Denys Dovhan’s dotfiles
 
-* **install-nodejs** - easy install and configure Node.js
-* **install-npm-packages** - easy way to install my NPM packages
-* **repair-premissions** - repair premissions in `/` (Based on `apt-get` packages)
-* **winefontsmoothing** - quick and dirty script for configuring wine font smoothing (by Igor Tarasov)
-* **google-chrome-fix** - fix fuzzy icon and errors with login in Google Chrome
-* **.bashrc**, **.bash_profile** and **.bash_aliases** - that files contains settings for **bash**
-* **after-install.sh** - install apt-get packages
-* **autostart** - script that starts after load system
-* **make-links.sh** - make links from `/windows/` to `~`
-* **enable-hibernate.sh** - enable hiberdinate.
-* **bash-settings.sh** - make links for `.bashrc`, `.bash_profile` and `.bash_aliases` to `~`
+This is my dotfiles for Ubuntu.
+
+# Installation
+
+If you want to install my dotfiles on your machine, just copy this command and execute in the terminal:
+
+```bash
+cd && git clone https://github.com/sapegin/dotfiles.git Dotfiles && cd Dotfiles && ./sync.py
+```
+
+# Updating
+
+For updating dotfiles, just execute command bellow:
+
+```
+cd ~/Dotfiles && git pull && ./sync.py
+```
+
+# Resources
+
+Resources that I used in my dotfiles:
+
+* [Artem Sapegin’s dotfiles](https://github.com/sapegin/dotfiles)
+* [Yet another cool story about bash prompt](http://habrahabr.ru/company/mailru/blog/145008/)
+
+Be kitten :smiley_cat: :-)
