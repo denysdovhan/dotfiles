@@ -36,6 +36,7 @@ shopt -s cmdhist
 # Bash aliases and prompt
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.bash_prompt ] && source ~/.bash_prompt
+[ -f ~/.bash_functions ] && source ~/.bash_functions
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
