@@ -1,3 +1,13 @@
+# Enable aliases to be sudo’ed
+#   http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
+alias sudo='sudo '
+
+# Avoid stupidity
+#   -I instead of -i, because it less intrusive than -i, while still giving
+#   protection against most mistakes.
+#   
+alias rm='rm -I'
+
 # Easiest navigation
 alias ..='cd ..'
 alias ...='cd ../..'
