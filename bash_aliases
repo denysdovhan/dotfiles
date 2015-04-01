@@ -24,9 +24,20 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# Clipboard tools
+# pbcopy / pbpaste aliases like OS X
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+alias xcopy='xclip -selection clipboard'
+alias xpaste='xclip -selection clipboard -o'
+
 # Get Ubuntu Updates, and update npm and its installed packages
 alias update='sudo apt-get update; sudo apt-get upgrade; sudo npm update npm -g; sudo npm update -g;'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Password generator
+# Generate random password, copies it into clipboard and outputs it to terminal
+alias password='openssl rand -base64 ${1:-9} | pbcopy ; echo `pbpaste`'

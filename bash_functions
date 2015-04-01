@@ -11,5 +11,3 @@ function gz() {
   echo "Gzipped size (bytes): "
   gzip -c "$1" | wc -c
 }
-
-
