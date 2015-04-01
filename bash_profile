@@ -33,10 +33,12 @@ shopt -s cmdhist
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
-# Bash aliases and prompt
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
-[ -f ~/.bash_prompt ] && source ~/.bash_prompt
-[ -f ~/.bash_functions ] && source ~/.bash_functions
+# Load ~/.bash_extra, ~/.bash_prompt, ~/.bash_aliases and ~/.bash_functions
+# ~/.bash_extra can be used for settings you don’t want to commit
+for file in ~/.bash_{extra,prompt,aliases,functions}; do
+  [ -r "$file" ] && source "$file"
+done
+unset file
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
