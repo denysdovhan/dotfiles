@@ -11,7 +11,7 @@
 
 # Add custom bin path
 [ -d /opt/lampp/ ] && PATH=/opt/lampp/:$PATH
-[ -d /opt/lampp/bin] && PATH=/opt/lampp/bin:$PATH
+[ -d /opt/lampp/bin ] && PATH=/opt/lampp/bin:$PATH
 
 # don't put duplicate lines in the history
 export HISTCONTROL=ignoreboth:erasedups
