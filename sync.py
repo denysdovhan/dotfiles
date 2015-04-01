@@ -9,7 +9,7 @@ Source: https://gist.github.com/490016
 import os
 import glob
 
-EXCLUDE = ['sync.py']
+EXCLUDE = ['sync.py', '.old', 'helpers', '.gitignore', 'autostart', 'README.md']
 NO_DOT_PREFIX = []
 
 def forse_remove(path):
@@ -33,12 +33,12 @@ def main():
         source = os.path.relpath(filename, os.path.dirname(dotfile))
 
         # Check that we aren't overwriting anything
-        if os.path.exist(dotfile):
+        if os.path.exists(dotfile):
             if is_link_to(dotfile, source):
                 continue
 
             response = raw_input("Overwrite file `%s'? [y/N] " % dotfile)
-            if not response.lower().startwith('y'):
+            if not response.lower().startswith('y'):
                 print "Skipping `%s'..." % dotfile
                 continue
 
