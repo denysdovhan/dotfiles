@@ -20,9 +20,10 @@ alias dr='cd ~/Dropbox'
 alias dl='cd ~/Downloads'
 alias dt='cd ~/Desktop'
 alias pj='cd ~/Projects'
-alias pl='cd ~/Dropbox/Projects/Playground/'
-alias sites='cd ~/Dropbox/Projects/Sites'
-alias scripts='cd ~/Scripts'
+alias pjr='cd ~/Projects/_Repos'
+alias pjf='cd ~/Projects/_Forks'
+alias pjs='cd ~/Dropbox/Projects/_Sites'
+alias pl='cd ~/Dropbox/Projects/_Playground/'
 
 # Always use color output for `ls`
 alias ls="ls --color"
