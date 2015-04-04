@@ -52,4 +52,4 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias password='openssl rand -base64 ${1:-9} | pbcopy ; echo `pbpaste`'
 
 # Update dotfiles
-alias dotfiles='cd "$HOME/dotfiles" && git pull && ./sync.py && cd - > /dev/null 2>&1'
+alias dotfiles='cd "$HOME/dotfiles" && git pull && ./sync.py && cd - > /dev/null 2>&1 && nyan'
