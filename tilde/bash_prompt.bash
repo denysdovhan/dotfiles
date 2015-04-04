@@ -26,14 +26,14 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
   color_error="$(/usr/bin/tput setab 1)$(/usr/bin/tput setaf 7)"
   color_error_off="$(/usr/bin/tput sgr0)"
 
-  # set user color
+  # Set user color
   case `id -u` in
     0) color_user=$color_red ;;
     *) color_user=$color_green ;;
   esac
 fi
 
-# some kind of optimization - check if git installed only on config load
+# Some kind of optimization - check if git installed only on config load
 PS1_GIT_BIN=$(which git 2>/dev/null)
 
 function prompt_command {
@@ -51,7 +51,7 @@ function prompt_command {
 
   # Parse git status and get git variables
   if [[ ! -z $PS1_GIT_BIN ]]; then
-    # check we are in git repo
+    # Check we are in git repo
     local CUR_DIR=$PWD
     while [[ ! -d "${CUR_DIR}/.git" ]] && [[ ! "${CUR_DIR}" == "/" ]] && [[ ! "${CUR_DIR}" == "~" ]] && [[ ! "${CUR_DIR}" == "" ]]; do CUR_DIR=${CUR_DIR%/*}; done
     if [[ -d "${CUR_DIR}/.git" ]]; then
@@ -100,7 +100,7 @@ function prompt_command {
     fi
   fi
 
-  # set new color prompt
+  # Set new color prompt
   PS1="${color_user}${USER}${color_off}@${color_yellow}${HOSTNAME}${color_off}:${color_white}${PWDNAME}${color_off}${PS1_GIT} ${FILL}\n→ "
 
   # get cursor position and add new line if we're not in first column
@@ -114,8 +114,10 @@ function prompt_command {
   echo -en "\033[6n" && read -sdR CURPOS
   [[ ${CURPOS##*;} -gt 1 ]] && echo "${color_error}●${color_error_off}"
 
-  # Set title
-  echo -ne "\033]0;${USER}@${HOSTNAME}:${PWDNAME}"; echo -ne "\007"
+  # Terminal title
+  TITLE=`basename ${PWDNAME}`
+  [ $SHLVL -gt 1 ] && TITLE="${TITLE} — ${HOSTNAME}"
+  echo -ne "\033]0;${TITLE}"; echo -ne "\007"
 }
 
 # Set prompt command (title update and color prompt)
