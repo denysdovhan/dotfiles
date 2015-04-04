@@ -4,10 +4,10 @@ This is my dotfiles for Ubuntu or something else that supports Bash, like Mac, E
 
 # Installation
 
-Ifли you want to install my dotfiles on your machine, just copy this command and execute in the terminal:
+If you want to install my dotfiles on your machine, just copy this command and execute in the terminal:
 
 ```bash
-git clone https://github.com/sapegin/dotfiles.git ~/Dotfiles && cd ~/Dotfiles && ./sync.py
+git clone https://github.com/denysdovhan/dotfiles.git ~/Dotfiles && cd ~/Dotfiles && ./sync.py
 ```
 
 # Updating
