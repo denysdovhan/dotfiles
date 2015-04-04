@@ -5,8 +5,7 @@ alias sudo='sudo '
 # Avoid stupidity
 #   -I instead of -i, because it less intrusive than -i, while still giving
 #   protection against most mistakes.
-#   
-alias rm='rm -I'
+alias rm='rm -i'
 
 # Easiest navigation
 alias ..='cd ..'

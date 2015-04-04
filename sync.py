@@ -2,14 +2,16 @@
 
 """
 Dotfiles syncronization.
-Makes symlinks for all files: ./bashrc will by available as ~/.bashrc.
-Source: https://gist.github.com/490016
+Makes symlinks for all files: ./tilde/bashrc.bash will by available as ~/.bashrc.
+Based: https://gist.github.com/490016
+Source: https://github.com/sapegin/dotfiles/blob/master/sync.py
 """
 
 import os
 import glob
 
-EXCLUDE = ['sync.py', '.old', 'helpers', '.gitignore', 'autostart', 'README.md']
+SOURCE_DIR = 'tilde'
+EXCLUDE = []
 NO_DOT_PREFIX = []
 
 def forse_remove(path):
@@ -24,12 +26,12 @@ def is_link_to(link, dest):
     return is_link
 
 def main():
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), SOURCE_DIR))
     for filename in [file for file in glob.glob('*') if file not in EXCLUDE]:
         dotfile = filename
         if filename not in NO_DOT_PREFIX:
             dotfile = '.' + dotfile
-        dotfile = os.path.join(os.path.expanduser('~'), dotfile)
+        dotfile = os.path.join(os.path.expanduser('~'), os.path.splitext(dotfile)[0])
         source = os.path.relpath(filename, os.path.dirname(dotfile))
 
         # Check that we aren't overwriting anything
