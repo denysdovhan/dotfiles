@@ -51,6 +51,9 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # Generate random password, copies it into clipboard and outputs it to terminal
 alias password='openssl rand -base64 ${1:-9} | pbcopy ; echo `pbpaste`'
 
+# Show $PATH in readable view
+alias path='echo -e ${PATH//:/\\n}'
+
 # Update dotfiles
 alias dotfiles='cd "$HOME/dotfiles" && git pull && ./sync.py && cd - > /dev/null 2>&1 && nyan'
 
