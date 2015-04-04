@@ -1,3 +1,8 @@
+# Find shorthand
+function f() {
+  find . -name "$1"
+}
+
 
 # Make new directory and enter it
 function md() {
