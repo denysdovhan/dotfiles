@@ -37,6 +37,9 @@
   # Ammend last commit
   amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
 
+  # Reset index changes, but not the working tree
+  undo = reset --mixed HEAD^
+
 [push]
   default = current
 
