@@ -55,6 +55,10 @@
   insteadOf = "gist:"
 
 # Include local settings from .gitlocal
+# Requires Git 1.7.10
+# Setup:
+#   git config -f ~/.gitlocal user.email "your@email.com"
+#   git config -f ~/.gitlocal user.name "Name Lastname"
 # Example .gitlocal:
 # [user]
 #   name = Denys Dovhan
