@@ -40,6 +40,46 @@ function extract() {
   fi
 }
 
+# Setup syncronization of current Git repo with GitHub repo of the same name
+# USAGE: git-github [repo]
+function git-github() {
+  user="sapegin"
+  repo=${1-`basename "$(pwd)"`}
+  git remote add origin "git@github.com:$user/$repo.git"
+  git push -u origin master
+}
+
+# Setup syncronization of current Git repo with Bitbucket repo of the same name
+# USAGE: git-bitbucket [repo]
+function git-bitbucket() {
+  user="sapegin"
+  repo=${1-`basename "$(pwd)"`}
+  git remote add origin "git@bitbucket.org:$user/$repo.git"
+  git push -u origin master
+}
+
+# Add remote upsteam
+# USAGE: git-fork <original-author>
+function git-fork() {
+  user=$1
+  if [[ "$user" == "" ]]
+  then
+    echo "Usage: git-fork <original-author>"
+  else
+    repo=`basename "$(pwd)"`
+    git remote add upstream "https://github.com/$user/$repo.git"
+  fi
+}
+
+# Sync branch with upstream
+# USAGE: git-upstream [branch]
+function git-upstream() {
+  branch=${1-master}
+  git fetch upstream
+  git co origin $branch
+  git merge upstream/$branch
+}
+
 # Print nyan cat
 # https://github.com/steckel/Git-Nyan-Graph/blob/master/nyan.sh
 function nyan() {
