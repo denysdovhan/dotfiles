@@ -42,7 +42,7 @@ alias xcopy='xclip -selection clipboard'
 alias xpaste='xclip -selection clipboard -o'
 
 # Get Ubuntu Updates, and update npm and its installed packages
-alias update='sudo apt-get update; sudo apt-get upgrade; sudo npm update npm -g; sudo npm update -g;'
+alias update='source ~/Dotfiles/setup/update.sh'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
