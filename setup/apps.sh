@@ -23,13 +23,14 @@ apt-key adv --recv-keys --keyserver keyserver.ubuntu.com `apt-get update 2>&1 | 
 apt-get update
 
 # List of packages
-PACKAGES="ubuntu-tweak dconf-tools unity-tweak-tool compizconfig-settings-manager\
-          synaptic p7zip-rar p7zip-full unace unrar zip unzip sharutils rar\
-          uudeview mpack arj cabextract file-roller plank numix-gtk-theme\
-          numix-icon-theme-circle git gitk caffeine-plus grub-customizer\
-          kazam python3-cairo python3-xlib my-weather-indicator skype sni-qt:i386\
-          gtk2-engines-murrine:i386 gtk2-engines-pixbuf:i386 skype-wrapper\
-          sni-qt curl"
+PACKAGES="
+    ubuntu-tweak dconf-tools unity-tweak-tool compizconfig-settings-manager\
+    synaptic p7zip-rar p7zip-full unace unrar zip unzip sharutils rar\
+    uudeview mpack arj cabextract file-roller plank numix-gtk-theme\
+    numix-icon-theme-circle git gitk caffeine-plus grub-customizer\
+    kazam python3-cairo python3-xlib my-weather-indicator skype sni-qt:i386\
+    gtk2-engines-murrine:i386 gtk2-engines-pixbuf:i386 skype-wrapper\
+    sni-qt curl"
 
 # Install all packages from $PACKAGES
 apt-get -y --force-yes install $PACKAGES
@@ -37,4 +38,3 @@ apt-get -y --force-yes install $PACKAGES
 # Clean system
 apt-get autoclean
 apt-get autoremove
-
