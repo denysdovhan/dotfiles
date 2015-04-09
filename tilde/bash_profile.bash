@@ -29,6 +29,37 @@ shopt -s cdspell
 # save all lines of a multiple-line command in the same history entry (allows easy re-editing of multi-line commands)
 shopt -s cmdhist
 
+# Setup colors varibles
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+  tput sgr0
+  # Get color, if tput is available
+  RED="$(tput setaf 1)"
+  GREEN="$(tput setaf 2)"
+  YELLOW="$(tput setaf 3)"
+  BLUE="$(tput setaf 4)"
+  MAGENTA="$(tput setaf 5)"
+  CYAN="$(tput setaf 6)"
+  WHITE="$(tput setaf 7)"
+  GRAY="$(tput setaf 8)"
+  BOLD="$(tput bold)"
+  UNDERLINE="$(tput sgr 0 1)"
+  INVERT="$(tput sgr 1 0)"
+  NOCOLOR="$(tput sgr0)"
+else
+  # Colors ANSI escape fallback
+  RED="\e[0;31m"
+  GREEN="\e[0;32m"
+  YELLOW="\e[0;33m"
+  BLUE="\e[0;34m"
+  MAGENTA="\e[0;35m"
+  CYAN="\e[1;36m"
+  WHITE="\e[1;37m"
+  GRAY="\e[1;30m"
+  BOLD="\e[1m"
+  UNDERLINE="\e[4m"
+  INVERT="\e[7m"
+  NOCOLOR="\e[0m"; 
+fi
 
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion

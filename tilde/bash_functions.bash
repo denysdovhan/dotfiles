@@ -1,8 +1,12 @@
+# Print cyan underlined header 
+function header() {
+  echo -e "$UNDERLINE$CYAN$1$NOCOLOR"
+}
+
 # Find shorthand
 function f() {
   find . -name "$1"
 }
-
 
 # Make new directory and enter it
 function md() {
@@ -83,21 +87,13 @@ function git-upstream() {
 # Print nyan cat
 # https://github.com/steckel/Git-Nyan-Graph/blob/master/nyan.sh
 function nyan() {
-  e='\033'
-  RESET="$e[0m"
-  BOLD="$e[1m"
-  CYAN="$e[0;96m"
-  RED="$e[0;91m"
-  YELLOW="$e[0;93m"
-  GREEN="$e[0;92m"
-
   echo
   echo -en $RED'-_-_-_-_-_-_-_'
-  echo -e $RESET$BOLD',------,'$RESET
+  echo -e $NOCOLOR$BOLD',------,'$NOCOLOR
   echo -en $YELLOW'_-_-_-_-_-_-_-'
-  echo -e $RESET$BOLD'|   /\_/\\'$RESET
+  echo -e $NOCOLOR$BOLD'|   /\_/\\'$NOCOLOR
   echo -en $GREEN'-_-_-_-_-_-_-'
-  echo -e $RESET$BOLD'~|__( ^ .^)'$RESET
+  echo -e $NOCOLOR$BOLD'~|__( ^ .^)'$NOCOLOR
   echo -en $CYAN'-_-_-_-_-_-_-_-'
-  echo -e $RESET$BOLD'""  ""'$RESET
+  echo -e $NOCOLOR$BOLD'""  ""'$NOCOLOR
 }

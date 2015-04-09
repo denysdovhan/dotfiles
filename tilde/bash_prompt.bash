@@ -1,37 +1,11 @@
 # Inspired by:
 #   https://github.com/dreadatour/dotfiles/blob/master/.bash_profile
 
-# Setup color variables
-color_is_on=
-color_red=
-color_green=
-color_yellow=
-color_blue=
-color_white=
-color_gray=
-color_bg_red=
-color_off=
-color_user=
-if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-  color_is_on=true
-  color_black="\[$(/usr/bin/tput setaf 0)\]"
-  color_red="\[$(/usr/bin/tput setaf 1)\]"
-  color_green="\[$(/usr/bin/tput setaf 2)\]"
-  color_yellow="\[$(/usr/bin/tput setaf 3)\]"
-  color_blue="\[$(/usr/bin/tput setaf 6)\]"
-  color_white="\[$(/usr/bin/tput setaf 7)\]"
-  color_gray="\[$(/usr/bin/tput setaf 8)\]"
-  color_off="\[$(/usr/bin/tput sgr0)\]"
-
-  color_error="$(/usr/bin/tput setab 1)$(/usr/bin/tput setaf 7)"
-  color_error_off="$(/usr/bin/tput sgr0)"
-
-  # Set user color
-  case `id -u` in
-    0) color_user=$color_red ;;
-    *) color_user=$color_green ;;
-  esac
-fi
+# Set user color
+case `id -u` in
+  0) USER_COLOR=$RED ;;
+  *) USER_COLOR=$GREEN ;;
+esac
 
 # Some kind of optimization - check if git installed only on config load
 PS1_GIT_BIN=$(which git 2>/dev/null)
@@ -49,20 +23,20 @@ function prompt_command {
     PWDNAME="~${PWD:${#HOME}}"
   fi
 
-  # Parse git status and get git variables
+  # Parse Git status and get Git variables
   if [[ ! -z $PS1_GIT_BIN ]]; then
-    # Check we are in git repo
+    # Check we are in Git repo
     local CUR_DIR=$PWD
-    while [[ ! -d "${CUR_DIR}/.git" ]] && [[ ! "${CUR_DIR}" == "/" ]] && [[ ! "${CUR_DIR}" == "~" ]] && [[ ! "${CUR_DIR}" == "" ]]; do CUR_DIR=${CUR_DIR%/*}; done
-    if [[ -d "${CUR_DIR}/.git" ]]; then
-      # 'git repo for dotfiles' fix: show git status only in home dir and other git repos
+    while [[ ! -d "$CUR_DIR/.git" ]] && [[ ! "$CUR_DIR" == "/" ]] && [[ ! "$CUR_DIR" == "~" ]] && [[ ! "$CUR_DIR" == "" ]]; do CUR_DIR=${CUR_DIR%/*}; done
+    if [[ -d "$CUR_DIR/.git" ]]; then
+      # Git repo for dotfiles' fix: show git status only in home dir and other Git repos
       if [[ "${CUR_DIR}" != "${HOME}" ]] || [[ "${PWD}" == "${HOME}" ]]; then
-        # get git branch
+        # Get Git branch
         GIT_BRANCH=$($PS1_GIT_BIN symbolic-ref HEAD 2>/dev/null)
         if [[ ! -z $GIT_BRANCH ]]; then
           GIT_BRANCH=${GIT_BRANCH#refs/heads/}
 
-          # get git status
+          # Get Git status
           local GIT_STATUS=$($PS1_GIT_BIN status --porcelain 2>/dev/null)
           [[ -n $GIT_STATUS ]] && GIT_DIRTY=1
         fi
@@ -70,7 +44,7 @@ function prompt_command {
     fi
   fi
 
-  # Build B&W prompt for git
+  # Build B&W prompt for Git
   [[ ! -z $GIT_BRANCH ]] && PS1_GIT=" #${GIT_BRANCH}"
 
   # Calculate prompt length
@@ -84,26 +58,22 @@ function prompt_command {
   else
     # else calculate fillsize
     local fillsize=$(($COLUMNS-$PS1_length))
-    FILL=$color_gray
+    FILL=$GRAY
     while [[ $fillsize -gt 0 ]]; do FILL="${FILL}─"; fillsize=$(($fillsize-1)); done
-    FILL="${FILL}${color_off}"
+    FILL=$FILL$NOCOLOR
   fi
 
-  if $color_is_on; then
-    # Git status for prompt
-    if [ ! -z $GIT_BRANCH ]; then
-      if [ -z $GIT_DIRTY ]; then
-        PS1_GIT=" #${color_green}${GIT_BRANCH}${color_off}"
-      else
-        PS1_GIT=" #${color_red}${GIT_BRANCH}${color_off}"
-      fi
-    fi
+  # Git status for prompt
+  if [ ! -z $GIT_BRANCH ]; then
+    local BRANCH_COLOR=$GREEN
+    [ ! -z $GIT_DIRTY ] && BRANCH_COLOR=$RED
+    PS1_GIT=" #$BRANCH_COLOR$GIT_BRANCH$NOCOLOR"
   fi
 
   # Set new color prompt
-  PS1="${color_user}${USER}${color_off}@${color_yellow}${HOSTNAME}${color_off}:${color_white}${PWDNAME}${color_off}${PS1_GIT} ${FILL}\n→ "
+  PS1="$USER_COLOR$USER$NOCOLOR@$YELLOW$HOSTNAME$NOCOLOR:$WHITE$PWDNAME$NOCOLOR$PS1_GIT $FILL\n→ "
 
-  # get cursor position and add new line if we're not in first column
+  # Get cursor position and add new line if we're not in first column
   # cool'n'dirty trick (http://stackoverflow.com/a/2575525/1164595)
   # XXX FIXME: this hack broke ssh =(
   # exec < /dev/tty
@@ -115,7 +85,7 @@ function prompt_command {
   [[ ${CURPOS##*;} -gt 1 ]] && echo "${color_error}●${color_error_off}"
 
   # Terminal title
-  TITLE=`basename ${PWDNAME}`
+  local TITLE=`basename ${PWDNAME}`
   [ $SHLVL -gt 1 ] && TITLE="${TITLE} — ${HOSTNAME}"
   echo -ne "\033]0;${TITLE}"; echo -ne "\007"
 }
