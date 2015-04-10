@@ -1,7 +1,7 @@
 #!/bin/bash
-# Source: https://github.com/sapegin/dotfiles/blob/master/setup/update.sh
 
 # Get Ubuntu Updates, update NPM packages and dotfiles 
+# Source: https://github.com/sapegin/dotfiles/blob/master/setup/update.sh
 
 # Function for pretty headers
 function header() {

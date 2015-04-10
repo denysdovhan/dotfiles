@@ -1,26 +1,29 @@
 #!/bin/bash
 
+# Ask for the administrator password upfront
+sudo -v
+
 # System upgrade
-apt-get update
-apt-get -y --force-yes dist-upgrade
+sudo apt-get update
+sudo apt-get -y --force-yes dist-upgrade
 
 # Repo's list
-add-apt-repository -y ppa:tualatrix/ppa
-add-apt-repository -y ppa:ricotz/docky
-add-apt-repository -y ppa:numix/ppa
-add-apt-repository -y ppa:nilarimogard/webupd8
-add-apt-repository -y ppa:danielrichter2007/grub-customizer
-add-apt-repository -y ppa:kazam-team/unstable-series
-add-apt-repository -y ppa:atareao/atareao
-add-apt-repository -y ppa:skype-wrapper/ppa
-add-apt-repository -y ppa:rpeshkov/ppa
-add-apt-repository -y ppa:noobslab/apps
+sudo add-apt-repository -y ppa:tualatrix/ppa
+sudo add-apt-repository -y ppa:ricotz/docky
+sudo add-apt-repository -y ppa:numix/ppa
+sudo add-apt-repository -y ppa:nilarimogard/webupd8
+sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
+sudo add-apt-repository -y ppa:kazam-team/unstable-series
+sudo add-apt-repository -y ppa:atareao/atareao
+sudo add-apt-repository -y ppa:skype-wrapper/ppa
+sudo add-apt-repository -y ppa:rpeshkov/ppa
+sudo add-apt-repository -y ppa:noobslab/apps
 
 # Add keys for repos
-apt-key adv --recv-keys --keyserver keyserver.ubuntu.com `apt-get update 2>&1 | grep -o '[0-9A-Z]\{16\}$' | xargs` 
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com `apt-get update 2>&1 | grep -o '[0-9A-Z]\{16\}$' | xargs` 
 
 # Update information about packages
-apt-get update
+sudo apt-get update
 
 # List of packages
 PACKAGES="
@@ -33,8 +36,8 @@ PACKAGES="
     sni-qt curl"
 
 # Install all packages from $PACKAGES
-apt-get -y --force-yes install $PACKAGES
+sudo apt-get -y --force-yes install $PACKAGES
 
 # Clean system
-apt-get autoclean
-apt-get autoremove
+sudo apt-get autoclean
+sudo apt-get autoremove
