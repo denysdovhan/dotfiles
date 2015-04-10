@@ -71,13 +71,32 @@ fi
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
+# WP-CLI
+# bash completion for the `wp` command
+_wp_complete() {
+  local cur=${COMP_WORDS[COMP_CWORD]}
+
+  IFS=$'\n';  # want to preserve spaces at the end
+  local opts="$(wp cli completions --line="$COMP_LINE" --point="$COMP_POINT")"
+
+  if [[ "$opts" =~ \<file\>\s* ]]
+  then
+    COMPREPLY=( $(compgen -f -- $cur) )
+  elif [[ $opts = "" ]]
+  then
+    COMPREPLY=( $(compgen -f -- $cur) )
+  else
+    COMPREPLY=( ${opts[*]} )
+  fi
+}
+complete -o nospace -F _wp_complete wp
+
 # Load ~/.bash_prompt, ~/.bash_aliases and ~/.bash_functions
 # ~/.bash_extra can be used for settings you don’t want to commit
 for file in ~/.bash_{aliases,extra,functions,prompt}; do
   [ -r "$file" ] && source "$file"
 done
 unset file
-
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
