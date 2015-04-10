@@ -58,7 +58,7 @@ else
   BOLD="\e[1m"
   UNDERLINE="\e[4m"
   INVERT="\e[7m"
-  NOCOLOR="\e[0m"; 
+  NOCOLOR="\e[0m"
 fi
 
 # If possible, add tab completion for many more commands
