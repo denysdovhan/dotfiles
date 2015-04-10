@@ -41,6 +41,10 @@ alias pbpaste='xclip -selection clipboard -o'
 alias xcopy='xclip -selection clipboard'
 alias xpaste='xclip -selection clipboard -o'
 
+# Color conversion
+alias hex2hsl='color.js $1 $2'
+alias hex2rgb='color.js --rgb $1 $2'
+
 # Get Ubuntu Updates, and update npm and its installed packages
 alias update='source ~/Dotfiles/setup/update.sh'
 
