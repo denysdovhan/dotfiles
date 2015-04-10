@@ -8,10 +8,17 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# Prepend $PATH without duplicates
+function _prepend_path() {
+ if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
+   PATH="$1:$PATH"
+ fi
+}
 
 # Add custom bin path
-[ -d /opt/lampp/ ] && PATH=/opt/lampp/:$PATH
-[ -d /opt/lampp/bin ] && PATH=/opt/lampp/bin:$PATH
+[ -d /opt/lampp/ ] && _prepend_path /opt/lampp/
+[ -d /opt/lampp/bin ] && _prepend_path /opt/lampp/bin
+[ -d ~/Dotfiles/bin ] && _prepend_path ~/Dotfiles/bin
 
 # don't put duplicate lines in the history
 export HISTCONTROL=ignoreboth:erasedups
