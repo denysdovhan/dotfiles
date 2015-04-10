@@ -98,12 +98,11 @@ function prompt_command {
   # Get cursor position and add new line if we're not in first column
   # cool'n'dirty trick (http://stackoverflow.com/a/2575525/1164595)
   # XXX FIXME: this hack broke ssh =(
-  # exec < /dev/tty
-  # local OLDSTTY=$(stty -g)
-  # stty raw -echo min 0
-  # echo -en "\033[6n" > /dev/tty && read -sdR CURPOS
-  # stty $OLDSTTY
-  echo -en "\033[6n" && read -sdR CURPOS
+  exec < /dev/tty
+  local OLDSTTY=$(stty -g)
+  stty raw -echo min 0
+  echo -en "\033[6n" > /dev/tty && read -sdR CURPOS
+  stty $OLDSTTY
   [[ ${CURPOS##*;} -gt 1 ]] && echo "${RED}↵${NOCOLOR}"
 
   # Terminal title
