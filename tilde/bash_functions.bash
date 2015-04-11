@@ -1,19 +1,23 @@
 # Print cyan underlined header 
+# USAGE: header <TEXT>
 function header() {
   echo -e "$UNDERLINE$CYAN$1$NOCOLOR"
 }
 
 # Find shorthand
+# USAGE: f <FILE>
 function f() {
   find . -name "$1"
 }
 
 # Make new directory and enter it
+# USAGE: md <DIR>
 function md() {
   mkdir -p "$@" && cd "$@"
 }
 
 # Get gzipped file size
+# USAGE: gz <FILE>
 function gz() {
   local origsize=`wc -c < $1`
   local gzipsize=`gzip -c $1 | wc -c`
@@ -23,6 +27,7 @@ function gz() {
 }
 
 # Extract archives of various types
+# USAGE: extract <FILE>
 function extract() {
   if [ -f $1 ] ; then
     local dir_name=${1%.*}  # Filename without extension
@@ -45,33 +50,15 @@ function extract() {
   fi
 }
 
-# Setup syncronization of current Git repo with GitHub repo of the same name
-# USAGE: git-github [repo]
-function git-github() {
-  user="sapegin"
-  repo=${1-`basename "$(pwd)"`}
-  git remote add origin "git@github.com:$user/$repo.git"
-  git push -u origin master
-}
-
-# Setup syncronization of current Git repo with Bitbucket repo of the same name
-# USAGE: git-bitbucket [repo]
-function git-bitbucket() {
-  user="sapegin"
-  repo=${1-`basename "$(pwd)"`}
-  git remote add origin "git@bitbucket.org:$user/$repo.git"
-  git push -u origin master
-}
-
 # Add remote upsteam
 # USAGE: git-fork <original-author>
 function git-fork() {
-  user=$1
+  local user=$1
   if [[ "$user" == "" ]]
   then
     echo "Usage: git-fork <original-author>"
   else
-    repo=`basename "$(pwd)"`
+    local repo=`basename "$(pwd)"`
     git remote add upstream "https://github.com/$user/$repo.git"
   fi
 }
@@ -87,6 +74,7 @@ function git-upstream() {
 
 # Print nyan cat
 # https://github.com/steckel/Git-Nyan-Graph/blob/master/nyan.sh
+# USAGE: nyan
 function nyan() {
   echo
   echo -en $RED'-_-_-_-_-_-_-_'
