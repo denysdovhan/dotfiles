@@ -47,7 +47,9 @@ alias hex2rgb='color.js --rgb $1 $2'
 
 # Virtualenv
 alias venv='test -d venv && source ./venv/bin/activate || echo "No Virtualenv in the current folder."'
-alias venv-init='test -d venv && echo "Virtualenv already exists." || virtualenv --no-site-packages venv; venv'
+alias venv-init3='test -d venv && echo "Virtualenv already exists." || virtualenv --no-site-packages -p python3 venv; venv'
+alias venv-init2='test -d venv && echo "Virtualenv already exists." || virtualenv --no-site-packages venv; venv'
+alias venv-init='venv-init3'
 alias venv-stop='deactivate'
 
 # Django
