@@ -76,3 +76,6 @@ alias dotfiles='cd "$HOME/dotfiles" && git pull && ./sync.py && cd - > /dev/null
 # Git root
 # Change directory to root of git repository
 alias gr='git rev-parse 2>/dev/null && cd "./$(git rev-parse --show-cdup)"'
+
+# Download web page with all assets
+alias getpage='wget --no-clobber --page-requisites --html-extension --convert-links --no-host-directories'
