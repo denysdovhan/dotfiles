@@ -45,6 +45,11 @@ alias xpaste='xclip -selection clipboard -o'
 alias hex2hsl='color.js $1 $2'
 alias hex2rgb='color.js --rgb $1 $2'
 
+# Virtualenv
+alias venv='test -d venv && source ./venv/bin/activate || echo "No Virtualenv in the current folder."'
+alias venv-init='test -d venv && echo "Virtualenv already exists." || virtualenv --no-site-packages venv; venv'
+alias venv-stop='deactivate'
+
 # Get Ubuntu Updates, and update npm and its installed packages
 alias update='source ~/Dotfiles/setup/update.sh'
 

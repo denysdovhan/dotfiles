@@ -61,6 +61,19 @@ function prompt_git {
   fi;
 }
 
+# Virtualenv
+function prompt_venv {
+  # Check if the current directory running via Virtualenv
+  if [ -n "$VIRTUAL_ENV" ]; then
+    local VENV_PROMPT=
+    VENV_PROMPT=$CYAN$(basename $VIRTUAL_ENV)$NOCOLOR
+
+    echo -e "${1}${VENV_PROMPT}"
+  else
+    return
+  fi;
+}
+
 # Function that will be called just before Bash displays a prompt.
 function prompt_command {
   local PWDNAME=$PWD
@@ -87,6 +100,7 @@ function prompt_command {
   PS1+="\[${WHITE}\] in " # white 'in'
   PS1+="\[${BLUE}\]\w" # working directory
   PS1+="\$(prompt_git \"${WHITE} on ${MAGENTA}\")" # Git repository details
+  PS1+="\$(prompt_venv \"${WHITE} via ${CYAN}\")" # Virtual environment
   PS1+="\n" # new line
   PS1+="\[${WHITE}\]\$ \[${NOCOLOR}\]" # `$` (and reset color)
 
