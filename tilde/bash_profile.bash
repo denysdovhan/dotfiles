@@ -91,6 +91,9 @@ _wp_complete() {
 }
 complete -o nospace -F _wp_complete wp
 
+# Grunt completions
+command -v grunt >/dev/null 2>&1 && eval "$(grunt --completion=bash)"
+
 # Load ~/.bash_prompt, ~/.bash_aliases and ~/.bash_functions
 # ~/.bash_extra can be used for settings you don’t want to commit
 for file in ~/.bash_{aliases,extra,functions,prompt}; do
