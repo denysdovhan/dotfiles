@@ -15,10 +15,11 @@ function md() {
 
 # Get gzipped file size
 function gz() {
-  echo "Original size (bytes): "
-  cat "$1" | wc -c
-  echo "Gzipped size (bytes): "
-  gzip -c "$1" | wc -c
+  local origsize=`wc -c < $1`
+  local gzipsize=`gzip -c $1 | wc -c`
+  local ratio=`echo $(( $gzipsize * 100 / $origsize ))`
+  echo "Original: $origsize bytes"
+  echo "Gzipped: $gzipsize bytes ($ratio%)"
 }
 
 # Extract archives of various types
