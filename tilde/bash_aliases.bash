@@ -50,6 +50,10 @@ alias venv='test -d venv && source ./venv/bin/activate || echo "No Virtualenv in
 alias venv-init='test -d venv && echo "Virtualenv already exists." || virtualenv --no-site-packages venv; venv'
 alias venv-stop='deactivate'
 
+# Django
+alias djm="python manage.py"
+alias djs="python manage.py runserver"
+
 # Get Ubuntu Updates, and update npm and its installed packages
 alias update='source ~/Dotfiles/setup/update.sh'
 
