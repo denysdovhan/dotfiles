@@ -11,5 +11,8 @@ Thumbs.db
 # Installed NPM modules
 node_modules
 
+# Installed Bower packages
+bower_components
+
 # Editor`s configs
 *.sublime-*
