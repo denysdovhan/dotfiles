@@ -21,6 +21,7 @@
   cm = commit -m   # Commit message
   cam = commit -am # Add all files and commit with message
   s = status -sb   # Short status with current branch
+  master = !git checkout master && git pull
 
   # Commits log with pretty format
   l = log --graph --pretty=format:'%C(yellow bold)%h%C(cyan)%d%Creset %s %C(blue bold)- %an, %ar%Creset'
