@@ -29,11 +29,10 @@ for folder in /windows/[!System\ Volume\ Information,\$RECYCLE.BIN,Recycler]*; d
     case $CONFIRM in
       y|Y|YES|yes|Yes )
         # When folder exists, then ask user if he want to remove this.
-        if [[ -d ~/$1 ]]; then
+        if [ -d ~/$folder ]; then
           while true; do
             echo -n "Do you want to remove ~/$folder? [Y/n]: "
             read CONFIRM
-
             case $CONFIRM in
               y|Y|YES|yes|Yes )
                 rm -r ~/$folder
@@ -42,12 +41,11 @@ for folder in /windows/[!System\ Volume\ Information,\$RECYCLE.BIN,Recycler]*; d
                 ;;
               n|N|NO|no|No )
                 # If user don't want, just continue
-                continue
+                break
                 ;;
             esac
-
           done
-        fi
+        fi;
         break
         ;;
       n|N|NO|no|No )
