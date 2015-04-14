@@ -26,14 +26,14 @@ sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com `apt-get update 2>
 sudo apt-get update
 
 # List of packages
-PACKAGES="
+PACKAGES='
     ubuntu-tweak dconf-tools unity-tweak-tool compizconfig-settings-manager\
     synaptic p7zip-rar p7zip-full unace unrar zip unzip sharutils rar\
     uudeview mpack arj cabextract file-roller plank numix-gtk-theme\
-    numix-icon-theme-circle git gitk caffeine-plus grub-customizer\
+    numix-icon-theme-circle gitk caffeine-plus grub-customizer\
     kazam python3-cairo python3-xlib my-weather-indicator skype sni-qt:i386\
     gtk2-engines-murrine:i386 gtk2-engines-pixbuf:i386 skype-wrapper\
-    sni-qt curl"
+    sni-qt curl'
 
 # Install all packages from $PACKAGES
 sudo apt-get -y --force-yes install $PACKAGES
