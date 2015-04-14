@@ -4,6 +4,12 @@ function header() {
   echo -e "$UNDERLINE$CYAN$1$NOCOLOR"
 }
 
+# Print red underlined error 
+# USAGE: error <TEXT>
+function error() {
+  echo -e "$UNDERLINE$RED$1$NOCOLOR";
+}
+
 # Find shorthand
 # USAGE: f <FILE>
 function f() {
