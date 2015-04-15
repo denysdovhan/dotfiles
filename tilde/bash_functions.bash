@@ -91,4 +91,5 @@ function nyan() {
   echo -e $NOCOLOR$BOLD'~|__( ^ .^)'$NOCOLOR
   echo -en $CYAN'-_-_-_-_-_-_-_-'
   echo -e $NOCOLOR$BOLD'""  ""'$NOCOLOR
+  echo
 }
