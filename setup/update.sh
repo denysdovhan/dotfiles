@@ -32,5 +32,21 @@ sudo npm update npm -g
 sudo npm update -g
 echo
 
+# Ruby gems
+header "Updating Ruby gems..."
+sudo -v
+sudo gem update
+echo
+
 echo "Update successfully done!"
-nyan
+
+echo
+echo -en $RED'-_-_-_-_-_-_-_'
+echo -e $NOCOLOR$BOLD',------,'$NOCOLOR
+echo -en $YELLOW'_-_-_-_-_-_-_-'
+echo -e $NOCOLOR$BOLD'|   /\_/\\'$NOCOLOR
+echo -en $GREEN'-_-_-_-_-_-_-'
+echo -e $NOCOLOR$BOLD'~|__( ^ .^)'$NOCOLOR
+echo -en $CYAN'-_-_-_-_-_-_-_-'
+echo -e $NOCOLOR$BOLD'""  ""'$NOCOLOR
+echo
