@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# If it is Mac, exit
+if [ `uname` == 'Darwin' ]; then
+  echo "Applications installer only for Ubuntu based systems."
+  exit
+fi
+
 # Ask for the administrator password upfront
 sudo -v
 
