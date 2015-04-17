@@ -48,15 +48,11 @@
 [url "git@github.com:"]
   insteadOf = "gh:"
   pushInsteadOf = "github:"
-  pushInsteadOf = "git://github.com/" # From HTTPS to SSH
-[url "git://github.com/"]
-  insteadOf = "github:"
+  pushInsteadOf = "git://github.com/" # From GIT to SSH
 [url "git@gist.github.com:"]
   insteadOf = "gst:"
   pushInsteadOf = "gist:"
-  pushInsteadOf = "git://gist.github.com/" # From HTTP to SSH
-[url "git://gist.github.com/"]
-  insteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/" # From GIT to SSH
 
 # Include local settings from .gitlocal
 # Requires Git 1.7.10
