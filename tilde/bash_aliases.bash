@@ -22,8 +22,8 @@ alias dt='cd ~/Desktop'
 alias pj='cd ~/Projects'
 alias pjr='cd ~/Projects/_Repos'
 alias pjf='cd ~/Projects/_Forks'
-alias pjs='cd ~/Dropbox/Projects/_Sites'
-alias pl='cd ~/Dropbox/Projects/_Playground/'
+alias pjs='cd ~/Projects/_Sites'
+alias pl='cd ~/Projects/_Playground/'
 
 # Commands Shortcuts
 alias e='nano'
@@ -40,9 +40,6 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # Clipboard tools
-# pbcopy / pbpaste aliases like OS X
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
 alias xcopy='xclip -selection clipboard'
 alias xpaste='xclip -selection clipboard -o'
 
