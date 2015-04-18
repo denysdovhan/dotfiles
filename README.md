@@ -12,6 +12,14 @@ If you want to install my dotfiles on your machine, just copy this command and e
 wget -O - https://raw.githubusercontent.com/denysdovhan/dotfiles/master/installer.sh | bash
 ```
 
+You can tell Git who you are using these commands:
+
+```
+git config -f ~/.gitlocal user.email "email@yoursite.com"
+git config -f ~/.gitlocal user.name "Name Lastname"
+```
+
+
 # Updating
 
 For updating dotfiles, just execute command bellow:
@@ -22,23 +30,31 @@ dotfiles
 
 # Features
 
-* Colorful and clever Bash prompt, useful aliases, etc
-* Git config, global ignore file and aliases
-* Dotfiles syncronization (`sync.py`)
-* Highlighting repository's Git status
-* Highlighting current virtual environment
-* Color conversion script: convert #HEX to RGB/RGBA and HSL/HSLA
-* Changelog generator
-* Script for adding spaces to [Plank Dock](http://wiki.go-docky.com/?title=Plank:Introduction)
-* Dotfiles, System, Gems and NPM update script
-* Useful helpers (`helpers/`)
+* Colorful and clever Bash prompt, useful aliases, [etc](./docs/BASH.md).
+* Git config, global ignore file and aliases.
+* Dotfiles syncronization (`sync.py`).
+* Highlighting repository's Git status.
+* Highlighting current virtual environment.
+* Color conversion script: convert #HEX to RGB/RGBA and HSL/HSLA.
+* Changelog generator.
+* Script for adding spaces to [Plank Dock](http://wiki.go-docky.com/?title=Plank:Introduction).
+* Dotfiles, System, Gems and NPM update script.
+* Useful helpers (`helpers/`).
+* And to many [other](./docs/BASH.md).
 
 # Notes
 
 * You can use any file extensions in `tilde/` to invoke proper syntax highlighting in code editor.
-* Add your Bash profile customization to `~/.bash_extra`
-* Add your git user data and custom settings to `~/.gitlocal`
+* Add your Bash profile customization to `~/.bash_extra`.
+* Add your git user data and custom settings to `~/.gitlocal`.
 * Fort this repo and make it better!
+
+# Docs
+
+For more informations see [docs](./docs):
+
+* [BASH docs](./docs/BASH.md).
+* [GIT docs](./docs/GIT.md).
 
 # Resources
 
