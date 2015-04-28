@@ -74,6 +74,15 @@ function prompt_venv {
   fi;
 }
 
+function prompt_host {
+  # Local or SSH session?
+  local REMOTE=
+  [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] && REMOTE=1
+
+  # Show hostname inside SSH session
+  [ -n "$REMOTE" ] && echo -e "${1}${HOSTNAME}"
+}
+
 # Function that will be called just before Bash displays a prompt.
 function prompt_command {
   local PWDNAME=$PWD
@@ -85,18 +94,10 @@ function prompt_command {
     PWDNAME="~${PWD:${#HOME}}"
   fi;
 
-  # Highlight the hostname when connected via SSH.
-  if [[ "${SSH_TTY}" ]]; then
-    HOST_STYLE="${BOLD}${RED}"
-  else
-    HOST_STYLE="${GREEN}"
-  fi;
-
   # Set PS1 - default interaction prompt
   PS1="\[${BOLD}\]" # bold style
   PS1+="\[${USER_COLOR}\]\u" # username
-  PS1+="\[${WHITE}\] at " # white 'at'
-  PS1+="\[${HOST_STYLE}\]\h" # host
+  PS1+="\$(prompt_host \"${WHITE} at ${GREEN}\")" # Git repository details
   PS1+="\[${WHITE}\] in " # white 'in'
   PS1+="\[${BLUE}\]\w" # working directory
   PS1+="\$(prompt_git \"${WHITE} on ${MAGENTA}\")" # Git repository details
