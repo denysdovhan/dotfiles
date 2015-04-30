@@ -12,7 +12,7 @@ You may put your custom settings into `~/.bash_extra`.
 * Bash doesn't put duplicate lines in the history.
 * If possible, add tab completion for many more commands.
 * Included bash completions for the `wp` command by [WP-CLI](http://wp-cli.org/).
-* Included bash completions for [Grunt](http://gruntjs.com/).
+* ~~Included bash completions for [Grunt](http://gruntjs.com/).~~
 * Added tab completion for SSH hostnames based on `~/.ssh/config`.
 * [Nano](http://www.nano-editor.org/) is default editor.
 * `grep` and `ls` is already colorful.
