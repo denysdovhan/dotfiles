@@ -10,6 +10,13 @@ function error() {
   echo -e "$UNDERLINE$RED$1$NOCOLOR";
 }
 
+# Open file from terminal
+# USAGE: open <FILE>
+function open() {
+  echo $1
+  xdg-open $1 </dev/null &>/dev/null &
+}
+
 # Find shorthand
 # USAGE: f <FILE>
 function f() {

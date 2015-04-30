@@ -110,6 +110,7 @@ Some functions that will make your life easier. See code in `tilde/bash_function
 
 * **`header <TEXT>`** - Print cyan underlined header.
 * **`error <TEXT>`** - Print red underlined error.
+* **`open <FILE>`** - Open file from terminal.
 * **`f <FILE>`** - Find shorthand.
 * **`gz <FILE>`** - Get gzipped file size.
 * **`extract <FILE>`** - Extract archives of various types. Supports types: `tar.bz2`, `tar.gz`, `tar.xz`, `tar`, `tbz2`, `tgz`, `bz2`, `rar`, `gz`, `zi.
