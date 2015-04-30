@@ -7,9 +7,6 @@ case `id -u` in
   *) USER_COLOR=$YELLOW ;;
 esac
 
-# Some kind of optimization - check if git installed only on config load
-PS1_GIT_BIN=$(which git 2>/dev/null)
-
 # Function that gets information about Git repository.
 function prompt_git {
   local s=''
