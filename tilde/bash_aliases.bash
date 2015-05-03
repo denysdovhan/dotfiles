@@ -57,6 +57,8 @@ alias venv-stop='deactivate'
 # Django
 alias djm="python manage.py"
 alias djs="python manage.py runserver"
+alias djm3="python3 manage.py"
+alias djs3="python3 manage.py runserver"
 
 # Get Ubuntu Updates, and update npm and its installed packages
 alias update='source ~/Dotfiles/setup/update.sh'

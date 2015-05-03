@@ -94,6 +94,8 @@ Aliases are the most important in dotfiles that can make your work fast and enjo
 ### Django
 * **`djm`** → `python manage.py`
 * **`djs`** → `python manage.py runserver`
+* **`djm3`** → `python3 manage.py`
+* **`djs3`** → `python3 manage.py runserver`
 
 ### Misc
 
