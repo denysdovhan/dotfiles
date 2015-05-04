@@ -98,6 +98,11 @@ for file in ~/.bash_{aliases,extra,functions,prompt}; do
 done
 unset file
 
+# Custom dircolors
+[ -e ~/.dircolors ] && DIR_COLORS=~/.dircolors
+[ -e "$DIR_COLORS" ] || DIR_COLORS=""
+eval "`dircolors -b $DIR_COLORS`"
+
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
