@@ -39,7 +39,7 @@ PACKAGES='
     numix-icon-theme-circle gitk caffeine-plus grub-customizer\
     kazam python3-cairo python3-xlib my-weather-indicator skype sni-qt:i386\
     gtk2-engines-murrine:i386 gtk2-engines-pixbuf:i386 skype-wrapper\
-    sni-qt curl'
+    sni-qt curl ruby-full'
 
 # Install all packages from $PACKAGES
 sudo apt-get -y --force-yes install $PACKAGES
