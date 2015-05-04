@@ -12,9 +12,9 @@ echo
 # Configure npm 
 # Ask required parameters
 echo "Configure npm init..."
-echo -n "What is your name?: " && read NAME
-echo -n "What is your email?: " && read EMAIL
-echo -n "What is your website?: " && read SITE
+echo -n "What is your name? (Denys Dovhan): " && read NAME
+echo -n "What is your email? (email@denysdovhan.com): " && read EMAIL
+echo -n "What is your website? (http://denysdovhan.com/): " && read SITE
 
 # If required parameters dont entered, set them default values
 : ${NAME:="Denys Dovhan"}
@@ -31,7 +31,8 @@ echo
 
 # List of packages that must be installed globally
 PACKAGES="
-    less grunt-cli coffee-script bower nodemon express-generator hexo"
+    less grunt-cli coffee-script bower nodemon express-generator hexo yo
+    generator-email"
 
 # Installing global packages
 echo "Will be installed these packages:"
