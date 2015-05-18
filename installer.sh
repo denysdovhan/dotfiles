@@ -25,8 +25,9 @@ git clone git@github.com:denysdovhan/dotfiles.git ~/Dotfiles && cd ~/Dotfiles &&
 # Problem with not interactive shell
 # http://askubuntu.com/a/77053
 PS1='$>'
+[ ! -d ~/Dotfiles ] && echo -e "${RED}Dotfiles didn't installed!${NOCOLOR}" && exit 1
 source ~/.bashrc
-echo "Dotfiles installed successfully!"
+echo "${GREEN}Dotfiles installed successfully!${NOCOLOR}"
 
 # Copy path to clipboard with pbcopy and xclip
 echo -n "~/Dotfiles/setup/bootstrap.sh" | pbcopy 2>/dev/null
