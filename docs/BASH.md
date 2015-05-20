@@ -117,6 +117,7 @@ Some functions that will make your life easier. See code in `tilde/bash_function
 * **`gz <FILE>`** - Get gzipped file size.
 * **`extract <FILE>`** - Extract archives of various types. Supports types: `tar.bz2`, `tar.gz`, `tar.xz`, `tar`, `tbz2`, `tgz`, `bz2`, `rar`, `gz`, `zi.
 `, `Z`.
+* **`sh_stats`** - Get sh usage stats.
 * **`git-fork <original-author>`** - Add remote upsteam.
 * **`git-upstream [branch]`** - Sync branch with upstream.
 * **`nyan`** - Print nyan cat.
