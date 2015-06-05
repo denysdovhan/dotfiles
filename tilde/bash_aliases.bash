@@ -31,7 +31,8 @@ alias +x='chmod +x'
 alias x+='chmod +x'
 
 # Always use color output for `ls`
-alias ls="ls --color"
+alias ls='ls --color'
+alias ді='ls'
 
 # Some more ls aliases
 alias ll='ls -alF'
