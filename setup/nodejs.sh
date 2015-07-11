@@ -9,7 +9,7 @@ curl -sL https://deb.nodesource.com/setup | sudo bash -
 sudo apt-get install -y nodejs && echo "Done!"
 echo
 
-# Configure npm 
+# Configure npm
 # Ask required parameters
 echo "Configure npm init..."
 echo -n "What is your name? (Denys Dovhan): " && read NAME
@@ -32,7 +32,7 @@ echo
 # List of packages that must be installed globally
 PACKAGES="
     less grunt-cli coffee-script bower nodemon express-generator hexo yo
-    generator-email stylus nib wifi-password"
+    generator-email stylus nib wifi-password gulp"
 
 # Installing global packages
 echo "Will be installed these packages:"
