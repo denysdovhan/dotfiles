@@ -24,9 +24,10 @@ sudo add-apt-repository -y ppa:atareao/atareao
 sudo add-apt-repository -y ppa:skype-wrapper/ppa
 sudo add-apt-repository -y ppa:rpeshkov/ppa
 sudo add-apt-repository -y ppa:noobslab/apps
+sudo add-apt-repository -y ppa:webupd8team/atom
 
 # Add keys for repos
-sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com `apt-get update 2>&1 | grep -o '[0-9A-Z]\{16\}$' | xargs` 
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com `apt-get update 2>&1 | grep -o '[0-9A-Z]\{16\}$' | xargs`
 
 # Update information about packages
 sudo apt-get update
@@ -39,7 +40,7 @@ PACKAGES='
     numix-icon-theme-circle gitk caffeine-plus grub-customizer\
     kazam python3-cairo python3-xlib my-weather-indicator skype sni-qt:i386\
     gtk2-engines-murrine:i386 gtk2-engines-pixbuf:i386 skype-wrapper\
-    sni-qt curl ruby-full'
+    sni-qt curl ruby-full atom'
 
 # Install all packages from $PACKAGES
 sudo apt-get -y --force-yes install $PACKAGES
