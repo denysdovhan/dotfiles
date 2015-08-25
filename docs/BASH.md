@@ -120,4 +120,6 @@ Some functions that will make your life easier. See code in `tilde/bash_function
 * **`sh_stats`** - Get sh usage stats.
 * **`git-fork <original-author>`** - Add remote upsteam.
 * **`git-upstream [branch]`** - Sync branch with upstream.
+* **`add-shadow <original.png> [result.png]`** - Add OSX-like shadow to image.
+* **`rm-shadow <original.png> [result.png]`** - Remove OSX-like shadow.
 * **`nyan`** - Print nyan cat.

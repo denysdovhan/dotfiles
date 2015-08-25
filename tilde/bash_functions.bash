@@ -1,10 +1,10 @@
-# Print cyan underlined header 
+# Print cyan underlined header
 # USAGE: header <TEXT>
 function header() {
   echo -e "$UNDERLINE$CYAN$1$NOCOLOR"
 }
 
-# Print red underlined error 
+# Print red underlined error
 # USAGE: error <TEXT>
 function error() {
   echo -e "$UNDERLINE$RED$1$NOCOLOR";
@@ -89,6 +89,40 @@ function git-upstream() {
   git fetch upstream
   git co origin $branch
   git merge upstream/$branch
+}
+
+# Add OSX-like shadow to image
+# USAGE: add-shadow <original.png> [result.png]
+function add-shadow() {
+  case $# in
+    2 ) # add-shadow src.png dist.png
+      convert $1 \( +clone -background black -shadow 80x20+0+15 \) +swap -background transparent -layers merge +repage $2
+      ;;
+    1 ) # add-shadow src.png
+      convert $1 \( +clone -background black -shadow 80x20+0+15 \) +swap -background transparent -layers merge +repage ${1%.*}-shadow.png
+      ;;
+    * )
+      echo "Wrong number of arguments have been entered."
+      exit
+      ;;
+  esac
+}
+
+# Remove OSX-like shadow
+# USAGE: rm-shadow <original.png> [result.png]
+function rm-shadow() {
+  case $# in
+    2 ) # rm-shadow src.png dist.png
+      convert $1 -crop +40+25 -crop -40-55 $2
+      ;;
+    1 ) # rm-shadow src.png
+      convert $1 -crop +40+25 -crop -40-55 ${1%.*}-croped.png
+      ;;
+    * )
+      echo "Wrong number of arguments have been entered."
+      exit
+      ;;
+  esac
 }
 
 # Print nyan cat
