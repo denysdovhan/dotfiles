@@ -106,6 +106,9 @@ eval "`dircolors -b $DIR_COLORS`"
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
+# Add travis gem
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+
 # Nano is default editor
 export EDITOR='nano'
 

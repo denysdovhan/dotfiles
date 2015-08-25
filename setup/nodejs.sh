@@ -31,8 +31,8 @@ echo
 
 # List of packages that must be installed globally
 PACKAGES="
-    less grunt-cli coffee-script bower nodemon express-generator hexo yo
-    generator-email stylus nib wifi-password gulp stylint"
+    less grunt-cli coffee-script bower nodemon express-generator yo
+    stylus nib wifi-password gulp stylint"
 
 # Installing global packages
 echo "Will be installed these packages:"
