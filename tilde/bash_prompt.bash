@@ -94,13 +94,13 @@ function prompt_command {
   # Set PS1 - default interaction prompt
   PS1="\[${BOLD}\]" # bold style
   PS1+="\[${USER_COLOR}\]\u" # username
-  PS1+="\$(prompt_host \"${WHITE} at ${GREEN}\")" # Git repository details
-  PS1+="\[${WHITE}\] in " # white 'in'
+  PS1+="\$(prompt_host \"${NOCOLOR}${BOLD} at ${GREEN}\")" # Git repository details
+  PS1+="\[${NOCOLOR}${BOLD}\] in " # nocolor 'in'
   PS1+="\[${BLUE}\]\w" # working directory
-  PS1+="\$(prompt_git \"${WHITE} on ${MAGENTA}\")" # Git repository details
-  PS1+="\$(prompt_venv \"${WHITE} via ${CYAN}\")" # Virtual environment
+  PS1+="\$(prompt_git \"${NOCOLOR}${BOLD} on ${MAGENTA}\")" # Git repository details
+  PS1+="\$(prompt_venv \"${NOCOLOR}${BOLD} via ${CYAN}\")" # Virtual environment
   PS1+="\n" # new line
-  PS1+="\[${WHITE}\]\$ \[${NOCOLOR}\]" # `$` (and reset color)
+  PS1+="\[${NOCOLOR}${BOLD}\]\$ \[${NOCOLOR}\]" # `$` (and reset color)
 
   # Set PS2 - continuation interactive prompt
   PS2="\[${YELLOW}\]"
