@@ -19,7 +19,6 @@ git config -f ~/.gitlocal user.email "email@yoursite.com"
 git config -f ~/.gitlocal user.name "Name Lastname"
 ```
 
-
 # Updating
 
 For updating dotfiles, just execute command bellow:
@@ -55,6 +54,12 @@ For more informations see [docs](./docs):
 
 * [BASH docs](./docs/BASH.md).
 * [GIT docs](./docs/GIT.md).
+
+# TODO
+
+* [ ] Get rid of required ssh for installation.
+* [ ] Migrate to [npm-check-updates](https://www.npmjs.com/package/npm-check-updates).
+* [ ] Add `~/.atom` files.
 
 # Resources
 
