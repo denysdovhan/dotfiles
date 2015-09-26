@@ -32,7 +32,7 @@ echo
 # List of packages that must be installed globally
 PACKAGES="
     less grunt-cli coffee-script bower nodemon express-generator yo
-    stylus nib gulp stylint webpack eslint"
+    stylus nib gulp stylint webpack browserify speed-test eslint"
 
 # Installing global packages
 echo "Will be installed these packages:"
