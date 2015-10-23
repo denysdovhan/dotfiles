@@ -7,6 +7,9 @@ alias sudo='sudo '
 #   protection against most mistakes.
 alias rm='rm -I'
 
+# Just bcoz clr shorter than clear
+alias clr='clear'
+
 # Easiest navigation
 alias ..='cd ..'
 alias ...='cd ../..'
