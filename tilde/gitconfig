@@ -65,3 +65,7 @@
 #   email = email@denysdovhan.com
 [include]
   path = ~/.gitlocal
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
