@@ -59,13 +59,14 @@ For more informations see [docs](./docs):
 
 Roadmap for `v1.0`:
 
-* [ ] Migrate on `zsh`.
+* [ ] Migrate on `zsh` + `oh-my-zsh`.
 * [ ] Get rid of required ssh for installation.
 * [ ] Migrate to [npm-check-updates](https://www.npmjs.com/package/npm-check-updates).
 * [ ] Add `~/.atom` files.
 - [ ] Add **Sublime Text** installer
 - [ ] Update node.js [instalation](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)
 - [ ] Remove `_Sites`
+- [ ] Write script for restoring previous environment.
 
 # Resources
 
