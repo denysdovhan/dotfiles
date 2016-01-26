@@ -33,6 +33,9 @@ alias e='nano'
 alias +x='chmod +x'
 alias x+='chmod +x'
 
+alias md='mkdir -p "$@" && cd "$@"'
+alias open='xdg-open $1 </dev/null &>/dev/null &'
+
 # Always use color output for `ls`
 alias ls='ls --color'
 alias ді='ls'

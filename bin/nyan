@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Print nyan cat
+# https://github.com/steckel/Git-Nyan-Graph/blob/master/nyan.sh
+# USAGE: nyan
+
+function nyan() {
+  echo
+  echo -en $RED'-_-_-_-_-_-_-_'
+  echo -e $NOCOLOR$BOLD',------,'$NOCOLOR
+  echo -en $YELLOW'_-_-_-_-_-_-_-'
+  echo -e $NOCOLOR$BOLD'|   /\_/\\'$NOCOLOR
+  echo -en $GREEN'-_-_-_-_-_-_-'
+  echo -e $NOCOLOR$BOLD'~|__( ^ .^)'$NOCOLOR
+  echo -en $CYAN'-_-_-_-_-_-_-_-'
+  echo -e $NOCOLOR$BOLD'""  ""'$NOCOLOR
+  echo
+}

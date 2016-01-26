@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Sync branch with upstream
+# USAGE: git-upstream [branch]
+
+function git-upstream() {
+  branch=${1-master}
+  git fetch upstream
+  git co origin $branch
+  git merge upstream/$branch
+}

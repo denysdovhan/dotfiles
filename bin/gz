@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Get gzipped file size
+# USAGE: gz <FILE>
+
+function gz() {
+  local origsize=`wc -c < $1`
+  local gzipsize=`gzip -c $1 | wc -c`
+  local ratio=`echo $(( $gzipsize * 100 / $origsize ))`
+  echo "Original: $origsize bytes"
+  echo "Gzipped: $gzipsize bytes ($ratio%)"
+}
