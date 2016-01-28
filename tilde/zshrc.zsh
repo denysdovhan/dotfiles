@@ -103,8 +103,8 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="dd.mm.yyyy"
 
-# Custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# Custom folder than $ZSH/custom
+ZSH_CUSTOM="$HOME/Dotfiles/zsh"
 
 # Custom plugins.
 # Note: Add wisely, as too many plugins slow down shell startup.
