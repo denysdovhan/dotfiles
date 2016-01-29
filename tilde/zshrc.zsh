@@ -68,7 +68,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load.4
 # Note: if set this to "random", it'll load a random theme each.
-ZSH_THEME='robbyrussell'
+ZSH_THEME='spaceship'
 
 # Use case-sensitive completion.
 # CASE_SENSITIVE="true"
