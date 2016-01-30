@@ -31,12 +31,12 @@ __user() {
 __host() {
   if [[ -n $SSH_CONNECTION ]]; then
     echo -n "$(__user)"
-    echo -n " at "
+    echo -n " %Bat%b "
     echo -n "%{$fg_bold[green]%}%m%{$reset_color%}"
-    echo -n " in "
+    echo -n " %Bin%b "
   elif [[ $LOGNAME != $USER ]]; then
     echo -n "$(__user)"
-    echo -n " in "
+    echo -n " %Bin%b "
     echo -n "%{$reset_color%}"
   fi
 }
@@ -136,7 +136,7 @@ __git_status() {
 
     [ -n "${s}" ] && s=" [${s}]";
 
-    echo -n " on "
+    echo -n " %Bon%b "
     echo -n "%{$fg_bold[magenta]%}"
     echo -n "$(__git_branch)"
     echo -n "%{$reset_color%}"
