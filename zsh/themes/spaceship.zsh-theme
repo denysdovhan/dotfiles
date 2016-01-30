@@ -12,6 +12,7 @@ __UNTRACKED="?"
 __STASHED="$"
 __UNPULLED="⇣"
 __UNPUSHED="⇡"
+__NVM_SYMBOL="⬢"
 
 # Username.
 # If user is root, then pain it in red. Otherwise, just print in yellow.
@@ -139,9 +140,24 @@ __git_status() {
 __venv_status() {
   # Check if the current directory running via Virtualenv
   [ -n "$VIRTUAL_ENV" ] || return
-  echo -n " via "
+  echo -n " %Bvia%b "
   echo -n "%{$fg_bold[blue]%}"
   echo -n "$(basename $VIRTUAL_ENV)"
+  echo -n "%{$reset_color%}"
+}
+
+# NVM
+# Show current version of node, exception system.
+__nvm_status() {
+  $(type nvm >/dev/null 2>&1) || return
+
+  local nvm_status=$(nvm current 2>/dev/null)
+  [[ "${nvm_status}" == "system" ]] && return
+  nvm_status=${nvm_status}
+
+  echo -n " %Bvia%b "
+  echo -n "%{$fg_bold[green]%}"
+  echo -n "${__NVM_SYMBOL} ${nvm_status}"
   echo -n "%{$reset_color%}"
 }
 
@@ -154,7 +170,8 @@ __return_status() {
   echo    "%{$reset_color%}"
 }
 
-PROMPT='$(__host)$(__current_dir)$(__git_status)$(__venv_status)
+# Compose PROMPT
+PROMPT='$(__host)$(__current_dir)$(__git_status)$(__nvm_status)$(__venv_status)
 $(__return_status) '
 
 # Set PS2 - continuation interactive prompt
