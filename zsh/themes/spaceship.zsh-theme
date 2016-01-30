@@ -35,7 +35,7 @@ __host() {
     echo -n " %Bat%b "
     echo -n "%{$fg_bold[green]%}%m%{$reset_color%}"
     echo -n " %Bin%b "
-  elif [[ $LOGNAME != $USER ]]; then
+  elif [ $LOGNAME != $USER ] || [ $USER == 'root' ]; then
     echo -n "$(__user)"
     echo -n " %Bin%b "
     echo -n "%{$reset_color%}"
@@ -171,7 +171,8 @@ __return_status() {
 }
 
 # Compose PROMPT
-PROMPT='$(__host)$(__current_dir)$(__git_status)$(__nvm_status)$(__venv_status)
+PROMPT='
+$(__host)$(__current_dir)$(__git_status)$(__nvm_status)$(__venv_status)
 $(__return_status) '
 
 # Set PS2 - continuation interactive prompt
