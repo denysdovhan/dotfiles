@@ -102,18 +102,6 @@ __git_unpushed_unpulled() {
   [ -n $arrows ] && echo -n "${arrows}"
 }
 
-# Current git branch.
-# Get current branch name, hash sum or (unknown).
-__git_branch() {
-  # Get the short symbolic ref.
-  # If HEAD isn’t a symbolic ref, get the short SHA for the latest commit
-  # Otherwise, just give up.
-  GIT_BRANCH="$(git symbolic-ref --quiet --short HEAD 2> /dev/null)" || \
-  GIT_BRANCH="$(git rev-parse --short HEAD 2> /dev/null)" || \
-  GIT_BRANCH="$(echo '(unknown)')";
-  echo $GIT_BRANCH
-}
-
 # Git status.
 # Collect indicators, git branch and pring string.
 __git_status() {
@@ -138,7 +126,7 @@ __git_status() {
 
     echo -n " %Bon%b "
     echo -n "%{$fg_bold[magenta]%}"
-    echo -n "$(__git_branch)"
+    echo -n "$(git_current_branch)"
     echo -n "%{$reset_color%}"
     echo -n "%{$fg_bold[red]%}"
     echo -n "${s}"
