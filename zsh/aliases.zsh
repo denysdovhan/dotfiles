@@ -76,9 +76,6 @@ alias password='openssl rand -base64 ${1:-9} | xcopy ; echo `xpaste`'
 # Show $PATH in readable view
 alias path='echo -e ${PATH//:/\\n}'
 
-# Update dotfiles
-alias dotfiles='cd "$HOME/Dotfiles" && git pull && ./sync.py && cd - > /dev/null 2>&1 && nyan'
-
 # Git root
 # Change directory to root of git repository
 alias gr='git rev-parse 2>/dev/null && cd "./$(git rev-parse --show-cdup)"'
