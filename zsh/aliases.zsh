@@ -21,7 +21,6 @@ alias dt='cd ~/Desktop'
 alias pj='cd ~/Projects'
 alias pjr='cd ~/Projects/_Repos'
 alias pjf='cd ~/Projects/_Forks'
-alias pjs='cd ~/Projects/_Sites'
 alias pl='cd ~/Projects/_Playground/'
 
 # Commands Shortcuts
