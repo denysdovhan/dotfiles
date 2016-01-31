@@ -114,3 +114,6 @@ plugins=(git)
 
 # Load Oh-My-Zsh
 source $ZSH/oh-my-zsh.sh
+
+# Load extra (private) settings
+[ -f ~/.zshlocal ] && source ~/.zshlocal
