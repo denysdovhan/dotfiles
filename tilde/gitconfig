@@ -8,7 +8,7 @@
   new = green bold
 
 [core]
-  editor = nano
+  editor = vim
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
 
@@ -17,6 +17,7 @@
   b = branch
   c = commit
   co = checkout
+  ap = add -p      # add patches
   ca = commit -a   # Add all files and commit
   cm = commit -m   # Commit message
   cam = commit -am # Add all files and commit with message
