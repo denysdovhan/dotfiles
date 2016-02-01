@@ -36,8 +36,11 @@
   # Initialize, add all files and commit
   this = !git init && git add . && git commit -m 'Initial commit'
 
-  # Ammend last commit
-  amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+  # Amend last commit
+  amend = commit --amend
+
+  # Ammend last commit with original message
+  redo = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
 
   # Reset index changes, but not the working tree
   undo = reset --mixed HEAD^
