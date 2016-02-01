@@ -22,9 +22,26 @@ SOURCE_DIR    = os.path.join(DOTFILES_DIR, arg1 or 'tilde')
 DEST_DIR      = arg2 or os.path.expanduser('~')
 BACKUP_DIR    = os.path.join(DOTFILES_DIR, arg3 or 'backup')
 
-EXCLUDE       = []
-NO_DOT_PREFIX = []
-WITH_EXT      = []
+# Excluded files
+EXCLUDE = []
+
+# Files without dots
+NO_DOT_PREFIX = [
+    'config.cson',
+    'init.coffee',
+    'keymap.cson',
+    'snippets.cson',
+    'styles.less'
+]
+
+# Files which should be left with extantions
+WITH_EXT = [
+    'config.cson',
+    'init.coffee',
+    'keymap.cson',
+    'snippets.cson',
+    'styles.less'
+]
 
 # remove path
 def forse_remove(path):

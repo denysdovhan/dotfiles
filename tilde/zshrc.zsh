@@ -60,6 +60,9 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 TRAVIS="$HOME/.travis/travis.sh"
 [ -f $TRAVIS ] && source $TRAVIS
 
+# Atom
+export ATOM_USER=${ATOM_USER:-denysdovhan}
+
 # OH MY ZSH
 # == == ===
 
