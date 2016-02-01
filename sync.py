@@ -8,15 +8,23 @@ Source: https://github.com/sapegin/dotfiles/blob/master/sync.py
 """
 
 import os
+import sys
 import glob
 import shutil
 
+# Get first, second an third arguments
+arg1 = sys.argv[1] if 1 < len(sys.argv) else None
+arg2 = sys.argv[2] if 2 < len(sys.argv) else None
+arg3 = sys.argv[3] if 3 < len(sys.argv) else None
+
 DOTFILES_DIR  = os.path.dirname(os.path.abspath(__file__))
-SOURCE_DIR    = os.path.join(DOTFILES_DIR, 'tilde')
-BACKUP_DIR    = os.path.join(DOTFILES_DIR, 'backup')
-HOME_DIR      = os.path.expanduser('~')
+SOURCE_DIR    = os.path.join(DOTFILES_DIR, arg1 or 'tilde')
+DEST_DIR      = arg2 or os.path.expanduser('~')
+BACKUP_DIR    = os.path.join(DOTFILES_DIR, arg3 or 'backup')
+
 EXCLUDE       = []
 NO_DOT_PREFIX = []
+WITH_EXT      = []
 
 # remove path
 def forse_remove(path):
@@ -44,7 +52,9 @@ def main():
         dotfile = filename
         if filename not in NO_DOT_PREFIX:
             dotfile = '.' + dotfile
-        dotfile = os.path.join(HOME_DIR, os.path.splitext(dotfile)[0])
+        if dotfile not in WITH_EXT:
+            dotfile = os.path.splitext(dotfile)[0]
+        dotfile = os.path.join(DEST_DIR, dotfile)
         source = os.path.relpath(filename, os.path.dirname(dotfile))
 
         # check that we aren't overwriting anything
