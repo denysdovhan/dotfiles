@@ -14,6 +14,7 @@
 
 [alias]
   a = add
+  ua = reset HEAD
   b = branch
   c = commit
   co = checkout

@@ -30,6 +30,7 @@ Default configuration in `.gitconfig`:
 ## Aliases
 
 * **`git a`** → `git add` — Patch mode for specified files.
+* **`git ua`** → `git reset HEAD` — Unstage files.
 * **`git ap`** → `git add -p` — Add file contents to the index.
 * **`git b`** → `git branch` — List, create, or delete branches.
 * **`git c`** → `git commit` — Record changes to the repository.
