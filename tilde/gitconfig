@@ -17,7 +17,7 @@
   b = branch
   c = commit
   co = checkout
-  ap = add -p      # add patches
+  ap = add -p      # Patch mode for specified files
   ca = commit -a   # Add all files and commit
   cm = commit -m   # Commit message
   cam = commit -am # Add all files and commit with message
@@ -39,7 +39,7 @@
   # Amend last commit
   amend = commit --amend
 
-  # Ammend last commit with original message
+  # Ammend last commit with its original message
   redo = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
 
   # Reset index changes, but not the working tree

@@ -4,7 +4,7 @@ My dotfiles already has beautiful Git configuration, powerful aliases and optima
 
 ## Setup
 
-You can tell him who you are using these commands:
+You can tell it who you are using these commands:
 
 ```
 git config -f ~/.gitlocal user.email "email@yoursite.com"
@@ -21,7 +21,7 @@ Default configuration in `.gitconfig`:
   * `cyan bold` for frag;
   * `red bold` for old lines;
   * `green bold` for new lines.
-* Default editor is [Nano](http://www.nano-editor.org/) instaed of [Vi](http://www.tutorialspoint.com/unix/unix-vi-editor.htm).
+* Default editor is [Vim](http://www.vim.org/) instaed of [Vi](http://www.tutorialspoint.com/unix/unix-vi-editor.htm).
 * `push.default` set as `current`.
 * Automatic replacement `git://github.com/`, `gh:`, `github:` addresses as `git@github.com:` for GitHub.
 * Automatic replacement `git://gist.github.com/`, `gst:`, `gist:` addresses as `git@gist.github.com:` for Gists.
@@ -29,15 +29,16 @@ Default configuration in `.gitconfig`:
 
 ## Aliases
 
-* **`git a`** → `git add` - Add file contents to the index.
-* **`git b`** → `git branch` - List, create, or delete branches.
-* **`git c`** → `git commit` - Record changes to the repository.
-* **`git co`** → `git checkout` - Checkout a branch or paths to the working tree.
-* **`git ca`** → `git commit -a` - Commit with automatically stage files that have been modified and deleted.
-* **`git cm`** → `git commit -m` - Commit with commit message.
-* **`git cam`** → `git commit -am` - Add all files and commit with message.
-* **`undo`** → `reset --mixed HEAD^` - Reset index changes, but not the working tree.
-* **`git s`** → `git status -sb` - Short status with current branch. Status codes can be interpreted as follows:
+* **`git a`** → `git add` — Patch mode for specified files.
+* **`git ap`** → `git add -p` — Add file contents to the index.
+* **`git b`** → `git branch` — List, create, or delete branches.
+* **`git c`** → `git commit` — Record changes to the repository.
+* **`git co`** → `git checkout` — Checkout a branch or paths to the working tree.
+* **`git ca`** → `git commit -a` — Commit with automatically stage files that have been modified and deleted.
+* **`git cm`** → `git commit -m` — Commit with commit message.
+* **`git cam`** → `git commit -am` — Add all files and commit with message.
+* **`undo`** → `reset --mixed HEAD^` — Reset index changes, but not the working tree.
+* **`git s`** → `git status -sb` — Short status with current branch. Status codes can be interpreted as follows:
   * `M` = modified
   * `A` = added
   * `D` = deleted
@@ -45,12 +46,14 @@ Default configuration in `.gitconfig`:
   * `C` = copied
   * `U` = updated but unmerged
   * `??` = untracked paths
-* **`git master`** - Go to master branch and pull from remote.
-* **`git l`** - Commits log with pretty single line format.
-* **`git ll`** - Log with list of changed files for each commit.
-* **`git ignore`** - Ignore files: append file to .ginignore.
-* **`git this`** - Initialize, add all files and commit.
-* **`git amend`** - Ammend last commit.
-* **`gr`** - Jump to root folder of Git repo.
-* **`git-fork <original-author>`** - Add remote upstream.
-* **`git-upstream [branch]`** - Sync branch with upstream (as default `master`).
+* **`git master`** — Go to master branch and pull from remote.
+* **`git l`** — Commits log with pretty single line format.
+* **`git ll`** — Log with list of changed files for each commit.
+* **`git ignore`** — Ignore files: append file to .ginignore.
+* **`git this`** — Initialize, add all files and commit.
+* **`git amend`** — Ammend last commit.
+* **`git redo`** — Ammend last commit with its original message.
+* **`gr`** — Jump to root folder of Git repo.
+* **`git-fork <original-author>`** — Add remote upstream.
+* **[`git-upstreamer`](http://git.io/github-upstreamer)** — Auto configure a remote for a fork.
+* **`git-upstream [branch]`** — Sync branch with upstream (as default `master`).

@@ -85,4 +85,5 @@ alias getpage='wget --no-clobber --page-requisites --html-extension --convert-li
 # Download file with original filename
 alias get="curl -O -L"
 
+# Battery status
 alias battery="upower -i $(upower -e | grep 'BAT') | grep -E 'state|to\ full|percentage'"
