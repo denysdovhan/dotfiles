@@ -89,3 +89,5 @@ alias get="curl -O -L"
 
 # Battery status
 alias battery="upower -i $(upower -e | grep 'BAT') | grep -E 'state|to\ full|percentage'"
+
+alias spaceship="curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.sh | zsh"

@@ -99,6 +99,7 @@ More aliases in [oh-my-zsh Cheatsheet](https://github.com/robbyrussell/oh-my-zsh
 * **`getpage`** — Download web page with all assets.
 * **`get`** — Download file with original filename.
 * **`battery`** — Battery status.
+* **`spaceship`** — Update the [“Spaceship”](https://github.com/denysdovhan/spaceship-zsh-theme) theme.
 
 ## Plugins
 
