@@ -100,6 +100,24 @@ More aliases in [oh-my-zsh Cheatsheet](https://github.com/robbyrussell/oh-my-zsh
 * **`get`** — Download file with original filename.
 * **`battery`** — Battery status.
 
+## Plugins
+
+As default installed these plugins: `git node npm nvm sudo web-search`. These plugins add a lot of useful thing. Here are my favorites:
+
+* **`npmg`** → `npm -g`
+* **`npmS`** → `npm i --save`
+* **`npmD`** → `npm i --save-dev`
+* **`node-docs [SECTION]`** — Open the node api, for your current version, in your browser.
+
+
+* **`google [SEARCH_QUERY]`** — Search for `[SEARCH_QUERY]` on **Google**.
+* **`bing [SEARCH_QUERY]`** — Search for `[SEARCH_QUERY]` on **Bing**.
+* **`yahoo [SEARCH_QUERY]`** — Search for `[SEARCH_QUERY]` on **Yahoo**.
+* **`duckduckgo [SEARCH_QUERY]`** — Search for `[SEARCH_QUERY]` on **DuckDuckGo**.
+
+
+* Tab `ESC` twice — Puts sudo in front of the current command, or the last one if the command line is empty.
+
 ## Bin
 
 Some functions that will make your life easier. See code in [`bin/`](../bin/).

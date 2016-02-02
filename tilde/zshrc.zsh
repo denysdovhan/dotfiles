@@ -22,7 +22,7 @@ function _extend_path() {
 [ -d ~/Dotfiles/bin ] && _extend_path ~/Dotfiles/bin
 
 # NVM
-if [ -d ~/.nvm ]; then
+if [ -d $HOME/.nvm ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
   [ -r "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
@@ -113,7 +113,7 @@ ZSH_CUSTOM="$HOME/Dotfiles/zsh"
 # Note: Add wisely, as too many plugins slow down shell startup.
 # Example format:
 #   plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git node npm nvm sudo web-search)
 
 # Load Oh-My-Zsh
 source $ZSH/oh-my-zsh.sh
