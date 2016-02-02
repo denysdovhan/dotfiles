@@ -57,7 +57,12 @@ More aliases in [oh-my-zsh Cheatsheet](https://github.com/robbyrussell/oh-my-zsh
 * **`ll`** → `ls -alF`
 * **`la`** → `ls -A`
 * **`l`** → `ls -CF`
-* **`mdc`** → `mkdir -p $@ && cd $@ `
+
+### Open
+
+* **`open <FILE>`** — Open file from terminal.
+* **`o <FILE>`** — Open file from terminal.
+* **`oo`** — Open current folder.
 
 ### Clipboard tools
 
@@ -85,7 +90,6 @@ More aliases in [oh-my-zsh Cheatsheet](https://github.com/robbyrussell/oh-my-zsh
 
 ### Misc
 
-* **`open <FILE>`** — Open file from terminal.
 * **`update`** — Get Ubuntu Updates, and update npm and its installed packages.
 * **`alert`** — Throw alert notify message. Add an `alert` alias for long running commands. Use like so: `sleep 10; alert`.
 * **`myip`** — My IP address.

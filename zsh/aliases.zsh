@@ -28,8 +28,10 @@ alias e="$EDITOR"
 alias -- +x='chmod +x'
 alias x+='chmod +x'
 
-mdc() { mkdir -p $@ && cd $@ }
-open() { xdg-open $@ < /dev/null > /dev/null & }
+# Open aliases
+alias open='open_command'
+alias o='open'
+alias oo='open .'
 
 # Some more ls aliases
 alias ll='ls -alF'
