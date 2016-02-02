@@ -1,0 +1,47 @@
+"*":
+  "advanced-new-file": {}
+  "advanced-open-file":
+    helmDirSwitch: true
+  alignment: {}
+  "autocomplete-plus": {}
+  core:
+    autoHideMenuBar: true
+    projectHome: "/home/denysdovhan/Projects"
+  editor:
+    fontFamily: "Fira Mono"
+    fontSize: 19
+    invisibles: {}
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+    softWrapAtPreferredLineLength: true
+  emmet: {}
+  "exception-reporting":
+    userId: "917e3333-19f1-19a4-e39b-35a7f6602c02"
+  "file-icons":
+    onChanges: true
+  "fuzzy-finder": {}
+  linter: {}
+  "linter-eslint":
+    useGlobalEslint: true
+  "linter-htmlhint": {}
+  "linter-jshint":
+    disableWhenNoJshintrcFileInPath: true
+  "linter-shellcheck": {}
+  "merge-conflicts": {}
+  minimap:
+    plugins:
+      "git-diff": true
+      selection: true
+  "project-manager": {}
+  react: {}
+  "selector-to-tag": {}
+  tabs:
+    usePreviewTabs: true
+  "tree-view": {}
+  "vim-mode":
+    startInInsertMode: true
+    useClipboardAsDefaultRegister: true
+    useSmartcaseForSearch: true
+  welcome:
+    showOnStartup: false

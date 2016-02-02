@@ -1,13 +1,16 @@
-#!/bin/bash
+#!/bin/sh
 
 # Ask for the administrator password upfront
 sudo -v
 
 # Install node.js from nodesource.com
 echo "Installing nodejs..."
-curl -sL https://deb.nodesource.com/setup | sudo bash -
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 sudo apt-get install -y nodejs && echo "Done!"
 echo
+
+# Install NVM
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.30.2/install.sh | bash
 
 # Configure npm
 # Ask required parameters
@@ -29,14 +32,15 @@ echo "Author website put as: $SITE"
 npm set init.author.url "$SITE"
 echo
 
-# List of packages that must be installed globally
-PACKAGES="
-    less grunt-cli coffee-script bower nodemon express-generator yo
-    stylus nib gulp stylint webpack browserify speed-test eslint"
-
 # Installing global packages
-echo "Will be installed these packages:"
-echo $PACKAGES
 
 echo "Installing global packages..."
-sudo npm i -g $PACKAGES && echo "Done!"
+# Compilers
+sudo npm i -g babel less stylus coffee-script
+# Builders
+sudo npm i -g grunt-cli gulp webpack browserify
+# DevTools
+sudo npm i -g bower nodemon yo stylint eslint
+# Tools
+sudo npm i -g npm-check-updates github-upstreamer speed-test
+echo "Done!"

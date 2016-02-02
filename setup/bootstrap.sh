@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Bootstrap script for installing applications and tools
 
@@ -8,6 +8,5 @@ sudo -v
 cd ~/Dotfiles/setup
 . ./apps.sh
 . ./nodejs.sh
-. ./windows.sh
-. ./wp.sh
+. ./atom.sh
 cd -

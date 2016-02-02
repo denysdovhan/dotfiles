@@ -8,8 +8,8 @@ This is my dotfiles for Ubuntu or something else that supports Bash, like Mac, E
 
 If you want to install my dotfiles on your machine, just copy this command and execute in the terminal:
 
-```bash
-wget -O - https://raw.githubusercontent.com/denysdovhan/dotfiles/master/installer.sh | bash
+```sh
+wget -O - https://raw.githubusercontent.com/denysdovhan/dotfiles/master/installer.sh | sh
 ```
 
 You can tell Git who you are using these commands:
@@ -19,32 +19,25 @@ git config -f ~/.gitlocal user.email "email@yoursite.com"
 git config -f ~/.gitlocal user.name "Name Lastname"
 ```
 
-# Updating
-
-For updating dotfiles, just execute command bellow:
-
-```
-dotfiles
-```
-
 # Features
 
-* Colorful and clever Bash prompt, useful aliases, [etc](./docs/BASH.md).
+* [“Oh My ZSH!”](http://ohmyz.sh/) is already built–in.
+* Colorful and clever Zsh prompt, useful aliases, [etc](./docs/ZSH.md).
+* Custom Zsh theme [“Spaceship”](https://github.com/denysdovhan/spaceship-zsh-theme) with git status, nvm, venv and other.
+* Cool Zsh [aliases](./docs/ZSH.md).
 * Git config, global ignore file and aliases.
-* Dotfiles syncronization (`sync.py`).
-* Highlighting repository's Git status.
-* Highlighting current virtual environment.
+* Atom settings [syncronization](https://github.com/denysdovhan/dotfiles/tree/master/setup/atom.sh).
+* Dotfiles syncronization (`sync.py`) with backup.
+* Restoring old dotfiles (`restore.py`) from backup.
+* A lot of [useful scripts](https://github.com/denysdovhan/dotfiles/tree/master/bin).
 * Color conversion script: convert #HEX to RGB/RGBA and HSL/HSLA.
-* Changelog generator.
-* Script for adding spaces to [Plank Dock](http://wiki.go-docky.com/?title=Plank:Introduction).
 * Dotfiles, System, Gems and NPM update script.
-* Useful helpers (`helpers/`).
 * And to many [other](./docs/BASH.md).
 
 # Notes
 
 * You can use any file extensions in `tilde/` to invoke proper syntax highlighting in code editor.
-* Add your Bash profile customization to `~/.bash_extra`.
+* Add your zsh customization to `~/.zshlocal`.
 * Add your git user data and custom settings to `~/.gitlocal`.
 * Fort this repo and make it better!
 
@@ -52,21 +45,19 @@ dotfiles
 
 For more informations see [docs](./docs):
 
-* [BASH docs](./docs/BASH.md).
+* [ZSH docs](./docs/ZSH.md).
 * [GIT docs](./docs/GIT.md).
 
-# TODO
+# Bash
 
-Roadmap for `v1.0`:
+If you wanna stand on bash version of dotfiles, please execute following commands inside the `~/Dotfiles` folder:
 
-* [ ] Migrate on `zsh` + `oh-my-zsh`.
-* [ ] Get rid of required ssh for installation.
-* [ ] Migrate to [npm-check-updates](https://www.npmjs.com/package/npm-check-updates).
-* [ ] Add `~/.atom` files.
-- [ ] Add **Sublime Text** installer
-- [ ] Update node.js [instalation](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)
-- [ ] Remove `_Sites`
-- [ ] Write script for restoring previous environment.
+```sh
+git checkout bash
+./sync.py
+```
+
+I do not support `bash` version anymore, so if you need fixes or new features, please send me a pull request into `bash` branch. Thank you!
 
 # Resources
 
