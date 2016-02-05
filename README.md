@@ -39,7 +39,7 @@ git config -f ~/.gitlocal user.name "Name Lastname"
 * You can use any file extensions in `tilde/` to invoke proper syntax highlighting in code editor.
 * Add your zsh customization to `~/.zshlocal`.
 * Add your git user data and custom settings to `~/.gitlocal`.
-* Fort this repo and make it better!
+* Fork this repo and make it better!
 
 # Docs
 
