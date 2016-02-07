@@ -42,5 +42,5 @@ sudo npm i -g grunt-cli gulp webpack browserify
 # DevTools
 sudo npm i -g bower nodemon yo stylint eslint
 # Tools
-sudo npm i -g npm-check-updates github-upstreamer speed-test
+sudo npm i -g npm-check-updates github-upstreamer speed-test gh
 echo "Done!"
