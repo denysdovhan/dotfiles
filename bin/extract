@@ -4,7 +4,7 @@
 # USAGE: extract <FILE>
 
 if [ -f $1 ] ; then
-  local dir_name=${1%.*}  # Filename without extension
+  dir_name=${1%.*}  # Filename without extension
   case $1 in
     *.tar.bz2)  tar xjf           $1 ;;
     *.tar.gz)   tar xzf           $1 ;;
