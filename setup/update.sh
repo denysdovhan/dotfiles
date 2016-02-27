@@ -24,7 +24,7 @@ header "Updating dotfiles..."
 cd ~/Dotfiles
 git pull
 ./sync.py
-source ~/.bashrc
+source ~/.zshrc
 cd - > /dev/null 2>&1
 echo
 
