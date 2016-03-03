@@ -17,6 +17,9 @@ error() { echo ; echo "${RED}${BOLD}${*}${RESET}" ; echo }
 # Success reporter
 success() { echo ; echo "${GREEN}${BOLD}${*}${RESET}" ; echo }
 
+# Set directory
+export DOTFILES=${1:-"~/Dotfiles"}
+
 # Ask for password
 sudo -v
 
@@ -41,13 +44,13 @@ fi
 zsh_path=$(which zsh)
 grep -Fxq "$zsh_path" /etc/shells || sudo bash -c "echo $zsh_path >> /etc/shells"
 chsh -s "$zsh_path" $USER
-# Installing Oh My Zsh
-sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+# Installing Zgen
+git clone https://github.com/tarjoilija/zgen.git ~/.zgen
 
 # Clone dotfiles and make symlinks
 echo "Installing dotfiles..."
-git clone https://github.com/denysdovhan/dotfiles.git ~/Dotfiles #&& {
-  cd ~/Dotfiles && ./sync.py && cd -
+git clone https://github.com/denysdovhan/dotfiles.git $DOTFILES && {
+  cd $DOTFILES && ./sync.py && cd -
 } || {
   error "Error: Cannot clone dotfiles."
   exit
@@ -56,16 +59,16 @@ git clone https://github.com/denysdovhan/dotfiles.git ~/Dotfiles #&& {
 # Problem with not interactive shell
 # http://askubuntu.com/a/77053
 PS1='$>'
-[ -d ~/Dotfiles ] && {
+if [[ -d $DOTFILES ]]; then
   success "Dotfiles installed successfully!"
-} || {
+else
   error "Error: Dotfiles didn't installed!"
   exit 1
-}
+fi
 
 # Copy path to clipboard with pbcopy and xclip
-echo -n "~/Dotfiles/setup/bootstrap.sh" | pbcopy 2>/dev/null
-echo -n "~/Dotfiles/setup/bootstrap.sh" | xclip -selection clipboard 2>/dev/null
+echo -n "$DOTFILES/setup/bootstrap.sh" | pbcopy 2>/dev/null
+echo -n "$DOTFILES/setup/bootstrap.sh" | xclip -selection clipboard 2>/dev/null
 echo
 echo "Path to bootstrap script copied to clipboard."
 
