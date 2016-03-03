@@ -69,13 +69,6 @@ export ATOM_USER=${ATOM_USER:-denysdovhan}
 # OH MY ZSH
 # == == ===
 
-# Path to oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load.4
-# Note: if set this to "random", it'll load a random theme each.
-ZSH_THEME='spaceship'
-
 # Use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -99,7 +92,7 @@ ZSH_THEME='spaceship'
 ENABLE_CORRECTION="true"
 
 # Display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Disable marking untracked files under VCS as dirty.
 # This makes repository status check for large repositories much, much faster.
@@ -110,16 +103,48 @@ COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
 
 # Custom folder than $ZSH/custom
-ZSH_CUSTOM="$HOME/Dotfiles/zsh"
+ZSH_CUSTOM="$DOTFILES/zsh"
 
-# Custom plugins.
-# Note: Add wisely, as too many plugins slow down shell startup.
-# Example format:
-#   plugins=(rails git textmate ruby lighthouse)
-plugins=(git node npm nvm sudo web-search)
+# ZGEN
+# ====
 
-# Load Oh-My-Zsh
-source $ZSH/oh-my-zsh.sh
+# load zgen
+source "$HOME/.zgen/zgen.zsh"
+
+if ! zgen saved; then
+  echo "Creating a zgen save..."
+
+  # Use Oh-My-Zsh
+  zgen oh-my-zsh
+
+  # Load Oh-My-Zsh plugins
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/node
+  zgen oh-my-zsh plugins/npm
+  zgen oh-my-zsh plugins/nvm
+  zgen oh-my-zsh plugins/sudo
+  zgen oh-my-zsh plugins/web-search
+
+  # Load external plugins
+  zgen load zsh-users/zsh-autosuggestions
+  zgen load zsh-users/zsh-syntax-highlighting
+  zgen load hlissner/zsh-autopair
+  zgen load akoenig/npm-run.plugin.zsh
+  zgen load akoenig/gulp.plugin.zsh
+
+  # Load theme
+  zgen load denysdovhan/spaceship-zsh-theme spaceship
+
+  # Automaticaly refresh ~/.zshrc and ~/.zshlocal
+  if [[ -f ~/.zshlocal ]]; then
+    ZGEN_RESET_ON_CHANGE=("$HOME/.zshrc" "$HOME/.zshlocal")
+  else
+    ZGEN_RESET_ON_CHANGE=("$HOME/.zshrc")
+  fi
+
+  # save all to init script
+  zgen save
+fi
 
 # Load extra (private) settings
 [ -f ~/.zshlocal ] && source ~/.zshlocal
