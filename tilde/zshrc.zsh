@@ -2,6 +2,9 @@
 # ~/.zshrc
 #
 
+# Export path to root of dotfiles repo
+export DOTFILES=${DOTFILES:-"$HOME/Dotfiles"}
+
 # Locale
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -19,7 +22,7 @@ function _extend_path() {
 
 # Add custom bin to $PATH
 [ -d ~/.bin ] && _extend_path "$HOME/.bin"
-[ -d ~/Dotfiles/bin ] && _extend_path ~/Dotfiles/bin
+[ -d $DOTFILES/bin ] && _extend_path $DOTFILES/bin
 
 # NVM
 if [ -d $HOME/.nvm ]; then
