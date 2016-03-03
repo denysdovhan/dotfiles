@@ -11,14 +11,23 @@ RED="${e}[0;91m"
 YELLOW="${e}[0;93m"
 GREEN="${e}[0;92m"
 
+# Success reporter
+info() {
+  echo ; echo "${CYAN}${BOLD}${*}${RESET}" ; echo
+}
+
 # Error reporter
-error() { echo ; echo "${RED}${BOLD}${*}${RESET}" ; echo }
+error() {
+  echo ; echo "${RED}${BOLD}${*}${RESET}" ; echo
+}
 
 # Success reporter
-success() { echo ; echo "${GREEN}${BOLD}${*}${RESET}" ; echo }
+success() {
+  echo ; echo "${GREEN}${BOLD}${*}${RESET}" ; echo
+}
 
 # Set directory
-export DOTFILES=${1:-"~/Dotfiles"}
+export DOTFILES=${1:-"$HOME/Dotfiles"}
 
 # Ask for password
 sudo -v
@@ -42,24 +51,30 @@ fi
 
 # Registers zsh as a default shell
 zsh_path=$(which zsh)
+info "Path to Zsh: $zsh_path. Enter your password to change default shell:"
 grep -Fxq "$zsh_path" /etc/shells || sudo bash -c "echo $zsh_path >> /etc/shells"
-chsh -s "$zsh_path" $USER
+chsh -s "$zsh_path" $USER || error "Error: Cannot set zsh as default shell!"
+
 # Installing Zgen
-git clone https://github.com/tarjoilija/zgen.git ~/.zgen
+[ -d ~/.zgen ] || git clone https://github.com/tarjoilija/zgen.git ~/.zgen
 
 # Clone dotfiles and make symlinks
-echo "Installing dotfiles..."
-git clone https://github.com/denysdovhan/dotfiles.git $DOTFILES && {
-  cd $DOTFILES && ./sync.py && cd -
-} || {
-  error "Error: Cannot clone dotfiles."
-  exit
-}
+info "Installing dotfiles..."
+
+if [ ! -d $DOTFILES ]; then
+  git clone https://github.com/denysdovhan/dotfiles.git $DOTFILES
+  if [ -d $DOTFILES ]; then
+    cd $DOTFILES && ./sync.py && cd -
+  else
+    error "Error: Dotfiles weren't installed into $DOTFILES."
+    exit
+  fi
+fi
 
 # Problem with not interactive shell
 # http://askubuntu.com/a/77053
 PS1='$>'
-if [[ -d $DOTFILES ]]; then
+if [ -d $DOTFILES ]; then
   success "Dotfiles installed successfully!"
 else
   error "Error: Dotfiles didn't installed!"
@@ -69,8 +84,8 @@ fi
 # Copy path to clipboard with pbcopy and xclip
 echo -n "$DOTFILES/setup/bootstrap.sh" | pbcopy 2>/dev/null
 echo -n "$DOTFILES/setup/bootstrap.sh" | xclip -selection clipboard 2>/dev/null
-echo
-echo "Path to bootstrap script copied to clipboard."
+
+info "Path to bootstrap script copied to clipboard."
 
 success "Please restart your terminal!"
 
