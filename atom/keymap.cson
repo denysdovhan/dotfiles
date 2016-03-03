@@ -31,10 +31,11 @@
 
 # Vim normal mode
 'atom-text-editor.vim-mode.insert-mode':
-  'j j': 'vim-mode:activate-normal-mode'
-  'k k': 'vim-mode:activate-normal-mode' # Duplicates bcoz I always confuse this
   'k j': 'vim-mode:activate-normal-mode' # Duplicates bcoz I always confuse this
   'ctrl-c' : 'unset!'
+'atom-text-editor:not(.mini).vim-mode:not(.insert-mode):not(.jumpy-jump-mode)':
+  'f': 'jumpy:toggle' # Add jumpy to vim-mode
+
 
 # Disable Emmet merge lines, bcoz it's break MD preview
 'atom-text-editor:not([mini])':
