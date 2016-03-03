@@ -47,7 +47,7 @@ less_opts=(
   # Do not complain when we are on a dumb terminal.
   --dumb
 )
-export LESS=${less_opts[*]}
+export LESS="${less_opts[*]}"
 
 # Default editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
