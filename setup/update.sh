@@ -21,7 +21,7 @@ sudo -v
 
 # Dotfiles
 header "Updating dotfiles..."
-cd ~/Dotfiles
+cd $DOTFILES
 git pull
 ./sync.py
 source ~/.zshrc
@@ -29,22 +29,38 @@ cd - > /dev/null 2>&1
 echo
 
 # System
-header "Updating Ubuntu and installed packages..."
-sudo apt-get update
-sudo apt-get upgrade -y
-echo
+command -v apt-get >/dev/null 2>&1 && {
+  header "Updating Ubuntu and installed packages..."
+  sudo apt-get update
+  sudo apt-get upgrade -y
+  sudo apt-get autoremove -y
+  sudo apt-get autoclean -y
+  echo
+}
 
 # NPM
-header "Updating NPM..."
-sudo npm install npm -g
-sudo ncu -g
-echo
+command -v npm >/dev/null 2>&1 && {
+  header "Updating NPM..."
+  sudo npm install npm npm-check-updates -g
+  sudo ncu -g
+  echo
+}
 
 # Ruby gems
-header "Updating Ruby gems..."
-sudo -v
-sudo gem update
-echo
+command -v gem >/dev/null 2>&1 && {
+  header "Updating Ruby gems..."
+  sudo -v
+  sudo gem update
+  echo
+}
+
+# Atom packages
+command -v apm >/dev/null 2>&1 && {
+  header "Updating Atom packages..."
+  sudo -v
+  sudo apm upgrade
+  echo
+}
 
 echo "Update successfully done!"
 
