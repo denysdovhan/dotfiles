@@ -6,6 +6,7 @@
   "autocomplete-plus": {}
   core:
     autoHideMenuBar: true
+    excludeVcsIgnoredPaths: false
     projectHome: "/home/denysdovhan/Projects"
   editor:
     fontFamily: "Fira Mono"
@@ -21,12 +22,17 @@
   "file-icons":
     onChanges: true
   "fuzzy-finder": {}
-  linter: {}
+  jumpy:
+    highContrast: true
+  linter:
+    showErrorPanel: false
+  "linter-alex": {}
   "linter-eslint":
     useGlobalEslint: true
   "linter-htmlhint": {}
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
+  "linter-scss-lint": {}
   "linter-shellcheck": {}
   "merge-conflicts": {}
   minimap:
@@ -38,7 +44,8 @@
   "selector-to-tag": {}
   tabs:
     usePreviewTabs: true
-  "tree-view": {}
+  "tree-view":
+    hideIgnoredNames: true
   "vim-mode":
     startInInsertMode: true
     useClipboardAsDefaultRegister: true
