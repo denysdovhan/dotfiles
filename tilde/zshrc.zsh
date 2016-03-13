@@ -105,6 +105,9 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom folder than $ZSH/custom
 ZSH_CUSTOM="$DOTFILES/zsh"
 
+# Load extra (private) settings
+[ -f ~/.zshlocal ] && source ~/.zshlocal
+
 # ZGEN
 # ====
 
@@ -145,6 +148,3 @@ if ! zgen saved; then
   # save all to init script
   zgen save
 fi
-
-# Load extra (private) settings
-[ -f ~/.zshlocal ] && source ~/.zshlocal
