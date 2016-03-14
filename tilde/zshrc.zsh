@@ -134,6 +134,7 @@ if ! zgen saved; then
   zgen load hlissner/zsh-autopair
   zgen load akoenig/npm-run.plugin.zsh
   zgen load akoenig/gulp.plugin.zsh
+  zgen load denysdovhan/gitio-zsh
 
   # Load theme
   zgen load denysdovhan/spaceship-zsh-theme spaceship
