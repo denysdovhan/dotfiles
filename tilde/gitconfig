@@ -26,7 +26,7 @@
   master = !git checkout master && git pull
 
   # Commits log with pretty format
-  l = log --graph --pretty=format:'%C(yellow bold)%h%C(cyan)%d%Creset %s %C(blue bold)- %an, %ar%Creset'
+  l = log --all --graph --decorate --oneline
 
   # Fully commits log with statistic
   ll = log --stat --abbrev-commit
@@ -65,6 +65,12 @@
   pushInsteadOf = "gist:"
   pushInsteadOf = "git://gist.github.com/" # From GIT to SSH
 
+# Add LFS commands
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+
 # Include local settings from .gitlocal
 # Requires Git 1.7.10
 # Setup:
@@ -76,7 +82,3 @@
 #   email = email@denysdovhan.com
 [include]
   path = ~/.gitlocal
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
