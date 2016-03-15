@@ -46,6 +46,12 @@
   # Reset index changes, but not the working tree
   undo = reset --mixed HEAD^
 
+  # List of contributors and how many commits each person has.
+  contrib = shortlog -sn
+
+  # See how many lines of code you have written today.
+  today = diff --shortstat "@{0 day ago}"
+
 [push]
   default = current
 
