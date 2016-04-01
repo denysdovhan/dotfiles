@@ -32,15 +32,22 @@ echo "Author website put as: $SITE"
 npm set init.author.url "$SITE"
 echo
 
+# Fixing npm permissions
+if [ ! $(npm config get prefix) = '/usr' ]; then
+	echo "Fixing npm permissions"
+	[ ! -d ~/.npm-global ] && mkdir ~/.npm-global
+	npm config set prefix '~/.npm-global'	
+fi
+
 # Installing global packages
 
 echo "Installing global packages..."
 # Compilers
-sudo npm i -g babel less stylus coffee-script
+npm i -g babel
 # Builders
-sudo npm i -g grunt-cli gulp webpack browserify
+npm i -g grunt-cli gulp webpack browserify
 # DevTools
-sudo npm i -g bower nodemon yo stylint eslint
+npm i -g bower nodemon yo stylint eslint
 # Tools
-sudo npm i -g npm-check-updates github-upstreamer speed-test gh
+npm i -g npm-check-updates github-upstreamer speed-test gh
 echo "Done!"
