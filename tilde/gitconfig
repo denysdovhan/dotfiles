@@ -52,6 +52,9 @@
   # See how many lines of code you have written today.
   today = diff --shortstat "@{0 day ago}"
 
+  # How many lines in repo
+  stat = !git ls-files | xargs wc -l
+
 [push]
   default = current
 

@@ -56,6 +56,7 @@ Default configuration in `.gitconfig`:
 * **`git redo`** — Ammend last commit with its original message.
 * **`git contrib`** — List of contributors and how many commits each person has.
 * **`git today`** — See how many lines of code you have written today.
+* **`git stat`** — How many lines of code in repo.
 * **`gr`** — Jump to root folder of Git repo.
 * **`git-fork <original-author>`** — Add remote upstream.
 * **[`git-upstreamer`](http://git.io/github-upstreamer)** — Auto configure a remote for a fork.
