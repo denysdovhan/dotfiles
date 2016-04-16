@@ -23,7 +23,12 @@ function _extend_path() {
 # Add custom bin to $PATH
 [ -d ~/.bin ] && _extend_path "$HOME/.bin"
 [ -d $DOTFILES/bin ] && _extend_path $DOTFILES/bin
-[ -d ~/.npm-global ] && _extend_path ~/.npm-global
+[ -d ~/.npm-global ] && _extend_path ~/.npm-global/bin
+
+# Extend $NODE_PATH
+if [ -d ~/.npm-global ]; then
+  export NODE_PATH="$NODE_PATH:$HOME/.npm-global/lib/node_modules"
+fi
 
 # NVM
 if [ -d $HOME/.nvm ]; then
