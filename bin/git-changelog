@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Based on git-extras (https://github.com/tj/git-extras)
 # Documentation for `git changelog`:
 #   https://github.com/tj/git-extras/wiki/Commands#git-changelog
-# 
+#
 # USAGE: git-changelog [-l,--list,-t,--tag] <FILE>
 
 FILE=""
@@ -29,7 +29,7 @@ done
 
 # Get current date
 DATE=`date +'%Y-%m-%d'`
-# Prepare heading 
+# Prepare heading
 HEAD="\n### $DATE v$TAG\n\n"
 
 # Generate list of changes
