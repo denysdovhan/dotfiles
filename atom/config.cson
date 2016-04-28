@@ -7,10 +7,10 @@
   core:
     autoHideMenuBar: true
     excludeVcsIgnoredPaths: false
+    openEmptyEditorOnStart: false
     projectHome: "/home/denysdovhan/Projects"
   editor:
-    fontFamily: "Fira Mono"
-    fontSize: 19
+    backUpBeforeSaving: true
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -38,7 +38,9 @@
   minimap:
     plugins:
       "git-diff": true
+      "git-diffDecorationsZIndex": 0
       selection: true
+      selectionDecorationsZIndex: 0
   "project-manager": {}
   react: {}
   "selector-to-tag": {}
