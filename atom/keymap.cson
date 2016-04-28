@@ -26,21 +26,39 @@
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
 
-'body':
-  'ctrl-f4': 'core:close'
 
-# Vim normal mode
+#
+# Vim mode
+#
 'atom-text-editor.vim-mode.insert-mode':
   'k j': 'vim-mode:activate-normal-mode' # Duplicates bcoz I always confuse this
   'ctrl-c' : 'unset!'
 'atom-text-editor:not(.mini).vim-mode:not(.insert-mode):not(.jumpy-jump-mode)':
   'f': 'jumpy:toggle' # Add jumpy to vim-mode
+'atom-text-editor:not(.mini).vim-mode:not(.insert-mode)':
+  'alt-shift-k': 'editor:add-selection-above' # Add selection for j
+  'alt-shift-j': 'editor:add-selection-below' # Add selection for k
 
-
-# Disable Emmet merge lines, bcoz it's break MD preview
+#
+# Emmet
+#
+# Disable Emmet merge lines, because it's break MD preview
 'atom-text-editor:not([mini])':
   'ctrl-shift-M': 'unset!'
   'ctrl-,': 'unset!'
 
-'.platform-linux':
+#
+# Atom
+#
+'body.platform-darwin':
+  'ctrl-q': 'core:close'
+
+'body.platform-linux, body.platform-win32':
+  'ctrl-f4': 'core:close'
+
+'atom-text-editor':
   'ctrl-cmd-p': 'project-manager:list-projects'
+
+'atom-workspace atom-text-editor:not([mini])':
+  'alt-shift-up': 'editor:add-selection-above'
+  'alt-shift-down': 'editor:add-selection-below'
