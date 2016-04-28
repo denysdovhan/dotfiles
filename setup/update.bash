@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-# Get Ubuntu Updates, update NPM packages and dotfiles
+# Get System Updates, update NPM packages and dotfiles
 # Source: https://github.com/sapegin/dotfiles/blob/master/setup/update.sh
 
 e='\033'
@@ -28,7 +28,15 @@ source ~/.zshrc
 cd - > /dev/null 2>&1
 echo
 
-# System
+# Homebrew
+command -v apt-get >/dev/null 2>&1 && {
+  header "Updating Homebrew..."
+  brew update
+  brew upgrade --all
+  brew cleanup
+}
+
+# Ubuntu
 command -v apt-get >/dev/null 2>&1 && {
   header "Updating Ubuntu and installed packages..."
   sudo apt-get update
