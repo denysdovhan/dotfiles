@@ -36,7 +36,7 @@ sudo -v
 if ! hash git 2>/dev/null ; then
   if [ `uname` == 'Darwin' ]; then
     # Install Homebrew
-    ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     # Install Git
     brew install git
     brew install zsh
