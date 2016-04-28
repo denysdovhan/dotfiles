@@ -22,8 +22,8 @@ function _extend_path() {
 
 # Add custom bin to $PATH
 [ -d ~/.bin ] && _extend_path "$HOME/.bin"
-[ -d $DOTFILES/bin ] && _extend_path $DOTFILES/bin
-[ -d ~/.npm-global ] && _extend_path ~/.npm-global/bin
+[ -d $DOTFILES/bin ] && _extend_path "$DOTFILES/bin"
+[ -d ~/.npm-global ] && _extend_path "~/.npm-global/bin"
 
 # Extend $NODE_PATH
 if [ -d ~/.npm-global ]; then
@@ -55,7 +55,7 @@ less_opts=(
 export LESS="${less_opts[*]}"
 
 # Default editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
+if [[ -n "$SSH_CONNECTION" ]]; then
   export EDITOR='vim'
 else
   export EDITOR='vim' # change if needed
@@ -66,7 +66,7 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Add travis gem
 TRAVIS="$HOME/.travis/travis.sh"
-[ -f $TRAVIS ] && source $TRAVIS
+[ -f "$TRAVIS" ] && source $TRAVIS
 
 # Atom
 export ATOM_USER=${ATOM_USER:-denysdovhan}
@@ -111,7 +111,7 @@ HIST_STAMPS="dd.mm.yyyy"
 ZSH_CUSTOM="$DOTFILES/zsh"
 
 # Load extra (private) settings
-[ -f ~/.zshlocal ] && source ~/.zshlocal
+[ -f ~/.zshlocal ] && source "~/.zshlocal"
 
 # ZGEN
 # ====
