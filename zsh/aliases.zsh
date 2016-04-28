@@ -60,7 +60,7 @@ alias djm3="python3 manage.py"
 alias djs3="python3 manage.py runserver"
 
 # Get Ubuntu Updates, and update npm and its installed packages
-alias update='source ~/Dotfiles/setup/update.sh'
+alias update="source $DOTFILES/setup/update.bash"
 
 # Add an "alert" alias for long running commands.
 # Use like so:
