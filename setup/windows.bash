@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # /windows folders syncronization.
 # Makes symlinks for all folders in /windows to /home:

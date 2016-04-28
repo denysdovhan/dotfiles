@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Bootstrap script for installing applications and tools
 
@@ -6,7 +6,6 @@
 sudo -v
 
 cd ~/Dotfiles/setup
-. ./apps.sh
-. ./nodejs.sh
-. ./atom.sh
+. ./nodejs.bash
+. ./atom.bash
 cd -

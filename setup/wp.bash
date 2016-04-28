@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # WP-CLI Installer (wp-cli.org)
 # This script will download wp-cli script and put it to /usr/local/bin/wp
