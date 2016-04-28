@@ -92,14 +92,14 @@ More aliases in [oh-my-zsh Cheatsheet](https://github.com/robbyrussell/oh-my-zsh
 
 * **`update`** — Get Ubuntu Updates, and update npm and its installed packages.
 * **`alert`** — Throw alert notify message. Add an `alert` alias for long running commands. Use like so: `sleep 10; alert`.
-* **`myip`** — My IP address.
+* **`myip`** — My public IP address.
+* **`mylocalip`** — My local IP address.
 * **`password`** — Generate random password, copies it into clipboard and outputs it to terminal.
 * **`path`** — Show $PATH in readable view.
 * **`dotfiles`** — Update dotfiles.
 * **`getpage`** — Download web page with all assets.
 * **`get`** — Download file with original filename.
-* **`battery`** — Battery status.
-* **`spaceship`** — Update the [“Spaceship”](https://github.com/denysdovhan/spaceship-zsh-theme) theme.
+* **`battery`** — Battery status (**Linux** only).
 
 ## Plugins
 

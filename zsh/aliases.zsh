@@ -9,7 +9,7 @@ alias sudo='sudo '
 # Avoid stupidity
 #   -I instead of -i, because it less intrusive than -i, while still giving
 #   protection against most mistakes.
-alias rm='rm -I'
+alias rm='rm -i'
 
 # Just bcoz clr shorter than clear
 alias clr='clear'
@@ -68,7 +68,8 @@ alias update='source ~/Dotfiles/setup/update.sh'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # My IP
-alias myip="curl -s https://4.ifcfg.me/"
+alias myip='curl -s https://4.ifcfg.me/'
+alias mylocalip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'
 
 # Password generator
 # Generate random password, copies it into clipboard and outputs it to terminal
@@ -88,6 +89,6 @@ alias getpage='wget --no-clobber --page-requisites --html-extension --convert-li
 alias get="curl -O -L"
 
 # Battery status
-alias battery="upower -i $(upower -e | grep 'BAT') | grep -E 'state|to\ full|percentage'"
-
-alias spaceship="curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.sh | zsh"
+if [[ "$(uname)" != 'Darwin' ]]; then
+  alias battery="upower -i $(upower -e | grep 'BAT') | grep -E 'state|to\ full|percentage'"
+fi
