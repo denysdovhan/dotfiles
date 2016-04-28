@@ -111,7 +111,7 @@ HIST_STAMPS="dd.mm.yyyy"
 ZSH_CUSTOM="$DOTFILES/zsh"
 
 # Load extra (private) settings
-[ -f ~/.zshlocal ] && source "~/.zshlocal"
+[ -f ~/.zshlocal ] && source ~/.zshlocal
 
 # ZGEN
 # ====
