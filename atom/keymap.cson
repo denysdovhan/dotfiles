@@ -50,9 +50,6 @@
 #
 # Atom
 #
-'body.platform-darwin':
-  'ctrl-q': 'core:close'
-
 'body.platform-linux, body.platform-win32':
   'ctrl-f4': 'core:close'
 
