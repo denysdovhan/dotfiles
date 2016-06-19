@@ -3,13 +3,12 @@
 # Get System Updates, update NPM packages and dotfiles
 # Source: https://github.com/sapegin/dotfiles/blob/master/setup/update.sh
 
-e='\033'
-RESET="${e}[0m"
-BOLD="${e}[1m"
-CYAN="${e}[0;96m"
-RED="${e}[0;91m"
-YELLOW="${e}[0;93m"
-GREEN="${e}[0;92m"
+WHITE="$(tput setaf 7)"
+BOLD="$(tput bold)"
+CYAN="$(tput setaf 6)"
+RED="$(tput setaf 1)"
+YELLOW="$(tput setaf 3)"
+GREEN="$(tput setaf 2)"
 
 # Function for pretty headers
 function header() {
@@ -75,11 +74,11 @@ echo "Update successfully done!"
 
 echo
 echo -en $RED'-_-_-_-_-_-_-_'
-echo -e $RESET$BOLD',------,'$RESET
+echo -e  $WHITE$BOLD',------,'$WHITE
 echo -en $YELLOW'_-_-_-_-_-_-_-'
-echo -e $RESET$BOLD'|   /\_/\\'$RESET
+echo -e  $WHITE$BOLD'|   /\_/\\'$WHITE
 echo -en $GREEN'-_-_-_-_-_-_-'
-echo -e $RESET$BOLD'~|__( ^ .^)'$RESET
+echo -e  $WHITE$BOLD'~|__( ^ .^)'$WHITE
 echo -en $CYAN'-_-_-_-_-_-_-_-'
-echo -e $RESET$BOLD'""  ""'$RESET
+echo -e  $WHITE$BOLD'""  ""'$WHITE
 echo
