@@ -46,6 +46,8 @@
 'atom-text-editor:not([mini])':
   'ctrl-shift-M': 'unset!'
   'ctrl-,': 'unset!'
+'atom-text-editor[data-grammar~="jsx"]:not([mini])':
+  'tab': 'emmet:expand-abbreviation-with-tab'
 
 #
 # Atom
