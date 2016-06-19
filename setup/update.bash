@@ -29,11 +29,12 @@ cd - > /dev/null 2>&1
 echo
 
 # Homebrew
-command -v apt-get >/dev/null 2>&1 && {
+command -v brew >/dev/null 2>&1 && {
   header "Updating Homebrew..."
   brew update
   brew upgrade --all
   brew cleanup
+  echo
 }
 
 # Ubuntu
