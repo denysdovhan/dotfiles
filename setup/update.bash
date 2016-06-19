@@ -15,7 +15,12 @@ function header() {
   echo -e "$(tput sgr 0 1)$(tput setaf 6)$1$(tput sgr0)"
 }
 
-# Ask for the administrator password upfront
+# Function for pretty wargnings
+function warn() {
+  echo -e "$(tput setaf 3)$1$(tput sgr0)"
+}
+
+# Sudo for gems and other
 sudo -v
 
 # Dotfiles
@@ -49,8 +54,23 @@ command -v apt-get >/dev/null 2>&1 && {
 # NPM
 command -v npm >/dev/null 2>&1 && {
   header "Updating NPM..."
-  sudo npm install npm npm-check-updates -g
-  sudo ncu -g
+
+  NPM_PERMS="$(ls -l $(npm config get prefix)/bin \
+    | awk 'NR>1{print $3}' \
+    | uniq)"
+
+  if [[ "$NPM_PERMS" == "$(whoami)" ]]; then
+    warn "Permissions are fixed. Updating without sudo..."
+    npm install npm npm-check-updates -g
+    ncu -g
+  else
+    warn "Permissions needed!"
+    warn "Better to fix your permissions. Read more:"
+    warn "\t <https://docs.npmjs.com/getting-started/fixing-npm-permissions>"
+    sudo npm install npm npm-check-updates -g
+    sudo ncu -g
+  fi
+
   echo
 }
 
