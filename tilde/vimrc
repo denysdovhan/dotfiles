@@ -1,0 +1,6 @@
+
+set number
+syntax on
+
+" Escape on kj keybinding
+:imap kj <Esc>
