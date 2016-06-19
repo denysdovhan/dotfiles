@@ -21,14 +21,14 @@
     userId: "917e3333-19f1-19a4-e39b-35a7f6602c02"
   "file-icons":
     onChanges: true
-  "fuzzy-finder": {}
+  "fuzzy-finder":
+    ignoredNames: [
+      "node_modules"
+    ]
   jumpy:
     highContrast: true
-  linter:
-    showErrorPanel: false
-  "linter-alex": {}
-  "linter-eslint":
-    useGlobalEslint: true
+  linter: {}
+  "linter-eslint": {}
   "linter-htmlhint": {}
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
@@ -52,5 +52,7 @@
     startInInsertMode: true
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
+  "vim-mode-plus":
+    startInInsertMode: true
   welcome:
     showOnStartup: false
