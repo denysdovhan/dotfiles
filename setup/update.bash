@@ -85,8 +85,7 @@ command -v gem >/dev/null 2>&1 && {
 # Atom packages
 command -v apm >/dev/null 2>&1 && {
   header "Updating Atom packages..."
-  sudo -v
-  sudo apm update --no-confirm
+  apm update --no-confirm
   echo
 }
 
