@@ -130,7 +130,7 @@ Some functions that will make your life easier. See code in [`bin/`](../bin/).
 `, `Z`.
 * **`zsh_stats`** — Get zsh usage stats.
 * **`git-changelog`** — Generate changelog based on git commits.
-* **`git-fork <original-author>`** — Add remote upsteam.
+* **`git-fork <original-author>`** — Add remote upstream.
 * **`git-upstream [branch]`** — Sync branch with upstream.
 * **`osx-shadow [-r|--rm] <original.png> [result.png]`** — Add (or remove) OSX-like shadow to image.
 * **`nyan`** — Print nyan cat.

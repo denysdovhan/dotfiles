@@ -82,8 +82,8 @@ else
 fi
 
 # Copy path to clipboard with pbcopy and xclip
-echo -n "$DOTFILES/setup/bootstrap.sh" | pbcopy 2>/dev/null
-echo -n "$DOTFILES/setup/bootstrap.sh" | xclip -selection clipboard 2>/dev/null
+echo -n "$DOTFILES/setup/bootstrap.bash" | pbcopy 2>/dev/null
+echo -n "$DOTFILES/setup/bootstrap.bash" | xclip -selection clipboard 2>/dev/null
 
 info "Path to bootstrap script copied to clipboard."
 
