@@ -21,7 +21,7 @@ Default configuration in `.gitconfig`:
   * `cyan bold` for frag;
   * `red bold` for old lines;
   * `green bold` for new lines.
-* Default editor is [Vim](http://www.vim.org/) instaed of [Vi](http://www.tutorialspoint.com/unix/unix-vi-editor.htm).
+* Default editor is [Vim](http://www.vim.org/) instead of [Vi](http://www.tutorialspoint.com/unix/unix-vi-editor.htm).
 * `push.default` set as `current`.
 * Automatic replacement `git://github.com/`, `gh:`, `github:` addresses as `git@github.com:` for GitHub.
 * Automatic replacement `git://gist.github.com/`, `gst:`, `gist:` addresses as `git@gist.github.com:` for Gists.
@@ -50,7 +50,7 @@ Default configuration in `.gitconfig`:
 * **`git master`** — Go to master branch and pull from remote.
 * **`git l`** — Commits log with pretty single line format.
 * **`git ll`** — Log with list of changed files for each commit.
-* **`git ignore`** — Ignore files: append file to .ginignore.
+* **`git ignore`** — Ignore files: append file to .gitignore.
 * **`git this`** — Initialize, add all files and commit.
 * **`git amend`** — Ammend last commit.
 * **`git redo`** — Ammend last commit with its original message.
