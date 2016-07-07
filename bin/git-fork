@@ -3,11 +3,11 @@
 # Add remote upsteam
 # USAGE: git-fork <original-author>
 
-local user=$1
+user=$1
 if [[ "$user" == "" ]]
 then
   echo "Usage: git-fork <original-author>"
 else
-  local repo=`basename "$(pwd)"`
+  repo=`basename "$(pwd)"`
   git remote add upstream "https://github.com/$user/$repo.git"
 fi
