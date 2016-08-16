@@ -59,5 +59,4 @@ Default configuration in `.gitconfig`:
 * **`git stat`** — How many lines of code in repo.
 * **`gr`** — Jump to root folder of Git repo.
 * **`git-fork <original-author>`** — Add remote upstream.
-* **[`git-upstreamer`](http://git.io/github-upstreamer)** — Auto configure a remote for a fork.
 * **`git-upstream [branch]`** — Sync branch with upstream (as default `master`).
