@@ -57,6 +57,7 @@ command -v npm >/dev/null 2>&1 && {
 
   NPM_PERMS="$(ls -l $(npm config get prefix)/bin \
     | awk 'NR>1{print $3}' \
+    | grep "$(whoami)" \
     | uniq)"
 
   if [[ "$NPM_PERMS" == "$(whoami)" ]]; then
