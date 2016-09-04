@@ -23,7 +23,7 @@
   cm = commit -m   # Commit message
   cam = commit -am # Add all files and commit with message
   s = status -sb   # Short status with current branch
-  master = !git checkout master && git pull
+  master = !git checkout master && git pull --prune
 
   # Commits log with pretty format
   l = log --all --graph --decorate --oneline
