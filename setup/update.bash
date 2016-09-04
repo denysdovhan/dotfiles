@@ -30,6 +30,8 @@ git pull
 ./sync.py
 source ~/.zshrc
 cd - > /dev/null 2>&1
+zgen selfupdate
+zgen update
 echo
 
 # Homebrew
