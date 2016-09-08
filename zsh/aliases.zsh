@@ -39,8 +39,10 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # Clipboard tools
-alias xcopy='xclip -selection clipboard'
-alias xpaste='xclip -selection clipboard -o'
+if [ command -v xclip >/dev/null 2>&1 ]; then
+	alias xcopy='xclip -selection clipboard'
+	alias xpaste='xclip -selection clipboard -o'
+fi
 
 # Color conversion
 alias hex2hsl='color.js $1 $2'
