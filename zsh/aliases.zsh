@@ -15,13 +15,18 @@ alias rm='rm -i'
 alias clr='clear'
 
 # Folders Shortcuts
-alias dr='cd ~/Dropbox'
-alias dl='cd ~/Downloads'
-alias dt='cd ~/Desktop'
-alias pj='cd ~/Projects'
-alias pjr='cd ~/Projects/_Repos'
-alias pjf='cd ~/Projects/_Forks'
-alias pl='cd ~/Projects/_Playground/'
+[ -d ~/Dropbox ]              && alias dr='cd ~/Dropbox'
+[ -d ~/Downloads ]            && alias dl='cd ~/Downloads'
+[ -d ~/Desktop ]              && alias dt='cd ~/Desktop'
+[ -d ~/Projects ]             && alias pj='cd ~/Projects'
+[ -d ~/Projects/_Repos ]      && alias pjr='cd ~/Projects/_Repos'
+[ -d ~/Projects/Repos ]       && alias pjr='cd ~/Projects/Repos'
+[ -d ~/Projects/Forks ]       && alias pjf='cd ~/Projects/Forks'
+[ -d ~/Projects/_Forks ]      && alias pjf='cd ~/Projects/_Forks'
+[ -d ~/Projects/Playground ]  && alias pl='cd ~/Projects/Playground'
+[ -d ~/Projects/_Playground ] && alias pl='cd ~/Projects/_Playground'
+[ -d ~/Projects/Job ]         && alias pjj='cd ~/Projects/Job'
+[ -d ~/Projects/_Job ]        && alias pjj='cd ~/Projects/_Job'
 
 # Commands Shortcuts
 alias e="$EDITOR"
@@ -67,15 +72,22 @@ alias update="source $DOTFILES/setup/update.bash"
 # Add an "alert" alias for long running commands.
 # Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+if [ command -v xclip >/dev/null 2>&1 ]; then
+	alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+fi
 
 # My IP
 alias myip='curl -s https://4.ifcfg.me/'
 alias mylocalip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'
 
 # Password generator
-# Generate random password, copies it into clipboard and outputs it to terminal
-alias password='openssl rand -base64 ${1:-9} | xcopy ; echo `xpaste`'
+# Gemnerate random password, copies it into clipboard and outputs it to terminal
+if [ "$(uname)" == "Darwin" ]; then
+	alias password='openssl rand -base64 ${1:-9} | pbcopy ; echo "$(pbpaste)"'
+fi
+if [ command -v xcopy >/dev/null 2>&1 ]; then
+	alias password='openssl rand -base64 ${1:-9} | xcopy ; echo "$(xpaste)"'
+fi
 
 # Show $PATH in readable view
 alias path='echo -e ${PATH//:/\\n}'
