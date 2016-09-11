@@ -7,5 +7,6 @@ sudo -v
 
 cd ~/Dotfiles/setup
 . ./nodejs.bash
+. ./npm.bash
 . ./atom.bash
 cd -
