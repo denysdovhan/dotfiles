@@ -53,7 +53,7 @@ fi
 zsh_path=$(which zsh)
 info "Path to Zsh: $zsh_path. Enter your password to change default shell:"
 grep -Fxq "$zsh_path" /etc/shells || sudo bash -c "echo $zsh_path >> /etc/shells"
-chsh -s "$zsh_path" $USER || error "Error: Cannot set zsh as default shell!"
+sudo chsh -s "$zsh_path" $USER || error "Error: Cannot set zsh as default shell!"
 
 # Installing Zgen
 [ -d ~/.zgen ] || git clone https://github.com/tarjoilija/zgen.git ~/.zgen
