@@ -6,10 +6,14 @@
 #   http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias sudo='sudo '
 
-# Avoid stupidity
-#   -I instead of -i, because it less intrusive than -i, while still giving
-#   protection against most mistakes.
-alias rm='rm -i'
+# Avoid stupidity with trash-cli:
+# 	https://github.com/sindresorhus/trash-cli
+# or use default rm -i
+if [ command -v trash >/dev/null 2>&1 ]; then
+	alias rm='trash'
+else
+	alias rm='rm -i'
+fi
 
 # Just bcoz clr shorter than clear
 alias clr='clear'
