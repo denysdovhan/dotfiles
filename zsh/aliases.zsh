@@ -9,7 +9,7 @@ alias sudo='sudo '
 # Avoid stupidity with trash-cli:
 # 	https://github.com/sindresorhus/trash-cli
 # or use default rm -i
-if [ command -v trash >/dev/null 2>&1 ]; then
+if type trash &>/dev/null; then
 	alias rm='trash'
 else
 	alias rm='rm -i'
