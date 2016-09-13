@@ -86,7 +86,7 @@ alias mylocalip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){
 
 # Password generator
 # Gemnerate random password, copies it into clipboard and outputs it to terminal
-if [ "$(uname)" == "Darwin" ]; then
+if [ command -v pbcopy >/dev/null 2>&1 ]; then
 	alias password='openssl rand -base64 ${1:-9} | pbcopy ; echo "$(pbpaste)"'
 fi
 if [ command -v xcopy >/dev/null 2>&1 ]; then
@@ -105,8 +105,3 @@ alias getpage='wget --no-clobber --page-requisites --html-extension --convert-li
 
 # Download file with original filename
 alias get="curl -O -L"
-
-# Battery status
-if [[ "$(uname)" != 'Darwin' ]]; then
-  alias battery="upower -i $(upower -e | grep 'BAT') | grep -E 'state|to\ full|percentage'"
-fi
