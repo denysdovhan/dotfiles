@@ -40,7 +40,8 @@ WITH_EXT = [
     'init.coffee',
     'keymap.cson',
     'snippets.cson',
-    'styles.less'
+    'styles.less',
+    'hyper.js'
 ]
 
 # remove path
@@ -67,10 +68,10 @@ def main():
     os.chdir(SOURCE_DIR)
     for filename in [file for file in glob.glob('*') if file not in EXCLUDE]:
         dotfile = filename
-        if filename not in NO_DOT_PREFIX:
-            dotfile = '.' + dotfile
         if dotfile not in WITH_EXT:
             dotfile = os.path.splitext(dotfile)[0]
+        if filename not in NO_DOT_PREFIX:
+            dotfile = '.' + dotfile
         dotfile = os.path.join(DEST_DIR, dotfile)
         source = os.path.relpath(filename, os.path.dirname(dotfile))
 
