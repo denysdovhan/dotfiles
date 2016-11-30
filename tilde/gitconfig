@@ -46,6 +46,9 @@
   # Reset index changes, but not the working tree
   undo = reset --mixed HEAD^
 
+  # Checkout to HEAD revision
+  head = checkout --
+
   # List of contributors and how many commits each person has.
   contrib = shortlog -sn
 
