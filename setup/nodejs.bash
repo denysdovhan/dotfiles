@@ -11,7 +11,7 @@ header "Installing Node.js..."
 if [[ "$(uname)" == 'Darwin' ]]; then
   brew install node
 else
-  curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+  curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
   sudo apt-get install -y nodejs
 fi
 
