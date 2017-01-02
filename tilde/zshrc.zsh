@@ -139,6 +139,9 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/sudo
   zgen oh-my-zsh plugins/web-search
   zgen oh-my-zsh plugins/vagrant
+  zgen oh-my-zsh plugins/yarn
+  zgen oh-my-zsh plugins/heroku
+  # TODO: Use extract plugin
 
   # Load external plugins
   zgen load zsh-users/zsh-autosuggestions
