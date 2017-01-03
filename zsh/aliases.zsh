@@ -18,6 +18,9 @@ fi
 # Just bcoz clr shorter than clear
 alias clr='clear'
 
+# Go to the /home/$USER (~) directory and clears window of your terminal
+alias q="~ && clear"
+
 # Folders Shortcuts
 [ -d ~/Dropbox ]              && alias dr='cd ~/Dropbox'
 [ -d ~/Downloads ]            && alias dl='cd ~/Downloads'
