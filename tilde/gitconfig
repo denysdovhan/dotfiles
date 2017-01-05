@@ -47,7 +47,7 @@
   undo = reset --mixed HEAD^
 
   # Checkout to HEAD revision
-  head = checkout --
+  discard = checkout --
 
   # List of contributors and how many commits each person has.
   contrib = shortlog -sn
