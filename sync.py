@@ -18,7 +18,7 @@ arg2 = sys.argv[2] if 2 < len(sys.argv) else None
 arg3 = sys.argv[3] if 3 < len(sys.argv) else None
 
 DOTFILES_DIR  = os.path.dirname(os.path.abspath(__file__))
-SOURCE_DIR    = os.path.join(DOTFILES_DIR, arg1 or 'tilde')
+SOURCE_DIR    = os.path.join(DOTFILES_DIR, arg1 or 'home')
 DEST_DIR      = arg2 or os.path.expanduser('~')
 BACKUP_DIR    = os.path.join(DOTFILES_DIR, arg3 or 'backup')
 

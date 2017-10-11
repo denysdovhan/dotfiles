@@ -3,7 +3,7 @@
 #
 
 # Export path to root of dotfiles repo
-export DOTFILES=${DOTFILES:-"$HOME/Dotfiles"}
+export DOTFILES=${DOTFILES:="$HOME/Dotfiles"}
 
 # Locale
 export LC_ALL=en_US.UTF-8
@@ -28,12 +28,6 @@ function _extend_path() {
 # Extend $NODE_PATH
 if [ -d ~/.npm-global ]; then
   export NODE_PATH="$NODE_PATH:$HOME/.npm-global/lib/node_modules"
-fi
-
-# NVM
-if [ -d $HOME/.nvm ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 fi
 
 # Default pager
@@ -68,14 +62,14 @@ else
 fi
 
 # SSH
-export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/id_rsa"
 
 # Add travis gem
 TRAVIS="$HOME/.travis/travis.sh"
 [ -f "$TRAVIS" ] && source $TRAVIS
 
 # Atom
-export ATOM_USER=${ATOM_USER:-denysdovhan}
+export ATOM_USER=${ATOM_USER:=denysdovhan}
 
 # OH MY ZSH
 # == == ===
@@ -119,6 +113,8 @@ ZSH_CUSTOM="$DOTFILES/zsh"
 # ZGEN
 # ====
 
+[ -f ~/.zshlocal ] && source ~/.zshlocal
+
 # load zgen
 source "$HOME/.zgen/zgen.zsh"
 
@@ -139,20 +135,23 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/yarn
   zgen oh-my-zsh plugins/heroku
   # TODO: Use extract plugin
+  zgen oh-my-zsh plugins/themes
+  zgen oh-my-zsh plugins/rbenv
 
   # Load external plugins
   zgen load zsh-users/zsh-autosuggestions
   zgen load zsh-users/zsh-syntax-highlighting
   zgen load hlissner/zsh-autopair
-  zgen load akoenig/npm-run.plugin.zsh
+  # zgen load lukechilds/zsh-better-npm-completion
   zgen load akoenig/gulp.plugin.zsh
   zgen load denysdovhan/gitio-zsh
 
   # Load theme
-  zgen load denysdovhan/spaceship-zsh-theme spaceship
+  # zgen load denysdovhan/spaceship-zsh-theme spaceship
+  zgen load $HOME/Projects/Repos/spaceship-zsh-theme
 
   # Automaticaly refresh ~/.zshrc and ~/.zshlocal
-  if [[ -f ~/.zshlocal ]]; then
+  if [[ -f "$HOME/.zshlocal" ]]; then
     ZGEN_RESET_ON_CHANGE=("$HOME/.zshrc" "$HOME/.zshlocal")
   else
     ZGEN_RESET_ON_CHANGE=("$HOME/.zshrc")
@@ -164,3 +163,5 @@ fi
 
 # Load extra (private) settings
 [ -f ~/.zshlocal ] && source ~/.zshlocal
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

@@ -24,11 +24,6 @@ module.exports = {
     // custom css to embed in the main window
     css: '',
 
-    // custom css to embed in the terminal window
-    termCSS: `x-screen x-row {
-      font-variant-ligatures: initial;
-    }`,
-
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '12px 14px',
 
@@ -85,6 +80,13 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     'hyperterm-atom-dark',
+    // 'hyper-dracula',
+    // 'hyper-material-theme',
+    // 'hyper-one-light',
+    // 'hyper-solarized-dark',
+    // 'hyper-solarized-light',
+    // 'hyperterm-monokai',
+    // 'hyperterm-oceanic-next',
     'hyperterm-paste',
     'hyperlinks',
     'hypercwd',
