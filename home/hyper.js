@@ -24,6 +24,9 @@ module.exports = {
     // custom css to embed in the main window
     css: '',
 
+    // custom css to embed in the terminal window
+    termCSS: ``,
+
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '12px 14px',
 
@@ -89,7 +92,6 @@ module.exports = {
     // 'hyperterm-oceanic-next',
     'hyperterm-paste',
     'hyperlinks',
-    'hypercwd',
   ],
 
   // in development, you can create a directory under

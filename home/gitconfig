@@ -11,6 +11,7 @@
   editor = vim
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
+	ignorecase = false
 
 [alias]
   a = add

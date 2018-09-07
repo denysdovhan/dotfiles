@@ -55,14 +55,11 @@ info "Path to Zsh: $zsh_path. Enter your password to change default shell:"
 grep -Fxq "$zsh_path" /etc/shells || sudo bash -c "echo $zsh_path >> /etc/shells"
 sudo chsh -s "$zsh_path" $USER || error "Error: Cannot set zsh as default shell!"
 
-# Installing Zgen
-[ -d ~/.zgen ] || git clone https://github.com/tarjoilija/zgen.git ~/.zgen
-
 # Clone dotfiles and make symlinks
 info "Installing dotfiles..."
 
 if [ ! -d $DOTFILES ]; then
-  git clone https://github.com/denysdovhan/dotfiles.git $DOTFILES
+  git clone --recursive https://github.com/denysdovhan/dotfiles.git $DOTFILES
   if [ -d $DOTFILES ]; then
     cd $DOTFILES && ./sync.py && cd -
   else
