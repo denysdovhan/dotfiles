@@ -61,7 +61,7 @@ alias hex2hsl='color.js $1 $2'
 alias hex2rgb='color.js --rgb $1 $2'
 
 # Get Ubuntu Updates, and update npm and its installed packages
-alias update="source $DOTFILES/setup/update.bash"
+alias update="source $DOTFILES/scripts/update.bash"
 
 # Add an "alert" alias for long running commands.
 # Use like so:

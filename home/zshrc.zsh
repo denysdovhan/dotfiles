@@ -5,9 +5,10 @@
 # Export path to root of dotfiles repo
 export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
 
+# Source zplug manager (https://github.com/zplug/zplug)
 source "$DOTFILES/modules/zplug/init.zsh"
 
-# Load Oh-My-Zsh core
+# Oh-My-Zsh core
 zplug "lib/*", from:oh-my-zsh
 
 # Oh-My-Zsh plugins
@@ -26,17 +27,22 @@ zplug "plugins/gpg-agent", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "hlissner/zsh-autopair", defer:2
+
+# Extra
 zplug "lukechilds/zsh-better-npm-completion", defer:2
 zplug "denysdovhan/gitio-zsh", as:command, use:"gitio.zsh"
 
+# Spaceship ZSH
 if [[ -d "$HOME/Projects/Repos/spaceship-prompt" ]]; then
   zplug "$HOME/Projects/Repos/spaceship-prompt", from:local, as:theme, use:"spaceship.zsh"
 else
   zplug "denysdovhan/spaceship-prompt", as:theme, use:"spaceship.zsh"
 fi
 
+# Dotfiles
 zplug "$DOTFILES/lib", from:local
 
+# Custom local overridings
 zplug "~/.zshlocal", from:local, if:"[[ -f ~/.zshlocal ]]"
 
 # Install plugins if there are plugins that have not been installed
@@ -45,4 +51,4 @@ if ! zplug check --verbose; then
 fi
 
 # Then, source plugins and add commands to $PATH
-zplug load --verbose
+zplug load
