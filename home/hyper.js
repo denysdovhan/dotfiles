@@ -83,13 +83,6 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     'hyperterm-atom-dark',
-    // 'hyper-dracula',
-    // 'hyper-material-theme',
-    // 'hyper-one-light',
-    // 'hyper-solarized-dark',
-    // 'hyper-solarized-light',
-    // 'hyperterm-monokai',
-    // 'hyperterm-oceanic-next',
     'hyperterm-paste',
     'hyperlinks',
   ],
@@ -97,7 +90,5 @@ module.exports = {
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: [
-    
-  ]
+  localPlugins: []
 };
