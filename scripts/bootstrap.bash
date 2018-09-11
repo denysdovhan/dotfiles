@@ -5,7 +5,10 @@
 # Ask for the administrator password upfront
 sudo -v
 
+# iterm
+# chrome
+# 
+
 cd ~/Dotfiles/setup
 . ./nodejs.bash
-. ./npm.bash
 cd -
