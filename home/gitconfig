@@ -11,7 +11,7 @@
   editor = vim
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
-	ignorecase = false
+  ignorecase = false
 
 [alias]
   a = add
@@ -75,10 +75,10 @@
 
 # Add LFS commands
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
 
 # Include local settings from .gitlocal
 # Requires Git 1.7.10
@@ -88,6 +88,6 @@
 # Example .gitlocal:
 # [user]
 #   name = Denys Dovhan
-#   email = email@denysdovhan.com
+#   email = denysdovhan@gmail.com
 [include]
   path = ~/.gitlocal
