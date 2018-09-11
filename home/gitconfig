@@ -25,6 +25,7 @@
   cam = commit -am # Add all files and commit with message
   s = status -sb   # Short status with current branch
   master = !git checkout master && git pull --prune
+  develop = !git checkout develop && git pull --prune
 
   # Commits log with pretty format
   l = log --all --graph --decorate --oneline
