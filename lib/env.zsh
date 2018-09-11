@@ -7,7 +7,7 @@ export LANGUAGE=en_US.UTF-8
 set -o noclobber
 
 # Extend $PATH without duplicates
-function _extend_path() {
+_extend_path() {
   if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
     PATH="$1:$PATH"
   fi
