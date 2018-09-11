@@ -207,6 +207,9 @@ install_dotfiles() {
     success "You already have dotfiles installed. Skipping..."
   fi
 
+  info "Linking dotfiles..."
+  cd $DOTFILES && ./sync.py && cd -
+
   success "Done!"
   echo
   sleep 1
@@ -225,6 +228,8 @@ on_finish() {
   echo -e  $RESET$BOLD'~|__( ^ .^)'$RESET
   echo -ne $CYAN'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
   echo -e  $RESET$BOLD'""  ""'$RESET
+  echo
+  info "P.S: Don't forget to restart a terminal :)"
   echo
 }
 
