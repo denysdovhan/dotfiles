@@ -8,6 +8,9 @@ export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
 # Source zplug manager (https://github.com/zplug/zplug)
 source "$DOTFILES/modules/zplug/init.zsh"
 
+# Let zplug manage itself like other packages
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
 # Oh-My-Zsh core
 zplug "lib/*", from:oh-my-zsh
 

@@ -2,9 +2,8 @@
 
 """
 Dotfiles syncronization.
-Makes symlinks for all files: ./tilde/bashrc.bash will by available as ~/.bashrc.
-Based: https://gist.github.com/490016
-Source: https://github.com/sapegin/dotfiles/blob/master/sync.py
+Makes symlinks for all files: ./home/.zshrc will by available as ~/.zshrc.
+Based on: https://github.com/sapegin/dotfiles/blob/master/sync.py
 """
 
 import os
@@ -24,25 +23,6 @@ BACKUP_DIR    = os.path.join(DOTFILES_DIR, arg3 or 'backup')
 
 # Excluded files
 EXCLUDE = []
-
-# Files without dots
-NO_DOT_PREFIX = [
-    'config.cson',
-    'init.coffee',
-    'keymap.cson',
-    'snippets.cson',
-    'styles.less'
-]
-
-# Files which should be left with extantions
-WITH_EXT = [
-    'config.cson',
-    'init.coffee',
-    'keymap.cson',
-    'snippets.cson',
-    'styles.less',
-    'hyper.js'
-]
 
 # remove path
 def forse_remove(path):
@@ -67,13 +47,11 @@ def copy(path, dest):
 def main():
     os.chdir(SOURCE_DIR)
     for filename in [file for file in glob.glob('*') if file not in EXCLUDE]:
-        dotfile = filename
-        if dotfile not in WITH_EXT:
-            dotfile = os.path.splitext(dotfile)[0]
-        if filename not in NO_DOT_PREFIX:
-            dotfile = '.' + dotfile
-        dotfile = os.path.join(DEST_DIR, dotfile)
+        dotfile = os.path.join(DEST_DIR, filename)
         source = os.path.relpath(filename, os.path.dirname(dotfile))
+
+        print "dotfile: %s" % dotfile
+        print "source: %s" % source
 
         # check that we aren't overwriting anything
         if os.path.exists(dotfile):
