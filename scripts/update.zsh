@@ -120,9 +120,11 @@ update_npm() {
     info "Permissions are fixed. Updating without sudo..."
     npm install npm -g
   else
-    warn "Permissions needed!"
-    warn "Better to fix your permissions. Read more:"
-    warn "\t <https://docs.npmjs.com/getting-started/fixing-npm-permissions>"
+    error "Permissions needed!"
+    echo "Better to fix your permissions. Read more:"
+    echo "\t <https://docs.npmjs.com/getting-started/fixing-npm-permissions>"
+    echo
+    echo "The script will ask you the password for sudo:"
     sudo npm install npm -g
   fi
 
