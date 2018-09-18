@@ -38,6 +38,13 @@ success() {
   echo -e "${GREEN}${*}${RESET}"
 }
 
+# End section
+finish() {
+  success "Done!"
+  echo
+  sleep 1
+}
+
 # Set directory
 export DOTFILES=${1:-"$HOME/.dotfiles"}
 GITHUB_REPO_URL_BASE="https://github.com/denysdovhan/dotfiles"
@@ -87,9 +94,7 @@ install_cli_tools() {
     success "Seems like you have installed Command Line Tools. Skipping..."
   fi
 
-  success "Done!"
-  echo
-  sleep 1
+  finish
 }
 
 install_homebrew() {
@@ -116,9 +121,7 @@ install_homebrew() {
     success "You already have Homebrew installed. Skipping..."
   fi
 
-  success "Done!"
-  echo
-  sleep 1
+  finish
 }
 
 install_git() {
@@ -146,9 +149,7 @@ install_git() {
     success "You already have Git installed. Skipping..."
   fi
 
-  success "Done!"
-  echo
-  sleep 1
+  finish
 }
 
 install_zsh() {
@@ -165,7 +166,7 @@ install_zsh() {
     info "Installing Git..."
     
     if [ `uname` == 'Darwin' ]; then
-      brew install zsh
+      brew install zsh zsh-completions
     elif [ `uname` == 'Linux' ]; then
       sudo apt-get install zsh
     else
@@ -185,9 +186,7 @@ install_zsh() {
     success "You already have Zsh installed. Skipping..."
   fi
 
-  success "Done!"
-  echo
-  sleep 1
+  finish
 }
 
 install_dotfiles() {
@@ -210,9 +209,7 @@ install_dotfiles() {
   info "Linking dotfiles..."
   cd $DOTFILES && ./sync.py && cd -
 
-  success "Done!"
-  echo
-  sleep 1
+  finish
 }
 
 on_finish() {
