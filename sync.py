@@ -20,9 +20,7 @@ DOTFILES_DIR  = os.path.dirname(os.path.abspath(__file__))
 SOURCE_DIR    = os.path.join(DOTFILES_DIR, arg1 or 'home')
 DEST_DIR      = arg2 or os.path.expanduser('~')
 BACKUP_DIR    = os.path.join(DOTFILES_DIR, arg3 or 'backup')
-
-# Excluded files
-EXCLUDE = []
+EXCLUDE       = []
 
 # remove path
 def forse_remove(path):
@@ -46,12 +44,9 @@ def copy(path, dest):
 
 def main():
     os.chdir(SOURCE_DIR)
-    for filename in [file for file in glob.glob('*') if file not in EXCLUDE]:
+    for filename in [file for file in os.listdir('.') if file not in EXCLUDE]:
         dotfile = os.path.join(DEST_DIR, filename)
         source = os.path.relpath(filename, os.path.dirname(dotfile))
-
-        print "dotfile: %s" % dotfile
-        print "source: %s" % source
 
         # check that we aren't overwriting anything
         if os.path.exists(dotfile):
