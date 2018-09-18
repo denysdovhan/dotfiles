@@ -1,61 +1,115 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Get System Updates, update NPM packages and dotfiles
 # Source: https://github.com/sapegin/dotfiles/blob/master/setup/update.sh
 
-WHITE="$(tput setaf 7)"
-BOLD="$(tput bold)"
-CYAN="$(tput setaf 6)"
-RED="$(tput setaf 1)"
-YELLOW="$(tput setaf 3)"
-GREEN="$(tput setaf 2)"
+set -e
+trap on_error SIGKILL SIGTERM
 
-# Function for pretty headers
-function header() {
-  echo -e "$(tput sgr 0 1)$(tput setaf 6)$1$(tput sgr0)"
+e='\033'
+RESET="${e}[0m"
+BOLD="${e}[1m"
+CYAN="${e}[0;96m"
+RED="${e}[0;91m"
+YELLOW="${e}[0;93m"
+GREEN="${e}[0;92m"
+
+_exists() {
+  command -v $1 > /dev/null 2>&1
 }
 
-# Function for pretty wargnings
-function warn() {
-  echo -e "$(tput setaf 3)$1$(tput sgr0)"
+# Success reporter
+info() {
+  echo -e "${CYAN}${*}${RESET}"
 }
 
-# Sudo for gems and other
-sudo -v
+# Error reporter
+error() {
+  echo -e "${RED}${*}${RESET}"
+}
 
-# Dotfiles
-header "Updating dotfiles..."
-cd $DOTFILES
-git pull
-./sync.py
-source ~/.zshrc
-cd - > /dev/null 2>&1
-zgen selfupdate
-zgen update
-echo
+# Success reporter
+success() {
+  echo -e "${GREEN}${*}${RESET}"
+}
 
-# Homebrew
-command -v brew >/dev/null 2>&1 && {
-  header "Updating Homebrew..."
-  brew update
-  brew upgrade --all
-  brew cleanup
+# End section
+finish() {
+  success "Done!"
   echo
+  sleep 1
 }
 
-# Ubuntu
-command -v apt-get >/dev/null 2>&1 && {
-  header "Updating Ubuntu and installed packages..."
+# Set directory
+export DOTFILES=${1:-"$HOME/.dotfiles"}
+
+on_start() {
+  info "           __        __   ____ _  __           "
+  info "      ____/ /____   / /_ / __/(_)/ /___   _____"
+  info "     / __  // __ \ / __// /_ / // // _ \ / ___/"
+  info "  _ / /_/ // /_/ // /_ / __// // //  __/(__  ) "
+  info " (_)\__,_/ \____/ \__//_/  /_//_/ \___//____/  "
+  info "                                               "
+  info "              by @denysdovhan                  "
+  info "                                               "
+}
+
+update_dotfiles() {
+  info "Updating dotfiles..."
+
+  cd $DOTFILES
+  git pull origin master
+  ./sync.py
+  cd - > /dev/null 2>&1
+
+  info "Updating zplug packages..."
+  # Source zplug
+  source "$DOTFILES/modules/zplug/init.zsh"
+  # Remove repositories which are no longer managed
+  zplug clean --force
+  # Remove the cache file
+  zplug clear
+  # Update installed packages in parallel
+  zplug update
+
+  finish
+}
+
+update_brew() {
+  if ! _exists brew; then
+    return
+  fi
+
+  info "Updating Homebrew..."
+
+  brew update
+  brew upgrade
+  brew cleanup
+
+  finish
+}
+
+update_apt_get() {
+  if ! _exists apt-get; then
+    return
+  fi
+
+  info "Updating Ubuntu and installed packages..."
+
   sudo apt-get update
   sudo apt-get upgrade -y
   sudo apt-get autoremove -y
   sudo apt-get autoclean -y
-  echo
+
+  finish
 }
 
-# NPM
-command -v npm >/dev/null 2>&1 && {
-  header "Updating NPM..."
+update_npm() {
+  if ! _exists npm; then
+    return
+  fi
+
+  info "Updating NPM..."
 
   NPM_PERMS="$(ls -l $(npm config get prefix)/bin \
     | awk 'NR>1{print $3}' \
@@ -63,44 +117,79 @@ command -v npm >/dev/null 2>&1 && {
     | uniq)"
 
   if [[ "$NPM_PERMS" == "$(whoami)" ]]; then
-    warn "Permissions are fixed. Updating without sudo..."
-    npm install npm npm-check-updates -g
-    ncu -g
+    info "Permissions are fixed. Updating without sudo..."
+    npm install npm -g
   else
     warn "Permissions needed!"
     warn "Better to fix your permissions. Read more:"
     warn "\t <https://docs.npmjs.com/getting-started/fixing-npm-permissions>"
-    sudo npm install npm npm-check-updates -g
-    sudo ncu -g
+    sudo npm install npm -g
   fi
 
-  echo
+  # Update packages with npm-check-updates
+  if _exists npx; then
+    npx ncu -g
+  fi
+
+  finish
 }
 
-# Ruby gems
-command -v gem >/dev/null 2>&1 && {
-  header "Updating Ruby gems..."
+update_gem() {
+  if ! _exists gem; then
+    return
+  fi
+
+  info "Updating Ruby gems..."
+
   sudo -v
   sudo gem update
-  echo
+
+  finish
 }
 
 # Atom packages
-command -v apm >/dev/null 2>&1 && {
-  header "Updating Atom packages..."
+update_apm() {
+  if ! _exists apm; then
+    return
+  fi
+
+  info "Updating Atom packages..."
+
   apm update --no-confirm
+
+  finish
+}
+
+on_finish() {
+  success "Done!"
+  success "Happy Coding!"
+  echo
+  echo -ne $RED'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
+  echo -e  $RESET$BOLD',------,'$RESET
+  echo -ne $YELLOW'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
+  echo -e  $RESET$BOLD'|   /\_/\\'$RESET
+  echo -ne $GREEN'-_-_-_-_-_-_-_-_-_-_-_-_-_-'
+  echo -e  $RESET$BOLD'~|__( ^ .^)'$RESET
+  echo -ne $CYAN'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
+  echo -e  $RESET$BOLD'""  ""'$RESET
   echo
 }
 
-echo "Update successfully done!"
+on_error() {
+  error "Wow... Something serious happened!"
+  error "Though, I don't know what really happened :("
+  exit 1
+}
 
-echo
-echo -en $RED'-_-_-_-_-_-_-_'
-echo -e  $WHITE$BOLD',------,'$WHITE
-echo -en $YELLOW'_-_-_-_-_-_-_-'
-echo -e  $WHITE$BOLD'|   /\_/\\'$WHITE
-echo -en $GREEN'-_-_-_-_-_-_-'
-echo -e  $WHITE$BOLD'~|__( ^ .^)'$WHITE
-echo -en $CYAN'-_-_-_-_-_-_-_-'
-echo -e  $WHITE$BOLD'""  ""'$WHITE
-echo
+main() {
+  on_start "$*"
+  update_dotfiles "$*"
+  update_brew "$*"
+  update_apt_get "$*"
+  update_npm "$*"
+  update_gem "$*"
+  update_apm "$*"
+  on_finish "$*"
+}
+
+main "$*"
