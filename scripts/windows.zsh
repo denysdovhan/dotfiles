@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # /windows folders syncronization.
 # Makes symlinks for all folders in /windows to /home:
