@@ -68,9 +68,9 @@ configure_npm_init() {
   local email="denysdovhan@gmail.com"
   local website="http://denysdovhan.com/"
 
-  ask "What is your name? ($name): " && read EMAIL
+  ask "What is your name? ($name): " && read NAME
   ask "What is your email? ($email): " && read EMAIL
-  ask "What is your website? ($website): " && read SITE
+  ask "What is your website? ($website): " && read WEBSITE
 
   # If required parameters are not entered, set them default values
   : ${NAME:="$name"}

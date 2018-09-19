@@ -10,5 +10,6 @@ sudo -v
 # 
 
 cd ~/Dotfiles/setup
-. ./nodejs.bash
+. ./brew.zsh
+. ./nodejs.zsh
 cd -
