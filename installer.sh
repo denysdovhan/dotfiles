@@ -99,7 +99,7 @@ install_cli_tools() {
 
 install_homebrew() {
   # There's not need to install Homebrew on Linux
-  if [ `uname` == 'Linux' ]; then
+  if [ `uname` != 'Darwin' ]; then
     return
   fi
   
@@ -212,6 +212,18 @@ install_dotfiles() {
   finish
 }
 
+bootstrap() {
+  ask "Would you like to bootstrap your environment?"
+  echo
+  if [ $answer != "y" ]; then
+    exit 1
+  fi
+
+  $DOTFILES/scripts/bootstrap.zsh
+
+  finish
+}
+
 on_finish() {
   echo
   success "Setup was successfully done!"
@@ -246,6 +258,7 @@ main() {
   install_git "$*"
   install_zsh "$*"
   install_dotfiles "$*"
+  bootstrap "$*"
   on_finish "$*"
 }
 
