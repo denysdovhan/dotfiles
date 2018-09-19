@@ -1,1 +1,6 @@
-backup/
+# Backup folder
+backup/**
+# Ignore workspaces
+vscode/User/workspaceStorage
+# Local VSCode settings
+.vscode
