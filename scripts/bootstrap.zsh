@@ -5,10 +5,6 @@
 # Ask for the administrator password upfront
 sudo -v
 
-# iterm
-# chrome
-# 
-
 cd ~/Dotfiles/setup
 . ./brew.zsh
 . ./nodejs.zsh
