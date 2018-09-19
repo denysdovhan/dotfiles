@@ -26,7 +26,10 @@
   s = status -sb   # Short status with current branch
   master = !git checkout master && git pull --prune
   develop = !git checkout develop && git pull --prune
-
+  
+  # When doing "git git log" or some such, do not complain about "git" not
+  git = !git
+  
   # Commits log with pretty format
   l = log --all --graph --decorate --oneline
 
