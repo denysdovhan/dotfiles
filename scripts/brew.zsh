@@ -15,7 +15,7 @@ info() {
   echo -e "${CYAN}${*}${RESET}"
 }
 
-ask() { 
+ask() {
   printf "${YELLOW}${*} [y/N]: ${RESET}"
 }
 
@@ -58,7 +58,7 @@ brew_install() {
 
   ask "Do you agree to install $(info $program)?" && read answer
   if [[ $answer != "y" ]]; then
-    success "Skipping..." 
+    success "Skipping..."
     return
   fi
 
@@ -96,6 +96,7 @@ main() {
   brew_install wget
   brew_install yarn
   # Desktop applications
+  brew_install cask ukrainian-typographic-keyboard
   brew_install cask gpg-suite
   brew_install cask 1password
   brew_install cask telegram
