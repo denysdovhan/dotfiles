@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Bootstrap script for installing applications and tools
 
@@ -6,7 +6,6 @@
 sudo -v
 
 cd ~/Dotfiles/setup
-. ./nodejs.bash
-. ./npm.bash
-. ./atom.bash
+. ./brew.zsh
+. ./nodejs.zsh
 cd -

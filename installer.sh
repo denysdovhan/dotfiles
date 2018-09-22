@@ -1,7 +1,10 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Dotfiles and bootstrap installer
 # Installs git, clones repository and symlinks dotfiles to your home directory
+
+set -e
+trap on_error SIGKILL SIGTERM
 
 e='\033'
 RESET="${e}[0m"
@@ -11,91 +14,252 @@ RED="${e}[0;91m"
 YELLOW="${e}[0;93m"
 GREEN="${e}[0;92m"
 
+_exists() {
+  command -v $1 > /dev/null 2>&1
+}
+
 # Success reporter
 info() {
-  echo ; echo "${CYAN}${BOLD}${*}${RESET}" ; echo
+  echo -e "${CYAN}${*}${RESET}"
+}
+
+ask() { 
+  printf "${YELLOW}${*} [y/N]: ${RESET}"
+  read -n 1 answer
 }
 
 # Error reporter
 error() {
-  echo ; echo "${RED}${BOLD}${*}${RESET}" ; echo
+  echo -e "${RED}${*}${RESET}"
 }
 
 # Success reporter
 success() {
-  echo ; echo "${GREEN}${BOLD}${*}${RESET}" ; echo
+  echo -e "${GREEN}${*}${RESET}"
+}
+
+# End section
+finish() {
+  success "Done!"
+  echo
+  sleep 1
 }
 
 # Set directory
-export DOTFILES=${1:-"$HOME/Dotfiles"}
+export DOTFILES=${1:-"$HOME/.dotfiles"}
+GITHUB_REPO_URL_BASE="https://github.com/denysdovhan/dotfiles"
+HOMEBREW_INSTALLER_URL="https://raw.githubusercontent.com/Homebrew/install/master/install"
 
-# Ask for password
-sudo -v
+on_start() {
+  info "           __        __   ____ _  __           "
+  info "      ____/ /____   / /_ / __/(_)/ /___   _____"
+  info "     / __  // __ \ / __// /_ / // // _ \ / ___/"
+  info "  _ / /_/ // /_/ // /_ / __// // //  __/(__  ) "
+  info " (_)\__,_/ \____/ \__//_/  /_//_/ \___//____/  "
+  info "                                               "
+  info "              by @denysdovhan                  "
+  info "                                               "
 
-# Preinstall
-if ! hash git 2>/dev/null ; then
-  if [ `uname` == 'Darwin' ]; then
-    # Install Homebrew
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    # Install Git
-    brew install git
-    brew install zsh
-  elif [ `uname` == 'Linux' ]; then
-    # Install Git with apt-get
-    sudo apt-get install git zsh xclip
-  else
-    error "Error: Git and Zsh are required."
-    exit
+  info "This script will guide you through installing git, zsh and dofiles itself."
+  echo "It will not install anything without your direct agreement!"
+  echo
+  ask "Do you want to proceed with installation?"
+  echo
+  if [ $answer != "y" ]; then
+    exit 1
   fi
-fi
+}
 
-# Registers zsh as a default shell
-zsh_path=$(which zsh)
-info "Path to Zsh: $zsh_path. Enter your password to change default shell:"
-grep -Fxq "$zsh_path" /etc/shells || sudo bash -c "echo $zsh_path >> /etc/shells"
-sudo chsh -s "$zsh_path" $USER || error "Error: Cannot set zsh as default shell!"
+install_cli_tools() {
+  # There's not need to install XCode tools on Linux
+  if [ `uname` == 'Linux' ]; then
+    return
+  fi
+  
+  info "Trying to detect installed Command Line Tools..."
 
-# Installing Zgen
-[ -d ~/.zgen ] || git clone https://github.com/tarjoilija/zgen.git ~/.zgen
+  if ! [ $(xcode-select -p) ]; then
+    echo "You don't have Command Line Tools installed!"
+    ask "Do you agree to install Command Line Tools?"
+    echo
+    if [ $answer != "y" ]; then
+      exit 1
+    fi
 
-# Clone dotfiles and make symlinks
-info "Installing dotfiles..."
+    info "Installing Command Line Tools..."
+    echo "Please, wait until Command Line Tools will be installed, before continue."
 
-if [ ! -d $DOTFILES ]; then
-  git clone https://github.com/denysdovhan/dotfiles.git $DOTFILES
-  if [ -d $DOTFILES ]; then
+    xcode-select --install
+  else
+    success "Seems like you have installed Command Line Tools. Skipping..."
+  fi
+
+  finish
+}
+
+install_homebrew() {
+  # There's not need to install Homebrew on Linux
+  if [ `uname` != 'Darwin' ]; then
+    return
+  fi
+  
+  info "Trying to detect installed Homebrew..."
+
+  if ! _exists brew; then
+    echo "Seems like you don't have Homebrew installed!"
+    ask "Do you agree to proceed with Homebrew installation?"
+    echo
+    if [ $answer != "y" ]; then
+      exit 1
+    fi
+
+    info "Installing Homebrew..."
+    ruby -e "$(curl -fsSL ${HOMEBREW_INSTALLER_URL})"
+    brew update
+    brew upgrade
+  else
+    success "You already have Homebrew installed. Skipping..."
+  fi
+
+  finish
+}
+
+install_git() {
+  info "Trying to detect installed Git..."
+
+  if ! _exists git; then
+    echo "Seems like you don't have Git installed!"
+    ask "Do you agree to proceed with Git installation?"
+    echo
+    if [ $answer != "y" ]; then
+      exit 1
+    fi
+
+    info "Installing Git..."
+    
+    if [ `uname` == 'Darwin' ]; then
+      brew install git
+    elif [ `uname` == 'Linux' ]; then
+      sudo apt-get install git
+    else
+      error "Error: Failed to install Git!"
+      exit 1
+    fi
+  else
+    success "You already have Git installed. Skipping..."
+  fi
+
+  finish
+}
+
+install_zsh() {
+  info "Trying to detect installed Zsh..."
+
+  if ! _exists git; then
+    echo "Seems like you don't have Zsh installed!"
+    ask "Do you agree to proceed with Zsh installation?"
+    echo
+    if [ $answer != "y" ]; then
+      exit 1
+    fi
+
+    info "Installing Git..."
+    
+    if [ `uname` == 'Darwin' ]; then
+      brew install zsh zsh-completions
+    elif [ `uname` == 'Linux' ]; then
+      sudo apt-get install zsh
+    else
+      error "Error: Failed to install Zsh!"
+      exit 1
+    fi
+
+    echo "The script will ask you the password for sudo 2 times:"
+    echo
+    echo "1) When adding fish shell into /etc/shells via tee"
+    echo "2) When changing your default shell via chsh -s"
+    echo
+
+    echo "$(command -v fish)" | sudo tee -a /etc/shells
+    chsh -s "$(command -v fish)" || error "Error: Cannot set Zsh as default shell!"
+  else
+    success "You already have Zsh installed. Skipping..."
+  fi
+
+  finish
+}
+
+install_dotfiles() {
+  info "Trying to detect installed dotfiles in $DOTFILES..."
+
+  if [ ! -d $DOTFILES ]; then
+    echo "Seems like you don't have dotfiles installed!"
+    ask "Do you agree to proceed with dotfiles installation?"
+    echo
+    if [ $answer != "y" ]; then
+      exit 1
+    fi
+
+    git clone --recursive "$GITHUB_REPO_URL_BASE.git" $DOTFILES
     cd $DOTFILES && ./sync.py && cd -
   else
-    error "Error: Dotfiles weren't installed into $DOTFILES."
-    exit
+    success "You already have dotfiles installed. Skipping..."
   fi
-fi
 
-# Problem with not interactive shell
-# http://askubuntu.com/a/77053
-PS1='$>'
-if [ -d $DOTFILES ]; then
-  success "Dotfiles installed successfully!"
-else
-  error "Error: Dotfiles didn't installed!"
+  info "Linking dotfiles..."
+  cd $DOTFILES && ./sync.py && cd -
+
+  finish
+}
+
+bootstrap() {
+  ask "Would you like to bootstrap your environment?"
+  echo
+  if [ $answer != "y" ]; then
+    exit 1
+  fi
+
+  $DOTFILES/scripts/bootstrap.zsh
+
+  finish
+}
+
+on_finish() {
+  echo
+  success "Setup was successfully done!"
+  success "Happy Coding!"
+  echo
+  echo -ne $RED'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
+  echo -e  $RESET$BOLD',------,'$RESET
+  echo -ne $YELLOW'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
+  echo -e  $RESET$BOLD'|   /\_/\\'$RESET
+  echo -ne $GREEN'-_-_-_-_-_-_-_-_-_-_-_-_-_-'
+  echo -e  $RESET$BOLD'~|__( ^ .^)'$RESET
+  echo -ne $CYAN'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
+  echo -e  $RESET$BOLD'""  ""'$RESET
+  echo
+  info "P.S: Don't forget to restart a terminal :)"
+  echo
+}
+
+on_error() {
+  echo
+  error "Wow... Something serious happened!"
+  error "Though, I don't know what really happened :("
+  error "In case, you want to help me fix this problem, raise an issue -> ${CYAN}${GITHUB_REPO_URL_BASE}issues/new${RESET}"
+  echo
   exit 1
-fi
+}
 
-# Copy path to clipboard with pbcopy and xclip
-echo -n "$DOTFILES/setup/bootstrap.bash" | pbcopy 2>/dev/null
-echo -n "$DOTFILES/setup/bootstrap.bash" | xclip -selection clipboard 2>/dev/null
+main() {
+  on_start "$*"
+  install_cli_tools "$*"
+  install_homebrew "$*"
+  install_git "$*"
+  install_zsh "$*"
+  install_dotfiles "$*"
+  bootstrap "$*"
+  on_finish "$*"
+}
 
-info "Path to bootstrap script copied to clipboard."
-
-success "Please restart your terminal!"
-
-echo
-echo -n $RED'-_-_-_-_-_-_-_'
-echo    $RESET$BOLD',------,'$RESET
-echo -n $YELLOW'_-_-_-_-_-_-_-'
-echo    $RESET$BOLD'|   /\_/\\'$RESET
-echo -n $GREEN'-_-_-_-_-_-_-'
-echo    $RESET$BOLD'~|__( ^ .^)'$RESET
-echo -n $CYAN'-_-_-_-_-_-_-_-'
-echo    $RESET$BOLD'""  ""'$RESET
-echo
+main "$*"
