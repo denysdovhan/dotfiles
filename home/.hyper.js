@@ -25,9 +25,7 @@ module.exports = {
     css: '',
 
     // custom css to embed in the terminal window
-    termCSS: `x-screen x-row {
-      font-variant-ligatures: initial;
-    }`,
+    termCSS: ``,
 
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '12px 14px',
@@ -87,13 +85,10 @@ module.exports = {
     'hyperterm-atom-dark',
     'hyperterm-paste',
     'hyperlinks',
-    'hypercwd',
   ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: [
-    
-  ]
+  localPlugins: []
 };

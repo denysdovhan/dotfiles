@@ -11,6 +11,7 @@
   editor = vim
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
+  ignorecase = false
 
 [alias]
   a = add
@@ -24,7 +25,11 @@
   cam = commit -am # Add all files and commit with message
   s = status -sb   # Short status with current branch
   master = !git checkout master && git pull --prune
-
+  develop = !git checkout develop && git pull --prune
+  
+  # When doing "git git log" or some such, do not complain about "git"
+  git = !git
+  
   # Commits log with pretty format
   l = log --all --graph --decorate --oneline
 
@@ -73,10 +78,10 @@
 
 # Add LFS commands
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
 
 # Include local settings from .gitlocal
 # Requires Git 1.7.10
@@ -86,6 +91,6 @@
 # Example .gitlocal:
 # [user]
 #   name = Denys Dovhan
-#   email = email@denysdovhan.com
+#   email = denysdovhan@gmail.com
 [include]
   path = ~/.gitlocal
