@@ -25,10 +25,18 @@ Missing feature? 🍴 Fork this repo and make it better!
 
 ## Installation
 
-If you want to install my dotfiles on your machine, just copy this command and execute in the terminal:
+Dotfiles are installed by running one of the following commands in your terminal, just copy one of the following commands and execute in the terminal:
+
+**via `curl`**
 
 ```sh
-wget -O - https://raw.githubusercontent.com/denysdovhan/dotfiles/master/installer.sh | sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/dotfiles/master/installer.sh)"
+```
+
+**via `wget`**
+
+```sh
+bash -c "$(wget https://raw.githubusercontent.com/denysdovhan/dotfiles/master/installer.sh -O -)"
 ```
 
 Tell Git who you are using these commands:
