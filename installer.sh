@@ -150,7 +150,7 @@ install_git() {
 install_zsh() {
   info "Trying to detect installed Zsh..."
 
-  if ! _exists git; then
+  if ! _exists zsh; then
     echo "Seems like you don't have Zsh installed!"
     read -p "Do you agree to proceed with Zsh installation? [y/N] " -n 1 answer
     echo
@@ -168,6 +168,12 @@ install_zsh() {
       error "Error: Failed to install Zsh!"
       exit 1
     fi
+  else
+    success "You already have Zsh installed. Skipping..."
+  fi
+
+  if _exists zsh; then
+    info "Setting up Zsh as default shell..."
 
     echo "The script will ask you the password for sudo 2 times:"
     echo
@@ -175,10 +181,8 @@ install_zsh() {
     echo "2) When changing your default shell via chsh -s"
     echo
 
-    echo "$(command -v fish)" | sudo tee -a /etc/shells
-    chsh -s "$(command -v fish)" || error "Error: Cannot set Zsh as default shell!"
-  else
-    success "You already have Zsh installed. Skipping..."
+    echo "$(command -v zsh)" | sudo tee -a /etc/shells
+    chsh -s "$(command -v zsh)" || error "Error: Cannot set Zsh as default shell!"
   fi
 
   finish

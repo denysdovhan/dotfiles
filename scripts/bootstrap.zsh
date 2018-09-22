@@ -5,7 +5,9 @@
 # Ask for the administrator password upfront
 sudo -v
 
-cd ~/Dotfiles/setup
+export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
+
+cd $DOTFILES/scripts
 . ./brew.zsh
 . ./nodejs.zsh
 cd -
