@@ -30,10 +30,10 @@ alias q="~ && clear"
 [ -d ~/Downloads ]            && alias dl='cd ~/Downloads'
 [ -d ~/Desktop ]              && alias dt='cd ~/Desktop'
 [ -d ~/Projects ]             && alias pj='cd ~/Projects'
-[ -d ~/Projects/Repos ]       && alias pjr='cd ~/Projects/Repos'
 [ -d ~/Projects/Forks ]       && alias pjf='cd ~/Projects/Forks'
 [ -d ~/Projects/Job ]         && alias pjj='cd ~/Projects/Job'
 [ -d ~/Projects/Playground ]  && alias pjl='cd ~/Projects/Playground'
+[ -d ~/Projects/Repos ]       && alias pjr='cd ~/Projects/Repos'
 
 # Commands Shortcuts
 alias e="$EDITOR"
@@ -50,12 +50,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Clipboard tools
-if _exists xclip; then
-  alias xcopy='xclip -selection clipboard'
-  alias xpaste='xclip -selection clipboard -o'
-fi
-
 # Color conversion
 alias hex2hsl='color.js $1 $2'
 alias hex2rgb='color.js --rgb $1 $2'
@@ -71,8 +65,7 @@ if _exists notify-send; then
 fi
 
 # My IP
-alias myip='curl -s https://4.ifcfg.me/'
-alias mylocalip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'
+alias myip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'
 
 # Password generator
 # Gemnerate random password, copies it into clipboard and outputs it to terminal
@@ -86,10 +79,6 @@ fi
 
 # Show $PATH in readable view
 alias path='echo -e ${PATH//:/\\n}'
-
-# Git root
-# Change directory to root of git repository
-alias gr='git rev-parse 2>/dev/null && cd "./$(git rev-parse --show-cdup)"'
 
 # Download web page with all assets
 alias getpage='wget --no-clobber --page-requisites --html-extension --convert-links --no-host-directories'
