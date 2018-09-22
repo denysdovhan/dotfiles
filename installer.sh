@@ -23,11 +23,6 @@ info() {
   echo -e "${CYAN}${*}${RESET}"
 }
 
-ask() { 
-  printf "${YELLOW}${*} [y/N]: ${RESET}"
-  read -n 1 answer
-}
-
 # Error reporter
 error() {
   echo -e "${RED}${*}${RESET}"
@@ -63,7 +58,7 @@ on_start() {
   info "This script will guide you through installing git, zsh and dofiles itself."
   echo "It will not install anything without your direct agreement!"
   echo
-  ask "Do you want to proceed with installation?"
+  read -p "Do you want to proceed with installation? [y/N] " -n 1 answer
   echo
   if [ $answer != "y" ]; then
     exit 1
@@ -75,12 +70,12 @@ install_cli_tools() {
   if [ `uname` == 'Linux' ]; then
     return
   fi
-  
+
   info "Trying to detect installed Command Line Tools..."
 
   if ! [ $(xcode-select -p) ]; then
     echo "You don't have Command Line Tools installed!"
-    ask "Do you agree to install Command Line Tools?"
+    read "Do you agree to install Command Line Tools? [y/N] " -n 1 answer
     echo
     if [ $answer != "y" ]; then
       exit 1
@@ -102,12 +97,12 @@ install_homebrew() {
   if [ `uname` != 'Darwin' ]; then
     return
   fi
-  
+
   info "Trying to detect installed Homebrew..."
 
   if ! _exists brew; then
     echo "Seems like you don't have Homebrew installed!"
-    ask "Do you agree to proceed with Homebrew installation?"
+    read -p "Do you agree to proceed with Homebrew installation? [y/N] " -n 1 answer
     echo
     if [ $answer != "y" ]; then
       exit 1
@@ -129,14 +124,14 @@ install_git() {
 
   if ! _exists git; then
     echo "Seems like you don't have Git installed!"
-    ask "Do you agree to proceed with Git installation?"
+    read -p "Do you agree to proceed with Git installation? [y/N] " -n 1 answer
     echo
     if [ $answer != "y" ]; then
       exit 1
     fi
 
     info "Installing Git..."
-    
+
     if [ `uname` == 'Darwin' ]; then
       brew install git
     elif [ `uname` == 'Linux' ]; then
@@ -157,14 +152,14 @@ install_zsh() {
 
   if ! _exists git; then
     echo "Seems like you don't have Zsh installed!"
-    ask "Do you agree to proceed with Zsh installation?"
+    read -p "Do you agree to proceed with Zsh installation? [y/N] " -n 1 answer
     echo
     if [ $answer != "y" ]; then
       exit 1
     fi
 
     info "Installing Git..."
-    
+
     if [ `uname` == 'Darwin' ]; then
       brew install zsh zsh-completions
     elif [ `uname` == 'Linux' ]; then
@@ -194,7 +189,7 @@ install_dotfiles() {
 
   if [ ! -d $DOTFILES ]; then
     echo "Seems like you don't have dotfiles installed!"
-    ask "Do you agree to proceed with dotfiles installation?"
+    read -p "Do you agree to proceed with dotfiles installation? [y/N] " -n 1 answer
     echo
     if [ $answer != "y" ]; then
       exit 1
@@ -213,7 +208,7 @@ install_dotfiles() {
 }
 
 bootstrap() {
-  ask "Would you like to bootstrap your environment?"
+  read -p "Would you like to bootstrap your environment? [y/N] " -n 1 answer
   echo
   if [ $answer != "y" ]; then
     exit 1
