@@ -60,7 +60,7 @@ on_start() {
   echo
   read -p "Do you want to proceed with installation? [y/N] " -n 1 answer
   echo
-  if [ $answer != "y" ]; then
+  if [ ${answer} != "y" ]; then
     exit 1
   fi
 }
@@ -75,9 +75,9 @@ install_cli_tools() {
 
   if ! [ $(xcode-select -p) ]; then
     echo "You don't have Command Line Tools installed!"
-    read "Do you agree to install Command Line Tools? [y/N] " -n 1 answer
+    read -p "Do you agree to install Command Line Tools? [y/N] " -n 1 answer
     echo
-    if [ $answer != "y" ]; then
+    if [ ${answer} != "y" ]; then
       exit 1
     fi
 
@@ -104,7 +104,7 @@ install_homebrew() {
     echo "Seems like you don't have Homebrew installed!"
     read -p "Do you agree to proceed with Homebrew installation? [y/N] " -n 1 answer
     echo
-    if [ $answer != "y" ]; then
+    if [ ${answer} != "y" ]; then
       exit 1
     fi
 
@@ -126,7 +126,7 @@ install_git() {
     echo "Seems like you don't have Git installed!"
     read -p "Do you agree to proceed with Git installation? [y/N] " -n 1 answer
     echo
-    if [ $answer != "y" ]; then
+    if [ ${answer} != "y" ]; then
       exit 1
     fi
 
@@ -154,7 +154,7 @@ install_zsh() {
     echo "Seems like you don't have Zsh installed!"
     read -p "Do you agree to proceed with Zsh installation? [y/N] " -n 1 answer
     echo
-    if [ $answer != "y" ]; then
+    if [ ${answer} != "y" ]; then
       exit 1
     fi
 
@@ -191,7 +191,7 @@ install_dotfiles() {
     echo "Seems like you don't have dotfiles installed!"
     read -p "Do you agree to proceed with dotfiles installation? [y/N] " -n 1 answer
     echo
-    if [ $answer != "y" ]; then
+    if [ ${answer} != "y" ]; then
       exit 1
     fi
 
@@ -210,7 +210,7 @@ install_dotfiles() {
 bootstrap() {
   read -p "Would you like to bootstrap your environment? [y/N] " -n 1 answer
   echo
-  if [ $answer != "y" ]; then
+  if [ ${answer} != "y" ]; then
     exit 1
   fi
 

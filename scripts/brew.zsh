@@ -46,7 +46,7 @@ on_start() {
   echo
   ask "Do you want to proceed with installation?" && read answer
   echo
-  if [[ "$answer" != "y" ]]; then
+  if [[ "${answer}" != "y" ]]; then
     exit 1
   fi
 }
@@ -57,7 +57,7 @@ brew_install() {
   [[ -z $program ]] && program=$cask
 
   ask "Do you agree to install $(info $program)?" && read answer
-  if [[ $answer != "y" ]]; then
+  if [[ ${answer} != "y" ]]; then
     success "Skipping..."
     return
   fi
