@@ -37,7 +37,7 @@ finish() {
 }
 
 on_start() {
-  if [[ $(uname) != 'Darwin']]; then
+  if [[ $(uname) != 'Darwin' ]]; then
     exit 1
   fi
 
