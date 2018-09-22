@@ -27,7 +27,7 @@
   master = !git checkout master && git pull --prune
   develop = !git checkout develop && git pull --prune
   
-  # When doing "git git log" or some such, do not complain about "git" not
+  # When doing "git git log" or some such, do not complain about "git"
   git = !git
   
   # Commits log with pretty format
