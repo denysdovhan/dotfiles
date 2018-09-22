@@ -64,7 +64,7 @@ brew_install() {
 
   if [[ $cask == 'cask' ]]; then
     info "Installing $program with cask..."
-    brew cask install $programm
+    brew cask install $program
   else
     info "Installing $program..."
     brew install $program
