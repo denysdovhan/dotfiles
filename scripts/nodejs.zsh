@@ -16,7 +16,7 @@ info() {
   echo -e "${CYAN}${*}${RESET}"
 }
 
-ask() { 
+ask() {
   printf "${YELLOW}${*}${RESET}"
 }
 
@@ -54,6 +54,7 @@ install_nvm() {
   # Install nvm
   info "Installing nvm..."
 
+  mkdir $HOME/.nvm
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
   finish
