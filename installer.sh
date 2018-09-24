@@ -215,7 +215,7 @@ bootstrap() {
   read -p "Would you like to bootstrap your environment? [y/N] " -n 1 answer
   echo
   if [ ${answer} != "y" ]; then
-    exit 1
+    return
   fi
 
   $DOTFILES/scripts/bootstrap.zsh

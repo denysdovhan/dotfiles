@@ -1,14 +1,5 @@
 #!/usr/bin/env zsh
 
-# TODO:
-# * check if code is available
-# * if not available, then open it and show instructions how to enable.
-# * if available, then install extensions
-# * sync settings
-# * install plugins
-
-#!/usr/bin/env zsh
-
 trap on_error SIGKILL SIGTERM
 
 e='\033'
