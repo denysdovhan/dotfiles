@@ -12,9 +12,9 @@ import glob
 import shutil
 
 # Get first, second an third arguments
-arg1 = sys.argv[1] if 1 < len(sys.argv) else None
-arg2 = sys.argv[2] if 2 < len(sys.argv) else None
-arg3 = sys.argv[3] if 3 < len(sys.argv) else None
+arg1 = sys.argv[1] if 1 < len(sys.argv) else None # Source
+arg2 = sys.argv[2] if 2 < len(sys.argv) else None # Dest
+arg3 = sys.argv[3] if 3 < len(sys.argv) else None # Backup
 
 DOTFILES_DIR  = os.path.dirname(os.path.abspath(__file__))
 SOURCE_DIR    = os.path.join(DOTFILES_DIR, arg1 or 'home')

@@ -41,6 +41,12 @@ on_start() {
     exit 1
   fi
 
+  info '                             ____  _____ '
+  info '    ____ ___   ____ _ _____ / __ \/ ___/ '
+  info '   / __ `__ \ / __ `// ___// / / /\__ \  '
+  info '  / / / / / // /_/ // /__ / /_/ /___/ /  '
+  info ' /_/ /_/ /_/ \__,_/ \___/ \____//____/   '
+  info '                                         '
   info "This script will guide you through installing macOS applications and cli tools."
   echo "It will not install anything without your direct agreement!"
   echo
@@ -96,6 +102,7 @@ main() {
   brew_install wget
   brew_install yarn
   # Desktop applications
+  brew_install cask java
   brew_install cask ukrainian-typographic-keyboard
   brew_install cask gpg-suite
   brew_install cask 1password

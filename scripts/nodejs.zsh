@@ -37,6 +37,23 @@ finish() {
   sleep 1
 }
 
+on_start() {
+  info '     _   __            __            _       '
+  info '    / | / /____   ____/ /___        (_)_____ '
+  info '   /  |/ // __ \ / __  // _ \      / // ___/ '
+  info '  / /|  // /_/ // /_/ //  __/_    / /(__  )  '
+  info ' /_/ |_/ \____/ \__,_/ \___/(_)__/ //____/   '
+  info '                              /___/          '
+  info '                                             '
+  info "This script will guide you through installing Node.js, nvm, etc."
+  echo
+  ask "Do you want to proceed with installation?" && read answer
+  echo
+  if [[ "${answer}" != "y" ]]; then
+    exit 1
+  fi
+}
+
 install_node() {
   info "Installing Node.js..."
 
@@ -117,6 +134,7 @@ on_error() {
 }
 
 main() {
+  on_start "$*"
   install_node "$*"
   install_nvm "$*"
   configure_npm_init "$*"
