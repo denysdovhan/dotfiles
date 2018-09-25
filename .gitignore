@@ -2,5 +2,6 @@
 backup/**
 # Ignore workspaces
 vscode/User/workspaceStorage
+vscode/User/vsicons.settings.json
 # Local VSCode settings
 .vscode
