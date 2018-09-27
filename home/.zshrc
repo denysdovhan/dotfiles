@@ -65,6 +65,9 @@ fi
 # SSH
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 
+# GPG
+export GPG_TTY=$(tty)
+
 # Export path to root of dotfiles repo
 export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
 
