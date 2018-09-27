@@ -46,6 +46,16 @@ git config -f ~/.gitlocal user.email "email@yoursite.com"
 git config -f ~/.gitlocal user.name "Name Lastname"
 ```
 
+## Updating
+
+Use single command to get latest updates:
+
+```
+update
+```
+
+This command will update dotfiles, their dependencies, `brew` or `apt-get` packages, global `npm` dependencies, `gem`s, `apm` plugins.
+
 ## Under the hood
 
 > **Note:** You may put your custom settings into `~/.zshlocal`.
