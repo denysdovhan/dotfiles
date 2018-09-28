@@ -6,6 +6,9 @@
 # Environment
 # ------------------------------------------------------------------------------
 
+# Export path to root of dotfiles repo
+export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
+
 # Locale
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -17,15 +20,15 @@ set -o noclobber
 # Extend $PATH without duplicates
 _extend_path() {
   if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
-    PATH="$1:$PATH"
+    export PATH="$1:$PATH"
   fi
 }
 
 # Add custom bin to $PATH
-[ -d ~/.bin ] && _extend_path "$HOME/.bin"
-[ -d $DOTFILES/bin ] && _extend_path "$DOTFILES/bin"
-[ -d ~/.npm-global ] && _extend_path "$HOME/.npm-global/bin"
-[ -d ~/.rvm/bin ] && _extend_path "$HOME/.rvm/bin"
+[[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
+[[ -d "$DOTFILES/bin" ]] && _extend_path "$DOTFILES/bin"
+[[ -d "$HOME/.npm-global" ]] && _extend_path "$HOME/.npm-global/bin"
+[[ -d "$HOME/.rvm/bin" ]] && _extend_path "$HOME/.rvm/bin"
 
 # Extend $NODE_PATH
 if [ -d ~/.npm-global ]; then
@@ -64,9 +67,6 @@ fi
 
 # SSH
 export SSH_KEY_PATH="~/.ssh/id_rsa"
-
-# Export path to root of dotfiles repo
-export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
 
 # ------------------------------------------------------------------------------
 # Dependencies
