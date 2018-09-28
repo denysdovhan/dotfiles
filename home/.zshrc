@@ -66,7 +66,10 @@ else
 fi
 
 # SSH
-export SSH_KEY_PATH="~/.ssh/id_rsa"
+export SSH_KEY_PATH="$HOME/.ssh/id_rsa"
+
+# GPG
+export GPG_TTY=$(tty)
 
 # ------------------------------------------------------------------------------
 # Dependencies

@@ -46,6 +46,16 @@ git config -f ~/.gitlocal user.email "email@yoursite.com"
 git config -f ~/.gitlocal user.name "Name Lastname"
 ```
 
+## Updating
+
+Use single command to get latest updates:
+
+```
+update
+```
+
+This command will update dotfiles, their dependencies, `brew` or `apt-get` packages, global `npm` dependencies, `gem`s, `apm` plugins.
+
 ## Under the hood
 
 > **Note:** You may put your custom settings into `~/.zshlocal`.
@@ -98,6 +108,7 @@ Aliases are gonna make your work fast and enjoyable. See code in `$DOTFILES/lib/
   - **`hex2rgb <[#]dead00> [alpha]`** - convert #hex color to RGB/RGBA. `#dead00` → `rgb(222,173,0)`.
 - Misc
   - **`update`** — get updates (Runs `$DOTFILES/scripts/update.zsh`).
+  - **`dotfiles`** — jump quickly into dotfiles folder.
   - **`alert`** — throw alert notify message. Add an `alert` alias for long running commands. Use like so: `sleep 10; alert`. (Works only when `notify-send` is available).
   - **`myip`** — my local IP address.
   - **`password`** — generate random password, copies it into clipboard and outputs it to terminal.
