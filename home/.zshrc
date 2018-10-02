@@ -2,9 +2,15 @@
 # ~/.zshrc
 #
 
+# Export path to root of dotfiles repo
+export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
+
 # ------------------------------------------------------------------------------
 # Environment
 # ------------------------------------------------------------------------------
+
+# Source zplug manager (https://github.com/zplug/zplug)
+source "$DOTFILES/modules/zplug/init.zsh"
 
 # Locale
 export LC_ALL=en_US.UTF-8
@@ -26,6 +32,7 @@ _extend_path() {
 [ -d $DOTFILES/bin ] && _extend_path "$DOTFILES/bin"
 [ -d ~/.npm-global ] && _extend_path "$HOME/.npm-global/bin"
 [ -d ~/.rvm/bin ] && _extend_path "$HOME/.rvm/bin"
+[ -d $ZPLUG_BIN ] && _extend_path "$ZPLUG_BIN"
 
 # Extend $NODE_PATH
 if [ -d ~/.npm-global ]; then
@@ -68,15 +75,9 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 # GPG
 export GPG_TTY=$(tty)
 
-# Export path to root of dotfiles repo
-export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
-
 # ------------------------------------------------------------------------------
 # Dependencies
 # ------------------------------------------------------------------------------
-
-# Source zplug manager (https://github.com/zplug/zplug)
-source "$DOTFILES/modules/zplug/init.zsh"
 
 # Let zplug manage itself like other packages
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
@@ -102,7 +103,8 @@ zplug "hlissner/zsh-autopair", defer:2
 
 # Extra
 zplug "lukechilds/zsh-better-npm-completion", defer:2
-zplug "denysdovhan/gitio-zsh", as:command, use:"gitio.zsh"
+zplug "denysdovhan/gitio-zsh", as:command, use:"gitio.zsh", rename-to:"gitio"
+zplug "rauchg/wifi-password", as:command, use:"wifi-password.sh", rename-to:"wifi-password"
 
 # Spaceship ZSH
 if [[ -d "$HOME/Projects/Repos/spaceship-prompt" ]]; then
