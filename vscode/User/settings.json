@@ -1,40 +1,45 @@
 {
-    "editor.fontFamily": "Fira Code, 'Courier New', monospace",
-    "editor.fontSize": 16,
-    "editor.tabSize": 2,
-    "editor.fontLigatures": true,
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "One Dark Pro",
-    "docker.showExplorer": false,
-    "editor.minimap.enabled": true,
-    "editor.renderWhitespace": "all",
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact",
-        "vue-html": "html"
+  "editor.fontFamily": "Fira Code, 'Courier New', monospace",
+  "editor.fontSize": 16,
+  "editor.tabSize": 2,
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": true,
+  "editor.renderWhitespace": "all",
+  "editor.renderControlCharacters": false,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "One Dark Pro",
+  "window.zoomLevel": 0,
+  "breadcrumbs.enabled": true,
+  "files.defaultLanguage": "markdown",
+  "files.associations": {
+    ".env*": "shellscript",
+    "*.snap": "javascript"
+  },
+  //
+  // Plugins
+  //
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "vue-html": "html"
+  },
+  "vim.easymotion": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<esc>"]
     },
-    "vim.easymotion": true,
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["j", "j"],
-            "after": ["<esc>"]
-        },
-        {
-           "before": ["k","j"],
-            "after": ["<esc>"]
-        },
-    ],
-    "vim.easymotionMarkerFontFamily": "Fira Code, 'Courier New', monospace",
-    "vim.easymotionMarkerFontSize": "14",
-    "vim.easymotionMarkerHeight": 21,
-    "vim.easymotionMarkerWidthPerChar": 10,
-    "vim.handleKeys": {
-        "<C-d>": true,
-        "<C-r>": false // Keep "Open Recent"
-    },
-    "window.zoomLevel": 0,
-    "breadcrumbs.enabled": true,
-    "editor.renderControlCharacters": false,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "editor.formatOnSave": true,
-    // "workbench.editor.showTabs": false
+    {
+      "before": ["k", "j"],
+      "after": ["<esc>"]
+    }
+  ],
+  "vim.easymotionMarkerFontFamily": "Fira Code, 'Courier New', monospace",
+  "vim.easymotionMarkerFontSize": "14",
+  "vim.easymotionMarkerHeight": 21,
+  "vim.easymotionMarkerWidthPerChar": 10,
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-r>": false // Keep "Open Recent"
+  }
 }
