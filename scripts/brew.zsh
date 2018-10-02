@@ -101,6 +101,7 @@ main() {
   brew_install tree
   brew_install wget
   brew_install yarn
+  brew_install tldr
   # Desktop applications
   brew_install cask java
   brew_install cask ukrainian-typographic-keyboard
@@ -118,6 +119,7 @@ main() {
   brew_install cask steam
   brew_install cask transmission
   brew_install cask handbrake # video converter
+  brew_install cask insomnia
   # Finish
   on_finish
 }
