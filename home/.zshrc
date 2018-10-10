@@ -2,12 +2,12 @@
 # ~/.zshrc
 #
 
-# Export path to root of dotfiles repo
-export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
-
 # ------------------------------------------------------------------------------
 # Environment
 # ------------------------------------------------------------------------------
+
+# Export path to root of dotfiles repo
+export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
 
 # Source zplug manager (https://github.com/zplug/zplug)
 source "$DOTFILES/modules/zplug/init.zsh"
@@ -23,16 +23,16 @@ set -o noclobber
 # Extend $PATH without duplicates
 _extend_path() {
   if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
-    PATH="$1:$PATH"
+    export PATH="$1:$PATH"
   fi
 }
 
 # Add custom bin to $PATH
-[ -d ~/.bin ] && _extend_path "$HOME/.bin"
-[ -d $DOTFILES/bin ] && _extend_path "$DOTFILES/bin"
-[ -d ~/.npm-global ] && _extend_path "$HOME/.npm-global/bin"
-[ -d ~/.rvm/bin ] && _extend_path "$HOME/.rvm/bin"
-[ -d $ZPLUG_BIN ] && _extend_path "$ZPLUG_BIN"
+[[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
+[[ -d "$DOTFILES/bin" ]] && _extend_path "$DOTFILES/bin"
+[[ -d "$HOME/.npm-global" ]] && _extend_path "$HOME/.npm-global/bin"
+[[ -d "$HOME/.rvm/bin" ]] && _extend_path "$HOME/.rvm/bin"
+[[ -d "$ZPLUG_BIN" ]] && _extend_path "$ZPLUG_BIN"
 
 # Extend $NODE_PATH
 if [ -d ~/.npm-global ]; then
@@ -70,7 +70,7 @@ else
 fi
 
 # SSH
-export SSH_KEY_PATH="~/.ssh/id_rsa"
+export SSH_KEY_PATH="$HOME/.ssh/id_rsa"
 
 # GPG
 export GPG_TTY=$(tty)
