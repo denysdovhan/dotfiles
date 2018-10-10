@@ -120,6 +120,12 @@ main() {
   brew_install cask transmission
   brew_install cask handbrake # video converter
   brew_install cask insomnia
+  # Quick Look plugins
+  brew_install cask qlcolorcode # https://github.com/anthonygelibert/QLColorCode
+  brew_install cask qlstephen # https://github.com/whomwah/qlstephen
+  brew_install cask quicklook-json # https://github.com/sindresorhus/quick-look-plugins
+  brew_install cask qlimagesize # https://github.com/Nyx0uf/qlImageSize
+  brew_install cask webpquicklook # https://github.com/dchest/webp-quicklook
   # Finish
   on_finish
 }
