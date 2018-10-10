@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 # Removes old Git branches and does other cleanup
