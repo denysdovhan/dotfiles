@@ -88,3 +88,8 @@ alias getpage='wget --no-clobber --page-requisites --html-extension --convert-li
 
 # Download file with original filename
 alias get="curl -O -L"
+
+# Use tldr as help util
+if _exists tldr; then
+  alias help="tldr"
+fi
