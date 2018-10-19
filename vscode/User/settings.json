@@ -41,5 +41,6 @@
   "vim.handleKeys": {
     "<C-d>": true,
     "<C-r>": false // Keep "Open Recent"
-  }
+  },
+  "cSpell.language": "uk,en"
 }

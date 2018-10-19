@@ -149,7 +149,8 @@ main() {
   code_install EditorConfig.EditorConfig
   code_install akamud.vscode-theme-onelight
   code_install atian25.copy-syntax
-  code_install ban.spellright
+  code_install streetsidesoftware.code-spell-checker
+  code_install streetsidesoftware.code-spell-checker-ukrainian
   code_install cdsama.shell-snippets
   code_install christian-kohler.npm-intellisense
   code_install christian-kohler.path-intellisense
