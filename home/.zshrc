@@ -117,7 +117,7 @@ fi
 zplug "$DOTFILES/lib", from:local
 
 # Custom local overridings
-zplug "~/.zshlocal", from:local, if:"[[ -f ~/.zshlocal ]]"
+zplug "$HOME/.zshlocal", from:local, if:"[[ -f $HOME/.zshlocal ]]"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
