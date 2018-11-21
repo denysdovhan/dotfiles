@@ -14,7 +14,8 @@
   "files.defaultLanguage": "markdown",
   "files.associations": {
     ".env*": "shellscript",
-    "*.snap": "javascript"
+    "*.snap": "javascript",
+    "*ignore": "ignore"
   },
   //
   // Plugins
@@ -42,5 +43,18 @@
     "<C-d>": true,
     "<C-r>": false // Keep "Open Recent"
   },
-  "cSpell.language": "uk,en"
+  "cSpell.language": "uk,en",
+  "cSpell.userWords": [
+    "Denys",
+    "Dovhan",
+    "Truthy",
+    "Unmount",
+    "Workspaces",
+    "lerna",
+    "middlewares",
+    "mixins",
+    "precommit",
+    "repo"
+  ],
+  "prettier.singleQuote": true
 }
