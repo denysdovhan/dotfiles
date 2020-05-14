@@ -10,3 +10,8 @@ vscode/User/vsicons.settings.json
 
 # Local VSCode settings
 .vscode
+
+# VSCode files
+vscode/User/workspaceStorage/
+vscode/User/globalStorage/state.vscdb
+vscode/User/globalStorage/state.vscdb.backup
