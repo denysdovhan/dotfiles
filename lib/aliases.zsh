@@ -60,13 +60,6 @@ alias update="source $DOTFILES/scripts/update.zsh"
 # Quick jump to dotfiles
 alias dotfiles="cd $DOTFILES"
 
-# Add an "alert" alias for long running commands.
-# Use like so:
-#   sleep 10; alert
-if _exists notify-send; then
-  alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-fi
-
 # My IP
 alias myip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'
 
