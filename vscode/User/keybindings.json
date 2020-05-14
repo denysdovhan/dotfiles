@@ -1,4 +1,7 @@
 // Place your key bindings in this file to overwrite the defaults
 [
-  { "key": "ctrl+'",                "command": "workbench.action.terminal.toggleTerminal" },
+  {
+    "key": "shift+enter",
+    "command": "extension.aceJump"
+  }
 ]
