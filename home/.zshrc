@@ -45,7 +45,7 @@ export PAGER='less'
 # less options
 less_opts=(
   # Quit if entire file fits on first screen.
-  --quit-if-one-screen
+  -FX
   # Ignore case in searches that do not contain uppercase.
   --ignore-case
   # Allow ANSI colour escapes, but no other escapes.
