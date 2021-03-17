@@ -86,3 +86,5 @@ alias get="curl -O -L"
 if _exists tldr; then
   alias help="tldr"
 fi
+
+alias git-root='cd $(git rev-parse --show-toplevel)'
