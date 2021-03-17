@@ -18,7 +18,6 @@
   "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "vscode-icons",
   "workbench.editor.highlightModifiedTabs": true,
-  "window.zoomLevel": 0,
   "window.restoreFullscreen": true,
   "terminal.integrated.cursorBlinking": true,
   "breadcrumbs.enabled": true,
@@ -53,6 +52,7 @@
     "Truthy",
     "Unmount",
     "Workspaces",
+    "Xiaomi",
     "datetime",
     "lerna",
     "middlewares",
@@ -69,5 +69,15 @@
   ],
   "prettier.requireConfig": true,
   "eslint.format.enable": true,
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "diffEditor.renderSideBySide": false,
+  "shellcheck.enableQuickFix": true,
+  "tabnine.experimentalAutoImports": true,
+  "window.newWindowDimensions": "fullscreen",
+  "javascript.referencesCodeLens.enabled": true,
+  "gitlens.codeLens.enabled": false,
+  "editor.formatOnSave": true,
+  "[home-assistant]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
