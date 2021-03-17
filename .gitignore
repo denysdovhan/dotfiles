@@ -13,5 +13,5 @@ vscode/User/vsicons.settings.json
 
 # VSCode files
 vscode/User/workspaceStorage/
-vscode/User/globalStorage/state.vscdb
-vscode/User/globalStorage/state.vscdb.backup
+vscode/User/globalStorage
+vscode/User/globalStorage
