@@ -71,6 +71,7 @@ fi
 
 # SSH
 export SSH_KEY_PATH="$HOME/.ssh/id_rsa"
+ssh-add -K $SSH_KEY_PATH &> /dev/null 
 
 # GPG
 export GPG_TTY=$(tty)
