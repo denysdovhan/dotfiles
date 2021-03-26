@@ -76,6 +76,11 @@ ssh-add -K $SSH_KEY_PATH &> /dev/null
 # GPG
 export GPG_TTY=$(tty)
 
+# Source local configuration
+if [[ -f "$HOME/.zshlocal" ]]; then
+  source "$HOME/.zshlocal"
+fi
+
 # ------------------------------------------------------------------------------
 # Dependencies
 # ------------------------------------------------------------------------------
