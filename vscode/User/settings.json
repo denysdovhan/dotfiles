@@ -23,7 +23,8 @@
   "breadcrumbs.enabled": true,
   "files.defaultLanguage": "markdown",
   "files.associations": {
-    ".env*": "shellscript",
+    ".env*": "env",
+    ".env": "env",
     "*.snap": "javascript",
     "*ignore": "ignore"
   },
