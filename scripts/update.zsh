@@ -66,8 +66,6 @@ update_dotfiles() {
   source "$DOTFILES/modules/zplug/init.zsh"
   # Remove repositories which are no longer managed
   zplug clean --force
-  # Remove the cache file
-  zplug clear
   # Update installed packages in parallel
   zplug update
 
