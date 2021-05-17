@@ -15,7 +15,6 @@ There are tons of useful things in here:
 - [🌺 zplug](https://zplug.sh) for dependency management.
 - Useful [aliases](./lib/aliases.zsh).
 - Git config, global `.gitignore` file and aliases.
-- VSCode settings [syncronization](https://github.com/denysdovhan/dotfiles/tree/master/setup/atom.sh).
 - Dotfiles synchronization (`sync.py`) with backup.
 - Restoring old dotfiles (`restore.py`) from backup.
 - A lot of [useful bins](https://github.com/denysdovhan/dotfiles/tree/master/bin).
