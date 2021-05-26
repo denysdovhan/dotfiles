@@ -103,6 +103,7 @@ zplug "plugins/ssh-agent", from:oh-my-zsh
 zplug "plugins/gpg-agent", from:oh-my-zsh
 
 # Zsh improvements
+zplug "djui/alias-tips"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "hlissner/zsh-autopair", defer:2
@@ -131,4 +132,4 @@ if ! zplug check --verbose; then
 fi
 
 # Then, source plugins and add commands to $PATH
-zplug load
+zplug load --verbose
