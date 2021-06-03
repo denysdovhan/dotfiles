@@ -15,8 +15,6 @@ _exists() {
 # or use default rm -i
 if _exists trash; then
   alias rm='trash'
-else
-  alias rm='rm -i'
 fi
 
 # Just bcoz clr shorter than clear
@@ -44,11 +42,6 @@ alias x+='chmod +x'
 alias open='open_command'
 alias o='open'
 alias oo='open .'
-
-# Some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 
 # Color conversion
 alias hex2hsl='color.js $1 $2'
