@@ -101,7 +101,7 @@ zplug "plugins/sudo", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
 zplug "plugins/ssh-agent", from:oh-my-zsh
 zplug "plugins/gpg-agent", from:oh-my-zsh
-zplug "plugins/spotify", from:oh-my-zsh
+zplug "plugins/osx", from:oh-my-zsh
 zplug "plugins/vscode", from:oh-my-zsh
 zplug "plugins/common-aliases", from:oh-my-zsh
 zplug "plugins/command-not-found", from:oh-my-zsh
