@@ -146,19 +146,6 @@ update_gem() {
   finish
 }
 
-# Atom packages
-update_apm() {
-  if ! _exists apm; then
-    return
-  fi
-
-  info "Updating Atom packages..."
-
-  apm update --no-confirm
-
-  finish
-}
-
 on_finish() {
   success "Done!"
   success "Happy Coding!"
@@ -187,7 +174,6 @@ main() {
   update_apt_get "$*"
   update_npm "$*"
   update_gem "$*"
-  update_apm "$*"
   on_finish "$*"
 }
 
