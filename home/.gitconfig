@@ -63,6 +63,9 @@
   # How many lines in repo
   stat = !git ls-files | xargs wc -l
 
+  # Pull data from remore and push local data
+  sync = !git pull && git push
+
 [push]
   default = current
 
