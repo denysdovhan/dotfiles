@@ -3,7 +3,7 @@
 # Get System Updates, update NPM packages and dotfiles
 # Source: https://github.com/sapegin/dotfiles/blob/master/setup/update.sh
 
-trap on_error SIGKILL SIGTERM
+trap on_error SIGTERM
 
 e='\033'
 RESET="${e}[0m"
@@ -103,27 +103,7 @@ update_npm() {
 
   info "Updating NPM..."
 
-  NPM_PERMS="$(ls -l $(npm config get prefix)/bin \
-    | awk 'NR>1{print $3}' \
-    | grep "$(whoami)" \
-    | uniq)"
-
-  if [[ "$NPM_PERMS" == "$(whoami)" ]]; then
-    info "Permissions are fixed. Updating without sudo..."
-    npm install npm -g
-  else
-    error "Permissions needed!"
-    echo "Better to fix your permissions. Read more:"
-    echo "\t <https://docs.npmjs.com/getting-started/fixing-npm-permissions>"
-    echo
-    echo "The script will ask you the password for sudo:"
-    sudo npm install npm -g
-  fi
-
-  # Update packages with npm-check-updates
-  if _exists npx; then
-    npx ncu -g
-  fi
+  npm install npm -g
 
   finish
 }
@@ -135,7 +115,6 @@ update_gem() {
 
   info "Updating Ruby gems..."
 
-  sudo -v
   sudo gem update
 
   finish
@@ -163,6 +142,9 @@ on_error() {
 }
 
 main() {
+  echo "Before we proceed, please type your sudo password:"
+  sudo -v
+
   on_start "$*"
   update_dotfiles "$*"
   update_brew "$*"
