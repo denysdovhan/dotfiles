@@ -3,6 +3,7 @@
 
 # CLI Tools
 brew "zsh"
+brew "sheldon"
 brew "coreutils"
 brew "tree"
 brew "wget"
