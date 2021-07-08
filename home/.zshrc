@@ -9,9 +9,6 @@
 # Export path to root of dotfiles repo
 export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
 
-# Source zplug manager (https://github.com/zplug/zplug)
-source "$DOTFILES/modules/zplug/init.zsh"
-
 # Locale
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -32,7 +29,6 @@ _extend_path() {
 [[ -d "$DOTFILES/bin" ]] && _extend_path "$DOTFILES/bin"
 [[ -d "$HOME/.npm-global" ]] && _extend_path "$HOME/.npm-global/bin"
 [[ -d "$HOME/.rvm/bin" ]] && _extend_path "$HOME/.rvm/bin"
-[[ -d "$ZPLUG_BIN" ]] && _extend_path "$ZPLUG_BIN"
 
 # Extend $NODE_PATH
 if [ -d ~/.npm-global ]; then
@@ -74,61 +70,38 @@ if [[ -f "$HOME/.zshlocal" ]]; then
   source "$HOME/.zshlocal"
 fi
 
+# Sourcing all zsh files from $DOTFILES/custom
+for file in "$DOTFILES/custom/"*.zsh; do
+  source "$file"
+done
+
+# ------------------------------------------------------------------------------
+# Oh My Zsh
+# ------------------------------------------------------------------------------
+
+# OMZ is managed by Sheldon
+export ZSH="$HOME/.sheldon/repos/github.com/ohmyzsh/ohmyzsh"
+
+plugins=(
+  history-substring-search
+  git
+  npm
+  yarn
+  nvm
+  sudo
+  extract
+  ssh-agent
+  gpg-agent
+  osx
+  gh
+  vscode
+  common-aliases
+  command-not-found
+  docker
+)
+
 # ------------------------------------------------------------------------------
 # Dependencies
 # ------------------------------------------------------------------------------
 
-# Let zplug manage itself like other packages
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-
-# Oh-My-Zsh core
-zplug "lib/*", from:oh-my-zsh
-
-# Oh-My-Zsh plugins
-zplug "plugins/history-substring-search", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/npm", from:oh-my-zsh
-zplug "plugins/yarn", from:oh-my-zsh
-zplug "plugins/nvm", from:oh-my-zsh
-zplug "plugins/sudo", from:oh-my-zsh
-zplug "plugins/extract", from:oh-my-zsh
-zplug "plugins/ssh-agent", from:oh-my-zsh
-zplug "plugins/gpg-agent", from:oh-my-zsh
-zplug "plugins/osx", from:oh-my-zsh
-zplug "plugins/gh", from:oh-my-zsh
-zplug "plugins/vscode", from:oh-my-zsh
-zplug "plugins/common-aliases", from:oh-my-zsh
-zplug "plugins/command-not-found", from:oh-my-zsh
-zplug "plugins/docker", from:oh-my-zsh
-
-# Zsh improvements
-zplug "djui/alias-tips"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "hlissner/zsh-autopair", defer:2
-
-# Extra
-zplug "lukechilds/zsh-better-npm-completion", defer:2
-zplug "denysdovhan/gitio-zsh", as:command, use:"gitio.zsh", rename-to:"gitio"
-zplug "rauchg/wifi-password", as:command, use:"wifi-password.sh", rename-to:"wifi-password"
-
-# Spaceship ZSH
-if [[ -d "$HOME/Projects/Repos/spaceship/spaceship-prompt" ]]; then
-  zplug "$HOME/Projects/Repos/spaceship/spaceship-prompt", from:local, as:theme, use:"spaceship.zsh"
-else
-  zplug "denysdovhan/spaceship-prompt", as:theme, use:"spaceship.zsh"
-fi
-
-# Dotfiles
-zplug "$DOTFILES/lib", from:local
-
-# Custom local overridings
-zplug "$DOTFILES/custom", from:local
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-  zplug install
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load
+eval "$(sheldon source)"
