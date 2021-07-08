@@ -7,7 +7,14 @@ sudo -v
 
 export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
 
+# Go to dotfiles directory
 cd $DOTFILES/scripts
-. ./brew.zsh
-. ./nodejs.zsh
+
+# Homebrew Bundle
+brew bundle
+
+# Install Node.js
+source ./nodejs.zsh
+
+# Get back to previous directory
 cd -
