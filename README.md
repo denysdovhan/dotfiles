@@ -7,12 +7,12 @@
 There are tons of useful things in here:
 
 - The usefulness of [“Oh My ZSH!”](http://ohmyz.sh/) is already built–in.
-- [🚀⭐️ Spaceships ZSH](https://github.com/denysdovhan/spaceship-prompt) as a prompt.
+- [🚀⭐️ Spaceships](https://github.com/spaceship-prompt/spaceship-prompt) as a prompt.
 - 🐟 [Fish](https://fishshell.com/)-like autosuggestions.
 - Syntax highlighting of commands while they are typed.
 - Automatically closing and deleting of quotes and brackets when you type them.
 - Browser-like substring search for history.
-- [🌺 zplug](https://zplug.sh) for dependency management.
+- [sheldon](https://zplug.sh) for dependency management.
 - Useful [aliases](./lib/aliases.zsh).
 - Git config, global `.gitignore` file and aliases.
 - Dotfiles synchronization (`sync.py`) with backup.
@@ -102,9 +102,6 @@ Aliases are gonna make your work fast and enjoyable. See code in `$DOTFILES/lib/
   - **`open <FILE>`** — open file from terminal.
   - **`o <FILE>`** — open file from terminal.
   - **`oo`** — open current folder.
-- Color conversion
-  - **`hex2hsl <[#]dead00> [alpha]`** - convert #hex color to HSL/HSLA. `#dead00` → `hsl(47,99%,44%)`.
-  - **`hex2rgb <[#]dead00> [alpha]`** - convert #hex color to RGB/RGBA. `#dead00` → `rgb(222,173,0)`.
 - Misc
   - **`update`** — get updates (Runs `$DOTFILES/scripts/update.zsh`).
   - **`dotfiles`** — jump quickly into dotfiles folder.
@@ -123,17 +120,15 @@ These OMZ plugins are included:
 - [`yarn`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/yarn) — the same as for `npm`, but for `yarn`
 - [`nvm`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/nvm) — auto-sourcing `nvm`.
 - [`sudo`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/sudo) — `[Esc] [Esc]` to re-run previous command with sudo.
-- [`extract`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/extract) — defines a function called `extract` that extracts the archive file you pass it, and it supports a wide variety of archive filetypes.
 - [`ssh-agent`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/ssh-agent) — automatically starts ssh-agent to set up and load whichever credentials you want for ssh connections.
 - [`gpg-agent`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/gpg-agent) — enables `gpg-agent` if it is not running.
+- More are listed in `.zshrc` (it's hard to keep the list updated).
 
 ### Bin
 
 Dotfiles also include some functions that will make your life easier. See code in [`bin/`](./bin).
 
-- `color.js` — HTML color converter.
 - `emptytrash` — empty the Trash on all mounted volumes and the main HDD.
-- `git-changelog` — generate changelog based on commit history.
 - `git-cleanup` — removes old Git branches and does other cleanup.
 - `git-fork` — add remote upsteam.
 - `git-upstream` — sync branch with upstream.
@@ -187,6 +182,7 @@ Dotfiles also include some functions that will make your life easier. See code i
 - **`git contrib`** — list of contributors and how many commits each person has.
 - **`git today`** — see how many lines of code you have written today.
 - **`git stat`** — how many lines of code in repo.
+- **`git sync`** — pull and push changes from/to remote.
 - **`git-changelog [-l,--list,-t,--tag] <FILE>`** — generate changelog based on commit history.
 - **`git-cleanup [--force]`** — removes old Git branches.
 - **`git-fork <original-author>`** — add remote upstream.
