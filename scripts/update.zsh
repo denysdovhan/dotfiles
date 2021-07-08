@@ -61,13 +61,8 @@ update_dotfiles() {
   ./sync.py
   cd - > /dev/null 2>&1
 
-  info "Updating zplug packages..."
-  # Source zplug
-  source "$DOTFILES/modules/zplug/init.zsh"
-  # Remove repositories which are no longer managed
-  zplug clean --force
-  # Update installed packages in parallel
-  zplug update
+  info "Updating Zsh plugins..."
+  sheldon lock --update
 
   finish
 }
