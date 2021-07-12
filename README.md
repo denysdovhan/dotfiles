@@ -12,7 +12,7 @@ There are tons of useful things in here:
 - Syntax highlighting of commands while they are typed.
 - Automatically closing and deleting of quotes and brackets when you type them.
 - Browser-like substring search for history.
-- [sheldon](https://zplug.sh) for dependency management.
+- [sheldon](https://sheldon.cli.rs) for dependency management.
 - Useful [aliases](./lib/aliases.zsh).
 - Git config, global `.gitignore` file and aliases.
 - Dotfiles synchronization (`sync.py`) with backup.
