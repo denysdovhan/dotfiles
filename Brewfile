@@ -5,6 +5,7 @@
 brew "zsh"
 brew "sheldon"
 brew "coreutils"
+brew "nvm"
 brew "tree"
 brew "wget"
 brew "yarn"
