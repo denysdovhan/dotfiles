@@ -12,6 +12,13 @@ brew "yarn"
 brew "tldr"
 brew "mas"
 
+# Tap
+tap "homebrew/cask-fonts"
+
+# Fonts
+cask "font-fira-code"
+cask "font-fira-code-nerd-font"
+
 # Desktop applications
 cask "ukrainian-typographic-keyboard"
 cask "gpg-suite"
