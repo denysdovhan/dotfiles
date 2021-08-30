@@ -65,16 +65,6 @@ else
   export EDITOR='vim'
 fi
 
-# Source local configuration
-if [[ -f "$HOME/.zshlocal" ]]; then
-  source "$HOME/.zshlocal"
-fi
-
-# Sourcing all zsh files from $DOTFILES/custom
-for file in "$DOTFILES/custom/"*.zsh; do
-  source "$file"
-done
-
 # ------------------------------------------------------------------------------
 # Oh My Zsh
 # ------------------------------------------------------------------------------
@@ -108,3 +98,17 @@ NVM_AUTOLOAD=1
 # ------------------------------------------------------------------------------
 
 eval "$(sheldon source)"
+
+# ------------------------------------------------------------------------------
+# Overrides
+# ------------------------------------------------------------------------------
+
+# Sourcing all zsh files from $DOTFILES/custom
+for file in "$DOTFILES/custom/"*.zsh; do
+  source "$file"
+done
+
+# Source local configuration
+if [[ -f "$HOME/.zshlocal" ]]; then
+  source "$HOME/.zshlocal"
+fi
