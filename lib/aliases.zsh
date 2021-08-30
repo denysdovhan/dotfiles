@@ -77,3 +77,9 @@ if _exists tldr; then
 fi
 
 alias git-root='cd $(git rev-parse --show-toplevel)'
+
+if _exists lsd; then
+  unalias ls
+  alias ls='lsd'
+  alias lt='lsd --tree'
+fi
