@@ -3,6 +3,11 @@
 #
 
 # ------------------------------------------------------------------------------
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
 # Environment
 # ------------------------------------------------------------------------------
 
@@ -19,16 +24,20 @@ set -o noclobber
 
 # Extend $PATH without duplicates
 _extend_path() {
+  [[ -d "$1" ]] || return
+
   if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
     export PATH="$1:$PATH"
   fi
 }
 
 # Add custom bin to $PATH
-[[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
-[[ -d "$DOTFILES/bin" ]] && _extend_path "$DOTFILES/bin"
-[[ -d "$HOME/.npm-global" ]] && _extend_path "$HOME/.npm-global/bin"
-[[ -d "$HOME/.rvm/bin" ]] && _extend_path "$HOME/.rvm/bin"
+_extend_path "$HOME/.bin"
+_extend_path "$DOTFILES/bin"
+_extend_path "$HOME/.npm-global/bin"
+_extend_path "$HOME/.rvm/bin"
+_extend_path "$HOME/.yarn/bin"
+_extend_path "$HOME/.config/yarn/global/node_modules/.bin"
 
 # Extend $NODE_PATH
 if [ -d ~/.npm-global ]; then
@@ -82,7 +91,7 @@ plugins=(
   extract
   ssh-agent
   gpg-agent
-  osx
+  macos
   gh
   vscode
   common-aliases
@@ -112,3 +121,8 @@ done
 if [[ -f "$HOME/.zshlocal" ]]; then
   source "$HOME/.zshlocal"
 fi
+
+# ------------------------------------------------------------------------------
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
+# ------------------------------------------------------------------------------
