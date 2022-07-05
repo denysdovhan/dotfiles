@@ -11,6 +11,8 @@ brew "wget"
 brew "yarn"
 brew "tldr"
 brew "mas"
+brew "terminal-notifier"
+brew "wifi-password"
 
 # Tap
 tap "homebrew/cask-fonts"
