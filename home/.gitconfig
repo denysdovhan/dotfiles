@@ -1,3 +1,6 @@
+[init]
+  defaultBranch = main
+
 [color]
   ui = auto
 
@@ -12,6 +15,9 @@
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
   ignorecase = false
+
+[pull]
+  rebase = false
 
 [alias]
   a = add
