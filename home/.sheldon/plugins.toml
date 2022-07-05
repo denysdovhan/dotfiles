@@ -14,11 +14,8 @@ shell = "zsh"
 
 [plugins]
 
-[plugins.lib]
-local = "~/.dotfiles/lib"
-
-[plugins.spaceship]
-github = "spaceship-prompt/spaceship-prompt"
+# [plugins.spaceship]
+# github = "spaceship-prompt/spaceship-prompt"
 
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
@@ -50,9 +47,12 @@ apply = ["defer"]
 github = "lukechilds/zsh-better-npm-completion"
 apply = ["defer"]
 
-[plugins.wifi-password]
-github = "rauchg/wifi-password"
+[plugins.auto-notify]
+github = "marzocchi/zsh-notify"
 apply = ["defer"]
+
+[plugins.lib]
+local = "~/.dotfiles/lib"
 
 [templates]
 defer = { value = 'zsh-defer source "{{ file }}"', each = true }
