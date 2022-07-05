@@ -47,7 +47,10 @@ alias oo='open .'
 alias update="source $DOTFILES/scripts/update.zsh"
 
 # Quick jump to dotfiles
-alias dotfiles="cd $DOTFILES"
+alias dotfiles="code $DOTFILES"
+
+# Quick reload of zsh environment
+alias reload="source $HOME/.zshrc"
 
 # My IP
 alias myip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'
