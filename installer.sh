@@ -65,33 +65,6 @@ on_start() {
   fi
 }
 
-install_cli_tools() {
-  # There's not need to install XCode tools on Linux
-  if [ "$(uname)" == "Linux" ]; then
-    return
-  fi
-
-  info "Trying to detect installed Command Line Tools..."
-
-  if ! [ $(xcode-select -p) ]; then
-    echo "You don't have Command Line Tools installed!"
-    read -p "Do you agree to install Command Line Tools? [y/N] " -n 1 answer
-    echo
-    if [ ${answer} != "y" ]; then
-      exit 1
-    fi
-
-    info "Installing Command Line Tools..."
-    echo "Please, wait until Command Line Tools will be installed, before continue."
-
-    xcode-select --install
-  else
-    success "Seems like you have installed Command Line Tools. Skipping..."
-  fi
-
-  finish
-}
-
 install_homebrew() {
   # There's not need to install Homebrew on Linux
   if [ "$(uname)" != "Darwin" ]; then
@@ -253,7 +226,6 @@ on_error() {
 
 main() {
   on_start "$*"
-  install_cli_tools "$*"
   install_homebrew "$*"
   install_git "$*"
   install_zsh "$*"
