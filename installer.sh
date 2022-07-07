@@ -43,7 +43,7 @@ finish() {
 # Set directory
 export DOTFILES=${1:-"$HOME/.dotfiles"}
 GITHUB_REPO_URL_BASE="https://github.com/denysdovhan/dotfiles"
-HOMEBREW_INSTALLER_URL="https://raw.githubusercontent.com/Homebrew/install/master/install"
+HOMEBREW_INSTALLER_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
 
 on_start() {
   info "           __        __   ____ _  __           "
@@ -109,7 +109,7 @@ install_homebrew() {
     fi
 
     info "Installing Homebrew..."
-    ruby -e "$(curl -fsSL ${HOMEBREW_INSTALLER_URL})"
+    bash "$(curl -fsSL ${HOMEBREW_INSTALLER_URL})"
     brew update
     brew upgrade
     b
