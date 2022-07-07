@@ -40,7 +40,6 @@ cask "multipass"
 cask "spotify"
 cask "notion"
 cask "bitwarden"
-cask "java" unless system "/usr/libexec/java_home --failfast"
 
 # Quick Look plugins
 cask "qlcolorcode" # https://github.com/anthonygelibert/QLColorCode
