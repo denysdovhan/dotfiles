@@ -109,7 +109,7 @@ install_homebrew() {
     fi
 
     info "Installing Homebrew..."
-    bash "$(curl -fsSL ${HOMEBREW_INSTALLER_URL})"
+    bash -c "$(curl -fsSL ${HOMEBREW_INSTALLER_URL})"
     brew update
     brew upgrade
     b
