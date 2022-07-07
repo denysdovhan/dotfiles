@@ -108,18 +108,6 @@ update_npm() {
   finish
 }
 
-update_gem() {
-  if ! _exists gem; then
-    return
-  fi
-
-  info "Updating Ruby gems..."
-
-  sudo gem update
-
-  finish
-}
-
 on_finish() {
   success "Done!"
   success "Happy Coding!"
@@ -150,7 +138,6 @@ main() {
   update_brew "$*"
   update_apt_get "$*"
   update_npm "$*"
-  update_gem "$*"
   on_finish "$*"
 }
 
