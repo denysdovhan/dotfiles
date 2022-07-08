@@ -13,12 +13,12 @@ YELLOW="${e}[0;93m"
 GREEN="${e}[0;92m"
 
 echo
-echo -en $RED'-_-_-_-_-_-_-_'
-echo -e $RESET$BOLD',------,'$RESET
-echo -en $YELLOW'_-_-_-_-_-_-_-'
-echo -e $RESET$BOLD'|   /\_/\\'$RESET
-echo -en $GREEN'-_-_-_-_-_-_-'
-echo -e $RESET$BOLD'~|__( ^ .^)'$RESET
-echo -en $CYAN'-_-_-_-_-_-_-_-'
-echo -e $RESET$BOLD'""  ""'$RESET
+echo -en "$RED"'-_-_-_-_-_-_-_'
+echo -e "$RESET"$BOLD',------,'"$RESET"
+echo -en "$YELLOW"'_-_-_-_-_-_-_-'
+echo -e "$RESET"$BOLD'|   /\_/\\'"$RESET"
+echo -en "$GREEN"'-_-_-_-_-_-_-'
+echo -e "$RESET"$BOLD'~|__( ^ .^)'"$RESET"
+echo -en "$CYAN"'-_-_-_-_-_-_-_-'
+echo -e "$RESET"$BOLD'""  ""'"$RESET"
 echo

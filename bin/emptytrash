@@ -8,5 +8,5 @@
 # https://github.com/sapegin/dotfiles
 
 sudo rm -rfv /Volumes/*/.Trashes
-sudo rm -rfv $HOME/.Trash
+sudo rm -rfv "$HOME"/.Trash
 sudo rm -rfv /private/var/log/asl/*.asl

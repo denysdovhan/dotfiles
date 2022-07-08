@@ -21,12 +21,12 @@ NOCOLOR="$(tput sgr0)"
 function header() { echo -e "\n$UNDERLINE$CYAN$1$NOCOLOR\n"; }
 
 function branches() {
-	git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}'
+  git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}'
 }
 
 if [[ "$1" != "--force" ]]; then
-	branches
-	exit 1
+  branches
+  exit 1
 fi
 
 # Delete all unreachable objects from the object database

@@ -4,10 +4,10 @@
 # https://github.com/ai/environment
 
 if [[ -d $(npm bin) ]]; then
-	PROG="$1"
-	shift
-	"$(npm bin)/$PROG" "$@"
+  PROG="$1"
+  shift
+  "$(npm bin)/$PROG" "$@"
 else
-	echo 'No node_modules in any dir of current path' 1>&2
-	exit 1
+  echo 'No node_modules in any dir of current path' 1>&2
+  exit 1
 fi
