@@ -1,0 +1,20 @@
+- clean: ['~']
+
+- link:
+    ~/:
+      glob: true
+      path: home/.*
+      create: true
+      relink: true
+      force: true
+
+- create:
+    - ~/Projects
+    - ~/Projects/Repos
+    - ~/Projects/Forks
+    - ~/Projects/Job
+    - ~/Projects/Playground
+
+- shell:
+    - description: Installing submodules
+      command: git submodule update --init --recursive
