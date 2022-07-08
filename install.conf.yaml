@@ -9,6 +9,8 @@
       force: true
 
 - create:
+    - ~/.config
+    # Projects
     - ~/Projects
     - ~/Projects/Repos
     - ~/Projects/Forks
