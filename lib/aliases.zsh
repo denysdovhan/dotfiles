@@ -11,7 +11,7 @@ _exists() {
 }
 
 # Avoid stupidity with trash-cli:
-# 	https://github.com/sindresorhus/trash-cli
+# https://github.com/sindresorhus/trash-cli
 # or use default rm -i
 if _exists trash; then
   alias rm='trash'
@@ -24,7 +24,6 @@ alias clr='clear'
 alias q="~ && clear"
 
 # Folders Shortcuts
-[ -d ~/Dropbox ]              && alias dr='cd ~/Dropbox'
 [ -d ~/Downloads ]            && alias dl='cd ~/Downloads'
 [ -d ~/Desktop ]              && alias dt='cd ~/Desktop'
 [ -d ~/Projects ]             && alias pj='cd ~/Projects'
@@ -43,8 +42,9 @@ alias open='open_command'
 alias o='open'
 alias oo='open .'
 
-# Get updates, and update npm and its installed packages
-alias update="source $DOTFILES/scripts/update.zsh"
+# Run scripts
+alias update="source $DOTFILES/scripts/update"
+alias bootstap="source $DOTFILES/scripts/bootstrap"
 
 # Quick jump to dotfiles
 alias dotfiles="code $DOTFILES"
@@ -85,4 +85,10 @@ if _exists lsd; then
   unalias ls
   alias ls='lsd'
   alias lt='lsd --tree'
+fi
+
+# cat with syntax highlighting
+# https://github.com/sharkdp/bat
+if _exists bat; then
+  alias cat='bat'
 fi
