@@ -26,23 +26,24 @@ Missing feature? 🍴 Fork this repo and make it better!
 
 Dotfiles are installed by running one of the following commands in your terminal, just copy one of the following commands and execute in the terminal:
 
-**via `curl`**
-
-```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/dotfiles/master/installer.sh)"
-```
-
-**via `wget`**
-
-```sh
-bash -c "$(wget https://raw.githubusercontent.com/denysdovhan/dotfiles/master/installer.sh -O -)"
-```
-
 Tell Git who you are using these commands:
 
-```
+```sh
 git config -f ~/.gitlocal user.email "email@yoursite.com"
 git config -f ~/.gitlocal user.name "Name Lastname"
+```
+
+Clone dotfiles repo:
+
+```sh
+# Clone dotfiles repo
+git clone https://github.com/denysdovhan/dotfiles.git $HOME/.dotfiles
+
+# Go to the dotfiles directory
+cd $HOME/.dotfiles
+
+# Install dotfiles
+./install
 ```
 
 ## Updating
@@ -84,7 +85,6 @@ Aliases are gonna make your work fast and enjoyable. See code in `$DOTFILES/lib/
   - **`~`** → `cd ~`
   - **`-`** → `cd -`
 - Folders shortcuts
-  - **`dr`** → `cd ~/Dropbox`
   - **`dl`** → `cd ~/Downloads`
   - **`dt`** → `cd ~/Desktop`
   - **`pj`** → `cd ~/Projects`
@@ -135,7 +135,6 @@ Dotfiles also include some functions that will make your life easier. See code i
 - `gz` — get gzipped file size
 - `n` — runs given command using binary in `node_modules/.bin` of the current project.
 - `nyan` — print [nyan cat](https://www.youtube.com/watch?v=QH2-TGUlwu4).
-- `osx-shadow` — add macOS-like shadow to an image.
 - `server` — start an HTTP server from a directory.
 
 ### Git
@@ -183,21 +182,10 @@ Dotfiles also include some functions that will make your life easier. See code i
 - **`git today`** — see how many lines of code you have written today.
 - **`git stat`** — how many lines of code in repo.
 - **`git sync`** — pull and push changes from/to remote.
-- **`git-changelog [-l,--list,-t,--tag] <FILE>`** — generate changelog based on commit history.
+- **`git-root`** — go to repo root.
 - **`git-cleanup [--force]`** — removes old Git branches.
 - **`git-fork <original-author>`** — add remote upstream.
 - **`git-upstream [branch]`** — sync branch with upstream (as default `master`).
-
-## Bash
-
-If you wanna stand on `bash` version of dotfiles, please execute following commands inside the `~/.dotfiles` folder:
-
-```sh
-git checkout bash
-./sync.py
-```
-
-I do not support `bash` version anymore, so if you need fixes or new features, please send me a pull request into `bash` branch. Thank you!
 
 ## Resources
 
@@ -206,7 +194,6 @@ Resources that I used to make these dotfiles better:
 - [GitHub ❤ ~/](http://dotfiles.github.com/)
 - [Artem Sapegin’s dotfiles](https://github.com/sapegin/dotfiles)
 - [Mathias’s dotfiles](https://github.com/mathiasbynens/dotfiles)
-- [Yet another cool story about bash prompt](http://habrahabr.ru/company/mailru/blog/145008/)
 
 ## License
 
