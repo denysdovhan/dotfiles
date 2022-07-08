@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # Get System Updates, update NPM packages and dotfiles
 # Source: https://github.com/sapegin/dotfiles/blob/master/setup/update.sh
@@ -14,7 +14,7 @@ YELLOW="${e}[0;93m"
 GREEN="${e}[0;92m"
 
 _exists() {
-  command -v $1 > /dev/null 2>&1
+  command -v "$1" > /dev/null 2>&1
 }
 
 # Success reporter
@@ -56,10 +56,10 @@ on_start() {
 update_dotfiles() {
   info "Updating dotfiles..."
 
-  cd $DOTFILES
+  cd "$DOTFILES" || exit
   git pull origin master
-  ./sync.py
-  cd - > /dev/null 2>&1
+  ./install
+  cd - > /dev/null 2>&1 || exit
 
   info "Updating Zsh plugins..."
   sheldon lock --update
@@ -104,6 +104,7 @@ update_npm() {
   info "Updating NPM..."
 
   npm install npm -g
+  npm update -g
 
   finish
 }
@@ -112,14 +113,14 @@ on_finish() {
   success "Done!"
   success "Happy Coding!"
   echo
-  echo -ne $RED'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
-  echo -e  $RESET$BOLD',------,'$RESET
-  echo -ne $YELLOW'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
-  echo -e  $RESET$BOLD'|   /\_/\\'$RESET
-  echo -ne $GREEN'-_-_-_-_-_-_-_-_-_-_-_-_-_-'
-  echo -e  $RESET$BOLD'~|__( ^ .^)'$RESET
-  echo -ne $CYAN'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
-  echo -e  $RESET$BOLD'""  ""'$RESET
+  echo -ne "$RED"'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
+  echo -e  "$RESET""$BOLD"',------,'"$RESET"
+  echo -ne "$YELLOW"'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
+  echo -e  "$RESET""$BOLD"'|   /\_/\\'"$RESET"
+  echo -ne "$GREEN"'-_-_-_-_-_-_-_-_-_-_-_-_-_-'
+  echo -e  "$RESET""$BOLD"'~|__( ^ .^)'"$RESET"
+  echo -ne "$CYAN"'-_-_-_-_-_-_-_-_-_-_-_-_-_-_'
+  echo -e  "$RESET""$BOLD"'""  ""'"$RESET"
   echo
 }
 
