@@ -3,8 +3,8 @@
 # Get gzipped file size
 # USAGE: gz <FILE>
 
-origsize=`wc -c < $1`
-gzipsize=`gzip -c $1 | wc -c`
-ratio=`echo $(( $gzipsize * 100 / $origsize ))`
+origsize=$(wc -c < $1)
+gzipsize=$(gzip -c "$1" | wc -c)
+ratio=$(echo $(( $gzipsize * 100 / $origsize )))
 echo "Original: $origsize bytes"
 echo "Gzipped: $gzipsize bytes ($ratio%)"
