@@ -20,3 +20,5 @@
 - shell:
     - description: Installing submodules
       command: git submodule update --init --recursive
+    - decription: Bootstrap new system
+      command: ./scripts/bootstrap
