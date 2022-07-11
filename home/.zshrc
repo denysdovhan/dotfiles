@@ -112,9 +112,12 @@ eval "$(sheldon source)"
 # ------------------------------------------------------------------------------
 
 # Sourcing all zsh files from $DOTFILES/custom
-for file in "$DOTFILES/custom/"*.zsh; do
-  source "$file"
-done
+custom_files=($(find $DOTFILES/custom -type f -name "*.zsh"))
+if [[ "${#custom_files[@]}" -gt 0 ]]; then
+  for file in "${custom_files[@]}"; do
+    source $file
+  done
+fi
 
 # Source local configuration
 if [[ -f "$HOME/.zshlocal" ]]; then
