@@ -58,7 +58,7 @@ update_dotfiles() {
 
   cd "$DOTFILES" || exit
   git pull origin master
-  ./install
+  ./install --except shell
   cd - > /dev/null 2>&1 || exit
 
   info "Updating Zsh plugins..."
