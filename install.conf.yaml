@@ -25,3 +25,6 @@
 
     - description: Installing sheldon
       command: ./scripts/sheldon
+
+    - description: Run ./scripts/bootstrap to bootstrap new machine
+      command: echo "./scripts/bootstrap"
