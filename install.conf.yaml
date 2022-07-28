@@ -1,3 +1,8 @@
+- defaults:
+    shell:
+      stdout: true
+      stderr: true
+
 - clean: ['~']
 
 - link:
@@ -10,13 +15,13 @@
 
 - create:
     - ~/.config
-    # Projects
-    - ~/Projects
-    - ~/Projects/Repos
-    - ~/Projects/Forks
-    - ~/Projects/Job
-    - ~/Projects/Playground
 
 - shell:
     - description: Installing submodules
       command: git submodule update --init --recursive
+
+    - description: Scaffolding Project folders
+      command: ./scripts/projects
+
+    - description: Installing sheldon
+      command: ./scripts/sheldon
