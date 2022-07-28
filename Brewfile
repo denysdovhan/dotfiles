@@ -21,6 +21,8 @@ brew "wifi-password"
 brew "speedtest"
 brew "bat"
 brew "trash-it"
+brew "youtube-dl"
+brew "watchman" # Watching files for Jest
 
 # ------------------------------------------------------------------------------
 # Taps
