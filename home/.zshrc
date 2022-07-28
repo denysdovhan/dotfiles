@@ -30,7 +30,7 @@ _extend_path() {
 }
 
 # Add custom bin to $PATH
-_extend_path "$HOME/.bin"
+_extend_path "$HOME/.local/bin"
 _extend_path "$DOTFILES/bin"
 _extend_path "$HOME/.npm-global/bin"
 _extend_path "$HOME/.rvm/bin"
@@ -114,7 +114,7 @@ eval "$(sheldon source)"
 custom_files=($(find $DOTFILES/custom -type f -name "*.zsh"))
 if [[ "${#custom_files[@]}" -gt 0 ]]; then
   for file in "${custom_files[@]}"; do
-    source $file
+    source "$file"
   done
 fi
 
