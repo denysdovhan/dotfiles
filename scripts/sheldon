@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+_exists() {
+  command -v "$1" > /dev/null 2>&1
+}
+
+if _exists "sheldon"; then
+  echo "sheldon is already installed"
+  exit 0
+fi
+
+if _exists "brew"; then
+  brew install sheldon
+fi
+
+INSTALLER=https://rossmacarthur.github.io/install/crate.sh
+BIN="$HOME/.local/bin"
+curl --proto '=https' -fLsS "$INSTALLER" | bash -s -- --repo rossmacarthur/sheldon --to "$BIN"
