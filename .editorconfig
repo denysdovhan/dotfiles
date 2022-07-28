@@ -9,16 +9,14 @@ root = true
 charset = utf-8
 end_of_line = lf
 insert_final_newline = true
-
-[*.{zsh,sh,bash,js,json}]
 indent_style = space
 indent_size = 2
+
+[*.{zsh,sh,bash,js,json}]
 trim_trailing_whitespace = true
 insert_final_newline = true
 
 # 4 space indentation
 [*.py]
-indent_style = space
-indent_size = 4
 trim_trailing_whitespace = true
 insert_final_newline = true
