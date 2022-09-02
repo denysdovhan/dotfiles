@@ -55,16 +55,6 @@ alias reload="source $HOME/.zshrc"
 # My IP
 alias myip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'
 
-# Password generator
-# Gemnerate random password, copies it into clipboard and outputs it to terminal
-if _exists pbcopy; then
-  alias password='openssl rand -base64 ${1:-9} | pbcopy ; echo "$(pbpaste)"'
-elif _exists xcopy; then
-  alias password='openssl rand -base64 ${1:-9} | xcopy ; echo "$(xpaste)"'
-else
-  alias password='openssl rand -base64 ${1:-9}; echo "$(xpaste)"'
-fi
-
 # Show $PATH in readable view
 alias path='echo -e ${PATH//:/\\n}'
 
