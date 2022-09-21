@@ -78,9 +78,13 @@ else
   export EDITOR='vim'
 fi
 
+# Better formatting for time command
+export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
+
 # ------------------------------------------------------------------------------
 # Oh My Zsh
 # ------------------------------------------------------------------------------
+ZSH_DISABLE_COMPFIX=true
 
 # OMZ is managed by Sheldon
 export ZSH="$HOME/.sheldon/repos/github.com/ohmyzsh/ohmyzsh"
