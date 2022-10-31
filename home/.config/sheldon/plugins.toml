@@ -60,5 +60,11 @@ apply = ["defer"]
 local = "~/.dotfiles/lib"
 
 [templates]
-defer = { value = 'zsh-defer source "{{ file }}"', each = true }
-spaceship = 'spaceship-loader "{{ dir }}"'
+defer = '''
+  {% for file in files %}
+    zsh-defer source "{{ file }}"
+  {% endfor %}
+'''
+spaceship = '''
+  spaceship-loader "{{ dir }}"
+'''
