@@ -4,6 +4,6 @@ backup
 # Custom files (*sh includes sh, bash, zsh)
 custom/**/*.*sh
 
-# Sheldon
-home/.sheldon/repos
-home/.sheldon/plugins.lock
+# Home Configs
+home/.config/gh/hosts.yml
+home/.config/iterm2
