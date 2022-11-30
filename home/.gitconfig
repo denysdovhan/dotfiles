@@ -19,12 +19,16 @@
 [pull]
   rebase = false
 
+[protocol "file"]
+  allow = always
+
 [alias]
   a = add
   ua = reset HEAD
   b = branch
   c = commit
   co = checkout
+  cb = checkout -b
   ap = add -p      # Patch mode for specified files
   ca = commit -a   # Add all files and commit
   cm = commit -m   # Commit message
@@ -42,7 +46,7 @@
   # Fully commits log with statistic
   ll = log --stat --abbrev-commit
 
-  # Ignore files: append file to .ginignore
+  # Ignore files: append file to .gitnignore
   ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo `\n$2` >> .gitignore
 
   # Initialize, add all files and commit
@@ -64,7 +68,7 @@
   contrib = shortlog -sn
 
   # See how many lines of code you have written today.
-  today = diff --shortstat "@{0 day ago}"
+  today = diff --shortstat --since="0 day ago"
 
   # How many lines in repo
   stat = !git ls-files | xargs wc -l
