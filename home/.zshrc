@@ -108,7 +108,7 @@ plugins=(
 )
 
 # Autoload node version when changing cwd
-NVM_AUTOLOAD=1
+zstyle ':omz:plugins:nvm' autoload true
 
 # ------------------------------------------------------------------------------
 # Dependencies
