@@ -99,9 +99,9 @@ install_git() {
 
     info "Installing Git..."
 
-    if [ "$(uname)" != "Darwin" ]; then
+    if [ "$(uname)" = "Darwin" ]; then
       brew install git
-    elif [ "$(uname)" != "Linux" ]; then
+    elif [ "$(uname)" = "Linux" ]; then
       sudo apt-get install git
     else
       error "Error: Failed to install Git!"
@@ -125,11 +125,11 @@ install_zsh() {
       exit 1
     fi
 
-    info "Installing Git..."
+    info "Installing Zsh..."
 
-    if [ "$(uname)" != "Darwin" ]; then
+    if [ "$(uname)" = "Darwin" ]; then
       brew install zsh zsh-completions
-    elif [ "$(uname)" != "Linux" ]; then
+    elif [ "$(uname)" = "Linux" ]; then
       sudo apt-get install zsh
     else
       error "Error: Failed to install Zsh!"
