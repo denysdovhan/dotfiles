@@ -16,6 +16,10 @@
   attributesfile = ~/.gitattributes
   ignorecase = false
 
+[push]
+  default = current
+  autoSetupRemote = true
+
 [pull]
   rebase = false
 
@@ -75,9 +79,6 @@
 
   # Pull data from remore and push local data
   sync = !git pull && git push
-
-[push]
-  default = current
 
 # URL shorthands
 [url "git@github.com:"]
