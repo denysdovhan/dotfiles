@@ -41,6 +41,7 @@ alias x+='chmod +x'
 alias open='open_command'
 alias o='open'
 alias oo='open .'
+alias term='open -a iterm.app'
 
 # Run scripts
 alias update="source $DOTFILES/scripts/update"
