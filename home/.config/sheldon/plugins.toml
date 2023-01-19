@@ -56,6 +56,10 @@ apply = ["defer"]
 github = "marzocchi/zsh-notify"
 apply = ["defer"]
 
+[plugins.z]
+github = "agkozak/zsh-z"
+apply = ["defer"]
+
 [plugins.lib]
 local = "~/.dotfiles/lib"
 
