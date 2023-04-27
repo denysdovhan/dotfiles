@@ -38,6 +38,7 @@ tap "homebrew/cask-fonts"
 # Fonts
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
+cask "font-hasklug-nerd-font"
 
 # Utils
 cask "ukrainian-typographic-keyboard"
