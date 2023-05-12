@@ -43,11 +43,6 @@ if [ -d ~/.npm-global ]; then
   export NODE_PATH="$NODE_PATH:$HOME/.npm-global/lib/node_modules"
 fi
 
-# bun completions
-if [ -s "/Users/denysd/.bun/_bun" ]; then
-  source "/Users/denysd/.bun/_bun"
-fi
-
 # Default pager
 export PAGER='less'
 
@@ -69,7 +64,7 @@ export LESS="${less_opts[*]}"
 # Default editor for local and remote sessions
 if [[ -n "$SSH_CONNECTION" ]]; then
   # on the server
-  if [ command -v vim >/dev/null 2>&1 ]; then
+  if command -v vim >/dev/null 2>&1; then
     export EDITOR='vim'
   else
     export EDITOR='vi'
@@ -116,9 +111,24 @@ zstyle ':omz:plugins:nvm' autoload true
 
 # Shell plugins
 eval "$(sheldon source)"
+
 # Per-directory configs
 if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
+fi
+
+# ------------------------------------------------------------------------------
+# Load additional zsh files
+# ------------------------------------------------------------------------------
+
+# bun completions
+if [ -s "~/.bun/_bun" ]; then
+  source "~/.bun/_bun"
+fi
+
+# Fuzzy finder bindings
+if [ -f "$HOME/.fzf.zsh" ]; then
+  source "$HOME/.fzf.zsh"
 fi
 
 # ------------------------------------------------------------------------------
