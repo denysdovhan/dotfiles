@@ -27,4 +27,4 @@
       command: ./scripts/sheldon
 
     - description: Run ./scripts/bootstrap to bootstrap new machine
-      command: echo "./scripts/bootstrap"
+      command: echo "bash $DOTFILES/scripts/bootstrap"
