@@ -21,7 +21,7 @@
       command: git submodule update --init --recursive
 
     - description: Installing zgen
-      command: ./scriots/zgen
+      command: ./scripts/zgen
 
     - description: Scaffolding Project folders
       command: ./scripts/projects
