@@ -31,6 +31,7 @@
   ua = reset HEAD
   b = branch
   c = commit
+  m = merge
   co = checkout
   cb = checkout -b
   ap = add -p      # Patch mode for specified files
@@ -38,8 +39,15 @@
   cm = commit -m   # Commit message
   cam = commit -am # Add all files and commit with message
   s = status -sb   # Short status with current branch
+
+  # Checkout to the latest master
   master = !git checkout master && git pull --prune
+  
+  # Checkout to the latest develop
   develop = !git checkout develop && git pull --prune
+
+  # Merge latest master to current branch
+  remaster = !git checkout master && git pull --rebase --prune && git checkout - && git merge master
   
   # When doing "git git log" or some such, do not complain about "git"
   git = !git
@@ -73,9 +81,6 @@
 
   # See how many lines of code you have written today.
   today = diff --shortstat --since="0 day ago"
-
-  # How many lines in repo
-  stat = !git ls-files | xargs wc -l
 
   # Pull data from remore and push local data
   sync = !git pull && git push
