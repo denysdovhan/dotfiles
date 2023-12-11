@@ -113,7 +113,7 @@ if ! zgen saved; then
 
     zgen oh-my-zsh
 
-    # plugins
+    # Oh-My-Zsh plugins
     zgen oh-my-zsh plugins/git
     zgen oh-my-zsh plugins/history-substring-search
     zgen oh-my-zsh plugins/sudo
@@ -130,6 +130,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/common-aliases
     zgen oh-my-zsh plugins/docker
 
+    # Custom plugins
     zgen load chriskempson/base16-shell
     zgen load djui/alias-tips
     zgen load agkozak/zsh-z
@@ -138,19 +139,23 @@ if ! zgen saved; then
     zgen load zsh-users/zsh-syntax-highlighting
     zgen load zsh-users/zsh-autosuggestions
     
-    # local files
+    # Lib files
     zgen load $DOTFILES/lib
-    zgen load $DOTFILES/custom
+
+    # Load custom files if not empty
+    if [ -z "$(find $DOTFILES/custom -prune -empty 2>/dev/null)" ]; then
+      zgen load $DOTFILES/custom
+    fi
 
     # Load Spaceship prompt from remote
     if [[ ! -d "$SPACESHIP_PROJECT" ]]; then
       zgen load spaceship-prompt/spaceship-prompt spaceship
     fi
 
-    # completions
+    # Completions
     zgen load zsh-users/zsh-completions src
 
-    # save all to init script
+    # Save all to init script
     zgen save
 fi
 
