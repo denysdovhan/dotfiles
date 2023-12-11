@@ -101,7 +101,6 @@ ZGEN_RESET_ON_CHANGE=(
   ${HOME}/.zshrc
   ${HOME}/.zshlocal
   ${DOTFILES}/lib/*.zsh
-  ${DOTFILES}/custom/*.zsh
 )
 
 # Load zgen
@@ -139,13 +138,9 @@ if ! zgen saved; then
     zgen load zsh-users/zsh-syntax-highlighting
     zgen load zsh-users/zsh-autosuggestions
     
-    # Lib files
+    # Files
     zgen load $DOTFILES/lib
-
-    # Load custom files if not empty
-    if [ -z "$(find $DOTFILES/custom/*.zsh -prune -empty 2>/dev/null)" ]; then
-      zgen load $DOTFILES/custom
-    fi
+    zgen load $DOTFILES/custom
 
     # Load Spaceship prompt from remote
     if [[ ! -d "$SPACESHIP_PROJECT" ]]; then
