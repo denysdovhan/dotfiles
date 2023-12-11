@@ -143,7 +143,7 @@ if ! zgen saved; then
     zgen load $DOTFILES/lib
 
     # Load custom files if not empty
-    if [ -z "$(find $DOTFILES/custom -prune -empty 2>/dev/null)" ]; then
+    if [ -z "$(find $DOTFILES/custom/*.zsh -prune -empty 2>/dev/null)" ]; then
       zgen load $DOTFILES/custom
     fi
 
