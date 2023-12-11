@@ -6,5 +6,4 @@ custom/**/*.*sh
 
 # Home Configs
 home/.config/*
-!home/.config/sheldon
 !home/.config/gh/config.yml
