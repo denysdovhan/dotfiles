@@ -81,36 +81,87 @@ export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E
 # ------------------------------------------------------------------------------
 ZSH_DISABLE_COMPFIX=true
 
-# OMZ is managed by Sheldon
-export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
-
-plugins=(
-  history-substring-search
-  git
-  npm
-  yarn
-  nvm
-  sudo
-  extract
-  ssh-agent
-  gpg-agent
-  macos
-  gh
-  vscode
-  common-aliases
-  command-not-found
-  docker
-)
-
 # Autoload node version when changing cwd
 zstyle ':omz:plugins:nvm' autoload true
+
+# Use passphase from macOS keychain
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
+fi
 
 # ------------------------------------------------------------------------------
 # Dependencies
 # ------------------------------------------------------------------------------
 
-# Shell plugins
-eval "$(sheldon source)"
+# Spaceship project directory (for local development)
+SPACESHIP_PROJECT="$HOME/Projects/Repos/spaceship/spaceship-prompt"
+
+# Reset zgen on change
+ZGEN_RESET_ON_CHANGE=(
+  ${HOME}/.zshrc
+  ${HOME}/.zshlocal
+  ${DOTFILES}/lib/*.zsh
+  ${DOTFILES}/custom/*.zsh
+)
+
+# Load zgen
+source "${HOME}/.zgen/zgen.zsh"
+
+# Load zgen init script
+if ! zgen saved; then
+    echo "Creating a zgen save"
+
+    zgen oh-my-zsh
+
+    # plugins
+    zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/history-substring-search
+    zgen oh-my-zsh plugins/sudo
+    zgen oh-my-zsh plugins/command-not-found
+    zgen oh-my-zsh plugins/npm
+    zgen oh-my-zsh plugins/yarn
+    zgen oh-my-zsh plugins/nvm
+    zgen oh-my-zsh plugins/extract
+    zgen oh-my-zsh plugins/ssh-agent
+    zgen oh-my-zsh plugins/gpg-agent
+    zgen oh-my-zsh plugins/macos
+    zgen oh-my-zsh plugins/vscode
+    zgen oh-my-zsh plugins/gh
+    zgen oh-my-zsh plugins/common-aliases
+    zgen oh-my-zsh plugins/docker
+
+    zgen load chriskempson/base16-shell
+    zgen load djui/alias-tips
+    zgen load agkozak/zsh-z
+    zgen load marzocchi/zsh-notify
+    zgen load hlissner/zsh-autopair
+    zgen load zsh-users/zsh-syntax-highlighting
+    zgen load zsh-users/zsh-autosuggestions
+    
+    # local files
+    zgen load $DOTFILES/lib
+    zgen load $DOTFILES/custom
+
+    # Load Spaceship prompt from remote
+    if [[ ! -d "$SPACESHIP_PROJECT" ]]; then
+      zgen load spaceship-prompt/spaceship-prompt spaceship
+    fi
+
+    # completions
+    zgen load zsh-users/zsh-completions src
+
+    # save all to init script
+    zgen save
+fi
+
+# Load Spaceship form local project
+if [[ -d "$SPACESHIP_PROJECT" ]]; then
+  source "$SPACESHIP_PROJECT/spaceship.zsh"
+fi
+
+# ------------------------------------------------------------------------------
+# Direnv
+# ------------------------------------------------------------------------------
 
 # Per-directory configs
 if command -v direnv >/dev/null 2>&1; then
@@ -122,8 +173,10 @@ fi
 # ------------------------------------------------------------------------------
 
 # bun completions
-if [ -s "~/.bun/_bun" ]; then
-  source "~/.bun/_bun"
+if [ -s "$HOME/.bun/_bun" ]; then
+  source "$HOME/.bun/_bun"
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH="$BUN_INSTALL/bin:$PATH"
 fi
 
 # Fuzzy finder bindings
@@ -134,14 +187,6 @@ fi
 # ------------------------------------------------------------------------------
 # Overrides
 # ------------------------------------------------------------------------------
-
-# Sourcing all zsh files from $DOTFILES/custom
-custom_files=($(find $DOTFILES/custom -type f -name "*.zsh"))
-if [[ "${#custom_files[@]}" -gt 0 ]]; then
-  for file in "${custom_files[@]}"; do
-    source "$file"
-  done
-fi
 
 # Source local configuration
 if [[ -f "$HOME/.zshlocal" ]]; then
