@@ -1,4 +1,4 @@
-# Denys Dovhan’s dotfiles
+# Nick Morozov’s dotfiles
 
 <p align="center">
   <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
@@ -17,7 +17,7 @@ There are tons of useful things in here:
 - Git config, global `.gitignore` file and aliases.
 - Dotfiles synchronization (`sync.py`) with backup.
 - Restoring old dotfiles (`restore.py`) from backup.
-- A lot of [useful bins](https://github.com/denysdovhan/dotfiles/tree/master/bin).
+- A lot of [useful bins](https://github.com/nickmorozov/dotfiles/tree/master/bin).
 - `update` script for updating dotfiles, npm, brew, gems, etc.
 
 Missing feature? 🍴 Fork this repo and make it better!
@@ -37,7 +37,7 @@ Clone dotfiles repo:
 
 ```sh
 # Clone dotfiles repo
-git clone https://github.com/denysdovhan/dotfiles.git $HOME/.dotfiles
+git clone https://github.com/nickmorozov/dotfiles.git $HOME/.dotfiles
 
 # Go to the dotfiles directory
 cd $HOME/.dotfiles
@@ -197,4 +197,4 @@ Resources that I used to make these dotfiles better:
 
 ## License
 
-MIT © [Denys Dovhan](https://denysdovhan.com)
+MIT © [Nick Morozov](https://nickmorozov.com)

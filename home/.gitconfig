@@ -109,7 +109,7 @@
 #   git config -f ~/.gitlocal user.name "Name Lastname"
 # Example .gitlocal:
 # [user]
-#   name = Denys Dovhan
-#   email = denysdovhan@gmail.com
+#   name = Nick Morozov
+#   email = nickmorozov@gmail.com
 [include]
   path = ~/.gitlocal
