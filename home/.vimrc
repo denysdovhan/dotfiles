@@ -1,12 +1,18 @@
 
 " Set to show line numbers
 set number
+set relativenumber
+set cursorline
+set noswapfile
+set backupdir=~/.cache/vim
+set clipboard+=unnamedplus
   
 " Enable syntax highlighting
 syntax on
 
 " Escape on kj keybinding
-:imap kj <Esc>
+:imap jj <Esc>
+:imap ff <Esc>
 
 " Set how many lines of history VIM should remember
 set history=500
@@ -53,16 +59,17 @@ set expandtab
 set smarttab
 
 " 1 tab == 2 spaces
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set cc=180
 
-set ai "Auto indent
-set si "Smart indent
+set autoindent "Auto indent
+set smartindent "Smart indent
 set wrap "Wrap lines
 
 " Always show the status line
 set laststatus=2
-
  
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c

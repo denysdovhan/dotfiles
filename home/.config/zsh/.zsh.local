@@ -1,0 +1,71 @@
+# ------------------------------------------------------------------------------
+# Custom additions
+# ------------------------------------------------------------------------------
+
+# CLI
+alias quiet=" >& /dev/null "
+
+# Man pages
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# Git
+alias gignoreall="cp .gitignore .gitignore.bak  2>&1 >/dev/null || true && echo '*' > .gitignore && git add .gitignore"
+
+# Viewing
+alias cat="bat --paging=never"
+alias bat="bat --color=always"
+
+function see() {
+    # Nothing was passed - look at current folder
+    if [ -z $1 ]; then
+        la .
+        return 0
+    fi
+
+    # Only one descriptor
+    if [ -z $2 ]; then
+        test -d $1 && la $1 || bat $1
+        return 0
+    fi
+
+    # Multiple descriptors, use cat
+    DIRS=()
+    FILES=()
+
+    while [ $# -ne 0 ]; do
+        test -d $1 && DIRS+=($1) || FILES+=($1)
+        shift
+    done
+
+    test $(($#DIRS + $#FILES)) -eq 0 && echo "No such file or directory" && return 1
+
+    test $#DIRS -ne 0 && la ${DIRS}
+    test $#FILES -ne 0 && cat ${FILES}
+}
+
+# Editing
+alias vim="e"
+alias ez="e $ZDOTDIR/.zsh.local && reload"
+
+# iTerm2 Shell Integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
+
+# Allows to pass variables into the app UI
+iterm2_print_user_vars() {
+    iterm2_set_user_var today $(echo $(date +'%a\xC2\xA0%H:%M'))
+    iterm2_set_user_var where $(echo "$(whoami)@$(hostname):$(pwd)")
+}
+
+# Reboot without user password on login - useful for encrypted system with Bluetooth keyboards
+alias restart="sudo fdesetup authrestart -delayminutes 0"
+
+# Homebrew
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_INSTALL_BADGE="☕️"
+export HOMEBREW_COLOR=true
+
+# Plugin config
+HB_CNF_HANDLER="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
+if [ -f "$HB_CNF_HANDLER" ]; then
+    source "$HB_CNF_HANDLER"
+fi

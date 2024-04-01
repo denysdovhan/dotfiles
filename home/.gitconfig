@@ -113,3 +113,6 @@
 #   email = nickmorozov@gmail.com
 [include]
   path = ~/.gitlocal
+[user]
+	email = mail@nickmorozov.net
+	name = Nick Morozov

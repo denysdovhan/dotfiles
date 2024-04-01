@@ -2,3 +2,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+[submodule "home/.config/iterm2/AppSupport/iTerm2-Color-Scheme"]
+	path = home/.config/iterm2/AppSupport/iTerm2-Color-Scheme
+	url = git@github.com:mbadolato/iTerm2-Color-Schemes.git

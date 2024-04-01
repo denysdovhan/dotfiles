@@ -45,13 +45,13 @@ alias term='open -a iterm.app'
 
 # Run scripts
 alias update="source $DOTFILES/scripts/update"
-alias bootstap="source $DOTFILES/scripts/bootstrap"
+alias bootstrap="source $DOTFILES/scripts/bootstrap"
 
 # Quick jump to dotfiles
 alias dotfiles="code $DOTFILES"
 
 # Quick reload of zsh environment
-alias reload="source $HOME/.zshrc"
+alias reload="source $ZDOTDIR/.zshrc"
 
 # My IP
 alias myip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'
