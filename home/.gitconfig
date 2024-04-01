@@ -116,3 +116,9 @@
 [user]
 	email = mail@nickmorozov.net
 	name = Nick Morozov
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/local/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/local/bin/gh auth git-credential
