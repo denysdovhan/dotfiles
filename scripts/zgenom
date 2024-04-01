@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+URL="https://github.com/jandamm/zgenom.git"
+REPO="$ZDOTDIR/.zgenom"
+
+if [ ! -d "$REPO" ]; then
+    git clone "$URL" "$REPO"
+else
+    cd "$REPO" || exit
+    git pull
+fi

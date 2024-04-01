@@ -20,11 +20,20 @@
     - description: Installing submodules
       command: git submodule update --init --recursive
 
-    - description: Installing zgen
-      command: ./scripts/zgen
+    - description: Installing zgenom
+      command: ./scripts/zgenom
+
+    - description: iTerm2 Shell Integration
+      command: ./scripts/iterm
+
+    - description: Pointing Services to iCloud
+      command: ./scripts/services
+
+    - description: Pointing Downloads to iCloud
+      command: ./scripts/downloads
 
     - description: Scaffolding Project folders
       command: ./scripts/projects
 
     - description: Run ./scripts/bootstrap to bootstrap new machine
-      command: echo "bash $DOTFILES/scripts/bootstrap"
+      command: ./scripts/bootstrap

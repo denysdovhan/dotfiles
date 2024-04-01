@@ -1,10 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+
+echo "Checking user password..."
+askpass -c || askpass -s
 
 set -e
 
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
-
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 

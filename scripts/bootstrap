@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Dotfiles and bootstrap installer
 # Installs git, clones repository and symlinks dotfiles to your home directory
 
-set -e
+# set -e
 trap on_error SIGTERM
 
 e='\033'
@@ -58,7 +58,7 @@ on_start() {
   info "This script will guide you through installing git, zsh and dofiles itself."
   echo "It will not install anything without your direct agreement!"
   echo
-  read -p "Do you want to proceed with installation? [y/N] " -n 1 answer
+  read "answer?Do you want to proceed with installation? [y/N] "
   echo
   if [ "${answer}" != "y" ]; then
     exit
@@ -79,6 +79,10 @@ install_homebrew() {
     info "Installing Homebrew..."
     bash -c "$(curl -fsSL ${HOMEBREW_INSTALLER_URL})"
     eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    sudo mkdir -p /usr/local/etc/man.d
+    echo "MANPATH /opt/homebrew/share/man" | sudo tee -a /usr/local/etc/man.d/homebrew.man.conf
+    sudo chown -R "${USER}" /usr/local/etc
   else
     success "You already have Homebrew installed. Skipping..."
   fi

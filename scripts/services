@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+SOURCE="/Users/$USER/Library/Mobile Documents/com~apple~CloudDocs/Services"
+TARGET="/Users/$USER/Library/Services"
+
+if [ "$(uname)" != "Darwin" ]; then
+  echo "Skipping Downloads pointing on non-MacOS platform"
+  exit 0
+fi
+
+if [ ! -h "$TARGET" ]; then
+  if [ -d "$TARGET" ]; then
+    sudo mv "$TARGET" "/Users/$USER/.dotfiles/backup/$TARGET"
+    sudo rm -rf "$TARGET"
+  fi
+
+  ln -s "$SOURCE" "$TARGET"
+  chmod -h 700 "$TARGET" 
+fi

@@ -1,0 +1,58 @@
+#!/usr/bin/env zsh
+
+local is_help is_set is_check output result password=()
+
+local usage=(
+  "askpass [-h|--help]"
+  "askpass [-s|--set] [-p|--password]"
+  "askpass [-c|--check]"
+)
+
+zmodload zsh/zutil
+
+zparseopts -D -F -K -- \
+  {h,-help}=is_help \
+  {s,-set}=is_set \
+  {c,-check}=is_check \
+  {p,-password}:=password \
+    || return 1
+
+(( $#is_help )) && { print -l $usage && return 0 }
+ 
+if (( $#is_set )) then
+  output=$(security delete-generic-password -a $USER -s $SUDO_ASKPASS) >& /dev/null
+  echo "$?: $output"
+
+  echo "Adding new password..."
+
+  local password_value=${password[-1]}
+
+  if [ -z $password_value ]; then
+    read -s "password_value?Password: "
+  fi
+
+  echo $password_value
+
+  if [ -n "$password_value" ]; then
+    output=$(security add-generic-password \
+      -T "/Applications/iTerm.app" \
+      -T "/System/Applications/Utilities/Terminal.app" \
+      -a $USER \
+      -s $SUDO_ASKPASS \
+      -w $password_value) >& /dev/null
+    result=$?
+    echo "Debug: $result: $output"
+    test $result -eq 0 || { echo "Could not add password." && return $result }
+  else
+    echo "No password provided" && return 1
+  fi
+elif (( $#is_check )); then
+  askpass >& /dev/null
+  test $? -eq 0 && return 0 || return 1
+else
+  password_value=$(security find-generic-password -a $USER -s $SUDO_ASKPASS -w) >& /dev/null
+  result=$?
+  test $result -eq 0 && echo -n $password_value
+  return $result
+fi
+

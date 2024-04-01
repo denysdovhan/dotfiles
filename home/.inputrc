@@ -1,0 +1,18 @@
+"\e[1~": beginning-of-line       # Move to the beginning of the line (Home)
+"\e[4~": end-of-line             # Move to the end of the line (End)
+"\e[5~": history-search-backward # Perform history search backward (Page Up)
+"\e[6~": history-search-forward  # Perform history search forward (Page Down)
+"\e[3~": delete-char             # Delete the character under the cursor (Delete)
+"\e[2~": quoted-insert           # Insert the next character literally (Insert)
+"\e[5C": forward-word            # Move one word forward (Ctrl + Right Arrow)
+"\e[5D": backward-word           # Move one word backward (Ctrl + Left Arrow)
+"\e\e[C": forward-word           # Move one word forward (Alt + Right Arrow)
+"\e\e[D": backward-word          # Move one word backward (Alt + Left Arrow)
+set convert-meta off             # Do not convert characters with the meta bit set
+set input-meta on                # Enable input meta mode
+set output-meta on               # Enable output meta mode
+set colored-stats on
+set visible-stats on
+set mark-symlinked-directories on
+set colored-completion-prefix on
+set menu-complete-display-prefix on

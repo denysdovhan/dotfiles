@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+for f in "$@"
+do
+	chflags nohidden "$f" || echo "$(security find-generic-password -a $USER -s sudo-password -w 2>/dev/null)" | sudo -S chflags hidden "$f"
+done

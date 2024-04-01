@@ -54,6 +54,9 @@ on_start() {
 }
 
 update_dotfiles() {
+  info "Checking user password..."
+  askpass -c || { error "Password isn't set!" && askpass -s }
+
   info "Updating dotfiles..."
 
   cd "$DOTFILES" || exit
@@ -62,8 +65,8 @@ update_dotfiles() {
   cd - > /dev/null 2>&1 || exit
 
   info "Updating Zsh plugins..."
-  zgen selfupdate
-  zgen update
+  zgenom selfupdate
+  zgenom update
 
   finish
 }
@@ -119,8 +122,8 @@ on_error() {
 }
 
 main() {
-  echo "Before we proceed, please type your sudo password:"
-  sudo -v
+  #echo "Before we proceed, please type your sudo password:"
+  #sudo -v
 
   on_start "$*"
   update_dotfiles "$*"

@@ -1,3 +1,15 @@
+/Library
+/Applications
+/Desktop
+/Documents
+/Movies
+/Music
+/Pictures
+/Projects
+/Public
+/Torrents
+/iCloud*
+
 # Compiled Python files
 *.pyc
 
@@ -16,9 +28,4 @@ yarn-error.log
 # Installed Bower packages
 bower_components
 
-# Editor`s configs
-*.sublime-*
-.tern-project
-
-# Ignore Westorm files
-.idea
+.Trash
