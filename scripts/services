@@ -27,6 +27,8 @@ if [ ! -h "$TARGET" ]; then
   fi
 
   ln -s "$SOURCE" "$TARGET"
-  chmod -h 700 "$TARGET" 
+  chmod 700 "$TARGET"
+  chmod 600 id_rsa* &> /dev/null
+  ssh-add &> /dev/null
 fi
 
