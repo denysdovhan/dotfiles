@@ -35,8 +35,7 @@ if (( $#is_set )) then
 
   if [ -n "$password_value" ]; then
     output=$(security add-generic-password \
-      -T "/Applications/iTerm.app" \
-      -T "/System/Applications/Utilities/Terminal.app" \
+      -A \
       -a $USER \
       -s $SUDO_ASKPASS \
       -w $password_value) >& /dev/null

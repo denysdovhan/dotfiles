@@ -4,6 +4,7 @@
 
 # CLI
 alias quiet=" >& /dev/null "
+alias sudo='sudo -A '
 
 # Man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"

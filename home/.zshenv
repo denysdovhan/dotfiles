@@ -1,3 +1,5 @@
+# Disable "Last Login: message"
+test -e "$HOME/.hushlogin" || touch "$HOME/.hushlogin"
 
 # ZSH Specific envs
 export XDG_CONFIG_HOME="$HOME/.config"

@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 echo "Checking user password..."
-askpass -c || askpass -s
+askpass -c || { echo "Password isn't set!" && askpass -s }
 
 set -e
 
