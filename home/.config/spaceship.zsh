@@ -22,7 +22,7 @@ SPACESHIP_BATTERY_THRESHOLD=50 #%
 
 SPACESHIP_RPROMPT_ORDER=(
   vi_mode
-  #time
+  time
   battery
 )
 

@@ -99,6 +99,7 @@ ZGEN_RESET_ON_CHANGE=(
   ${ZDOTDIR}/.zsh.local
   ${ZDOTDIR}/.zprofile
   ${DOTFILES}/lib/*.zsh
+  ${XDG_CONFIG_HOME}/*.zsh
 )
 
 # Automatically add symlinks
