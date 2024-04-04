@@ -6,6 +6,12 @@
 alias quiet=" >& /dev/null "
 alias sudo='sudo -A '
 
+# Z Navigation
+export _Z_DATA="$ZDOTDIR/.z"
+
+# Fuck helper
+alias f="fuck"
+
 # Man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 

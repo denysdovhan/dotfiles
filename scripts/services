@@ -1,19 +1,32 @@
 #!/usr/bin/env zsh
 
-SOURCE="/Users/$USER/Library/Mobile Documents/com~apple~CloudDocs/Services"
-TARGET="/Users/$USER/Library/Services"
-
 if [ "$(uname)" != "Darwin" ]; then
   echo "Skipping Downloads pointing on non-MacOS platform"
   exit 0
 fi
 
+# Copy services from iCloud
+SOURCE="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Services"
+TARGET="$HOME/Library/Services"
+
+if [ -d "$TARGET" ]; then
+  DIR=$(pwd)
+  cd $SOURCE
+  cp * "$TARGET"
+  cd $DIR
+fi
+
+# SSH
+SOURCE="$HOME/Library/Mobile Documents/com~apple~CloudDocs/.ssh"
+TARGET="$HOME/.ssh"
+
 if [ ! -h "$TARGET" ]; then
   if [ -d "$TARGET" ]; then
-    sudo mv "$TARGET" "/Users/$USER/.dotfiles/backup/$TARGET"
+    sudo mv "$TARGET" "$HOME/.dotfiles/backup/$TARGET"
     sudo rm -rf "$TARGET"
   fi
 
   ln -s "$SOURCE" "$TARGET"
   chmod -h 700 "$TARGET" 
 fi
+
