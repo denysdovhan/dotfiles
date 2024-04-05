@@ -170,6 +170,7 @@ install_software() {
   if _exists brew; then
     brew tab homebrew/bundle
     brew bundle
+    brew autoupdate start
   else
     error "Error: Brew is not available"
   fi

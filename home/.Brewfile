@@ -81,14 +81,14 @@ brew "zsh-autosuggestions"
 brew "zsh-completions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+# Application uninstaller
+cask "appcleaner"
 # Free monospaced font with programming ligatures
 cask "font-fira-code"
 # Developer targeted fonts with a high number of glyphs
 cask "font-fira-code-nerd-font"
 # Desktop client for GitHub repositories
 cask "github"
-# Tools to protect your emails and files
-cask "gpg-suite"
 # Desktop automation application
 cask "hammerspoon"
 # Windows manager and desktop organiser
@@ -113,15 +113,14 @@ cask "quicklook-json"
 cask "sf"
 # Music streaming service
 cask "spotify"
-cask "spotify-now-playing"
+# Spotify and iTunes in the menu bar
+cask "spotmenu"
 # Video game digital distribution service
 cask "steam"
 # Enable Windows-like program quitting when all windows are closed
 cask "swift-quit"
 # Unpacks archive files
 cask "the-unarchiver"
-# Open-source BitTorrent client
-cask "transmission"
 # Keyboard configurator
 cask "via"
 # Open-source code editor
@@ -129,7 +128,6 @@ cask "visual-studio-code"
 # Quick Look plugin for webp files
 cask "webpquicklook"
 mas "Amphetamine", id: 937984704
-mas "Apple Configurator", id: 1037126344
 mas "DaisyDisk", id: 411643860
 mas "Display Maid", id: 450063525
 mas "GarageBand", id: 682658836
