@@ -10,3 +10,7 @@ export XDG_RUNTIME_DIR="/tmp/users/$UID"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 export ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump-$UID"
+
+export PATH="$PATH:$HOME/.local/bin"
+export SUDO_ASKPASS="$HOME/.local/bin/askpass"
+

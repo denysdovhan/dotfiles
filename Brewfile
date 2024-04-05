@@ -2,34 +2,55 @@
 # https://github.com/Homebrew/homebrew-bundle
 
 # ------------------------------------------------------------------------------
+# Taps
+# ------------------------------------------------------------------------------
+tap "homebrew/aliases"
+tap "homebrew/autoupdate"
+tap "homebrew/bundle"
+tap "homebrew/cask-fonts"
+tap "homebrew/command-not-found"
+tap "homebrew/services"
+# tap "osx-cross/arm"
+# tap "osx-cross/avr"
+# tap "qmk/qmk"
+
+# ------------------------------------------------------------------------------
 # CLI Tools
 # ------------------------------------------------------------------------------
 brew "git"
+brew "git-lfs"
 brew "zsh"
+brew "spaceship"
 brew "zsh-completions"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
 brew "node"
+brew "tree-sitter"
+brew "neovim"
 brew "coreutils"
+brew "jq"
 brew "nvm"
 brew "tree"
 brew "lsd"
+brew "launch"
 brew "fzf"
+brew "fpp"
 brew "wget"
 brew "yarn"
 brew "tldr"
 brew "mas"
 brew "gh"
 brew "terminal-notifier"
-brew "wifi-password"
-brew "speedtest"
+brew "thefuck"
+brew "tldr"
+# brew "wifi-password"
+# brew "speedtest"
 brew "bat"
-brew "trash-it"
-brew "youtube-dl"
+# brew "trash-it"
+# brew "youtube-dl"
 brew "watchman" # Watching files for Jest
-
-# ------------------------------------------------------------------------------
-# Taps
-# ------------------------------------------------------------------------------
-tap "homebrew/cask-fonts"
+brew "diff-so-fancy"
+brew "transmission-cli"
 
 # ------------------------------------------------------------------------------
 # Cask
@@ -38,36 +59,47 @@ tap "homebrew/cask-fonts"
 # Fonts
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
-cask "font-hasklug-nerd-font"
 
 # Utils
-cask "ukrainian-typographic-keyboard"
+# cask "ukrainian-typographic-keyboard"
 cask "gpg-suite"
-cask "openvpn-connect"
-
-# Media
-cask "transmission"
-cask "handbrake"
-cask "vlc"
-cask "obs"
+# cask "openvpn-connect"
+# brew "qmk/qmk/qmk"
+# cask "karabiner-elements"
 
 # Development
-cask "fig"
-cask "multipass"
+cask "sf"
+brew "shfmt"
+brew "trunk"
+brew "openjdk@11"
+brew "python@3.11"
+# brew "lua"
+# brew "lua-language-server"
+# brew "luacheck"
+# cask "fig"
+# cask "multipass"
 cask "iterm2"
 cask "visual-studio-code"
 cask "github"
+cask "hammerspoon"
+cask "hazeover"
+cask "jetbrains-toolbox"
 
 # Desktop applications
-cask "telegram"
-cask "google-chrome"
-cask "firefox"
-cask "brave-browser"
-cask "slack"
+cask "logitune"
+# cask "moom"
+# cask "telegram"
+# cask "google-chrome"
+# cask "firefox"
+# cask "brave-browser"
+# cask "slack"
 cask "steam"
 cask "spotify"
-cask "notion"
-cask "discord"
+# cask "notion"
+# cask "discord"
+cask "swift-quit"
+cask "the-unarchiver"
+cask "via"
 
 # Quick Look plugins
 cask "qlcolorcode" # https://github.com/anthonygelibert/QLColorCode
@@ -79,10 +111,15 @@ cask "webpquicklook" # https://github.com/dchest/webp-quicklook
 # ------------------------------------------------------------------------------
 # App Store applications
 # ------------------------------------------------------------------------------
+mas "Amphetamine", id: 937984704
 mas "Home Assistant", id: 1099568401
-mas "Bitwarden", id: 1352778147
-mas "Spark", id: 1176895641
-mas "Unsplash Wallpapers", id: 12848638472
-mas "NordVPN", id: 905953485
-mas "The Unarchiver",  id: 425424353
-mas "Pandan", id: 1569600264
+# mas "DaisyDisk", id: 411643860
+mas "GarageBand", id: 682658836
+mas "Paste", id: 967805235
+# mas "Posture Pal", id: 1590316152
+# mas "Sequence Diagram", id: 1195426709
+mas "Snap", id: 418073146
+mas "StopTheMadness", id: 1376402589
+mas "Typist", id: 415166115
+mas "Xcode", id: 497799835
+mas "Xnip", id: 1221250572

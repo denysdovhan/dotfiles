@@ -3,3 +3,7 @@ backup
 
 # Compiled ZGenom
 *.zwc
+
+# Homebrew bundle log
+Brewfile.lock.json
+

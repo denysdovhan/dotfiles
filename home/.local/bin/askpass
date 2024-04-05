@@ -21,17 +21,14 @@ zparseopts -D -F -K -- \
  
 if (( $#is_set )) then
   output=$(security delete-generic-password -a $USER -s $SUDO_ASKPASS) >& /dev/null
-  echo "$?: $output"
 
   echo "Adding new password..."
 
   local password_value=${password[-1]}
 
   if [ -z $password_value ]; then
-    read -s "password_value?Password: "
+    read -s "password_value?Password:"
   fi
-
-  echo $password_value
 
   if [ -n "$password_value" ]; then
     output=$(security add-generic-password \
@@ -40,7 +37,6 @@ if (( $#is_set )) then
       -s $SUDO_ASKPASS \
       -w $password_value) >& /dev/null
     result=$?
-    echo "Debug: $result: $output"
     test $result -eq 0 || { echo "Could not add password." && return $result }
   else
     echo "No password provided" && return 1
@@ -52,6 +48,7 @@ else
   password_value=$(security find-generic-password -a $USER -s $SUDO_ASKPASS -w) >& /dev/null
   result=$?
   test $result -eq 0 && echo -n $password_value
+  test $result -ne 0 && askpass -s && askpass && return 0
   return $result
 fi
 

@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 
+alias sudo && exit 1
+
 for f in "$@"
 do
-	chflags hidden "$f" || echo "$(security find-generic-password -a $USER -s sudo-password -w 2>/dev/null)" | sudo -S chflags hidden "$f"
+	chflags hidden "$f" || quite sudo chflags hidden "$f" || { unalias sudo && askpass | sudo -T "$f" }
 done

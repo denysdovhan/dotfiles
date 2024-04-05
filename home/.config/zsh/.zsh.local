@@ -4,19 +4,19 @@
 
 # CLI
 alias quiet=" >& /dev/null "
-alias sudo='sudo -A '
+
+# Sudo
+askpass -c && alias sudo='sudo -A '
+askpass -c || askpass -s && alias sudo='sudo -A ' 
 
 # Z Navigation
 export _Z_DATA="$ZDOTDIR/.z"
 
 # Fuck helper
-alias f="fuck"
+quiet command -v "fuck" && alias f="fuck"
 
 # Man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-# Git
-alias gignoreall="cp .gitignore .gitignore.bak  2>&1 >/dev/null || true && echo '*' > .gitignore && git add .gitignore"
 
 # Viewing
 alias cat="bat --paging=never"

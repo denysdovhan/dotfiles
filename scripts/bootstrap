@@ -168,6 +168,7 @@ install_software() {
 
   # Homebrew Bundle
   if _exists brew; then
+    brew tab homebrew/bundle
     brew bundle
   else
     error "Error: Brew is not available"
