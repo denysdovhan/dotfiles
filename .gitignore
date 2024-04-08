@@ -7,3 +7,40 @@ backup
 # Homebrew bundle log
 Brewfile.lock.json
 
+# Compiled Python files
+*.pyc
+
+# Folder view configuration files
+.DS_Store
+desktop.ini
+
+# Thumbnail cache files
+Thumbs.db
+
+# Installed NPM modules
+node_modules
+
+# Logs
+*.log
+
+# Installed Bower packages
+bower_components
+
+.Trash
+
+# Home
+/home/Library
+/home/Applications
+/home/Desktop
+/home/Documents
+/home/Movies
+/home/Music
+/home/Pictures
+/home/Projects
+/home/Public
+/home/Torrents
+/home/iCloud*
+
+# SSH
+/home/.ssh
+
