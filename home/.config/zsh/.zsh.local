@@ -5,6 +5,10 @@
 # CLI
 alias quiet=" >& /dev/null "
 
+# Git (adding to .zshrc)
+alias gpa='gp --all'
+alias gstum='gst -u -M'
+
 # Sudo
 askpass -c && alias sudo='sudo -A '
 askpass -c || askpass -s && alias sudo='sudo -A ' 
