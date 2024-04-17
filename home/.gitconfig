@@ -97,10 +97,10 @@
 
 # Add LFS commands
 [filter "lfs"]
-  required = true
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 
 # Include local settings from .gitlocal
 # Requires Git 1.7.10
@@ -114,7 +114,7 @@
 [include]
   path = ~/.gitlocal
 [user]
-	email = mail@nickmorozov.net
+	email = neurodeep@gmail.com
 	name = Nick Morozov
 [credential "https://github.com"]
 	helper = 

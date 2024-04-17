@@ -25,6 +25,8 @@ brew "gh"
 brew "git"
 # Enable transparent encryption/decryption of files in a git repo
 brew "git-crypt"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
 # Git extension for versioning large files
 brew "git-lfs"
 # GNU grep, egrep and fgrep
@@ -47,6 +49,8 @@ brew "node"
 brew "nvm"
 # Development kit for the Java programming language
 brew "openjdk@11"
+# Generic syntax highlighter
+brew "pygments"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
 # Search tool like grep and The Silver Searcher
@@ -89,6 +93,8 @@ cask "font-fira-code"
 cask "font-fira-code-nerd-font"
 # Desktop client for GitHub repositories
 cask "github"
+# Utility to provide quick look previews for files that aren't natively supported
+cask "glance"
 # Desktop automation application
 cask "hammerspoon"
 # Windows manager and desktop organiser
@@ -101,68 +107,60 @@ cask "jetbrains-toolbox"
 cask "karabiner-elements"
 # Optimise your webcam, headset, and Logi Dock for video meetings
 cask "logitune"
-# Quick Look plug-in that renders source code with syntax highlighting
-cask "qlcolorcode"
-# Display image info and preview unsupported formats in QuickLook
-cask "qlimagesize"
-# Quick Look plugin for plaintext files without an extension
-cask "qlstephen"
-# Quick Look plugin for JSON files
-cask "quicklook-json"
+# Utility to move and zoom windows—on one display
+cask "moom"
 # Salesforce CLI tools
 cask "sf"
 # Music streaming service
 cask "spotify"
-# Spotify and iTunes in the menu bar
-cask "spotmenu"
 # Video game digital distribution service
 cask "steam"
 # Enable Windows-like program quitting when all windows are closed
 cask "swift-quit"
+# Quicklook extension for source files
+cask "syntax-highlight"
 # Unpacks archive files
 cask "the-unarchiver"
+# Automatic time and productivity tracking app
+cask "timing"
 # Keyboard configurator
 cask "via"
 # Open-source code editor
 cask "visual-studio-code"
-# Quick Look plugin for webp files
-cask "webpquicklook"
+mas "Actions", id: 1586435171
 mas "Amphetamine", id: 937984704
+mas "Consent-O-Matic", id: 1606897889
 mas "DaisyDisk", id: 411643860
 mas "Display Maid", id: 450063525
 mas "GarageBand", id: 682658836
 mas "Ghostery – Privacy Ad Blocker", id: 1436953057
 mas "Home Assistant", id: 1099568401
+mas "Noir", id: 1592917505
+mas "Notify for Spotify", id: 1517312650
 mas "Paste", id: 967805235
-mas "Snap", id: 418073146
-mas "StopTheMadness", id: 1376402589
+mas "StopTheMadness Pro", id: 6471380298
+mas "Super Agent", id: 1568262835
 mas "Typist", id: 415166115
 mas "Xcode", id: 497799835
 mas "Xnip", id: 1221250572
 vscode "aaron-bond.better-comments"
 vscode "acrolinx.vscode-sidebar"
-vscode "actboy168.extension-path"
 vscode "actboy168.lua-debug"
-vscode "actboy168.tasks"
 vscode "afractal.node-essentials"
 vscode "alefragnani.bookmarks"
 vscode "alefragnani.project-manager"
 vscode "allemandinstable.colorful-comments-refreshed"
 vscode "andrejunges.handlebars"
-vscode "atishay-jain.all-autocomplete"
-vscode "be5invis.vscode-icontheme-nomo-dark"
 vscode "benjamin-simmonds.pythoncpp-debug"
 vscode "bierner.github-markdown-preview"
 vscode "bierner.markdown-checkbox"
 vscode "bierner.markdown-emoji"
 vscode "bierner.markdown-footnotes"
-vscode "bierner.markdown-mermaid"
 vscode "bierner.markdown-preview-github-styles"
 vscode "bierner.markdown-yaml-preamble"
 vscode "christian-kohler.npm-intellisense"
 vscode "christian-kohler.path-intellisense"
 vscode "chuckjonas.apex-pmd"
-vscode "codestream.codestream"
 vscode "codezombiech.gitignore"
 vscode "compilouit.manpage"
 vscode "ctf0.macros"
@@ -189,24 +187,20 @@ vscode "geeebe.duplicate"
 vscode "github.codespaces"
 vscode "github.copilot"
 vscode "github.copilot-chat"
-vscode "github.github-vscode-theme"
 vscode "github.remotehub"
 vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
 vscode "gregorbiswanger.json2ts"
 vscode "gruntfuggly.todo-tree"
-vscode "hoovercj.vscode-settings-cycler"
 vscode "ibm.output-colorizer"
 vscode "idleberg.applescript"
 vscode "inu1255.easy-snippet"
-vscode "ionutvmi.path-autocomplete"
 vscode "ivanhofer.git-assistant"
 vscode "jabacchetta.vscode-essentials"
 vscode "jakearl.search-editor-apply-changes"
 vscode "jakewilson.vscode-picture"
 vscode "jasonlhy.hungry-delete"
 vscode "jeff-hykin.better-cpp-syntax"
-vscode "jkjustjoshing.vscode-text-pastry"
 vscode "johnnymorganz.stylua"
 vscode "johnpapa.vscode-peacock"
 vscode "kevinrose.vsc-python-indent"
@@ -226,6 +220,7 @@ vscode "mgesbert.python-path"
 vscode "mhutchie.git-graph"
 vscode "micnil.vscode-checkpoints"
 vscode "miguelsolorio.fluent-icons"
+vscode "miguelsolorio.min-theme"
 vscode "miguelsolorio.symbols"
 vscode "mikestead.dotenv"
 vscode "ms-azuretools.vscode-docker"
@@ -255,7 +250,6 @@ vscode "ms-vscode.azure-repos"
 vscode "ms-vscode.cmake-tools"
 vscode "ms-vscode.cpptools"
 vscode "ms-vscode.cpptools-extension-pack"
-vscode "ms-vscode.cpptools-themes"
 vscode "ms-vscode.hexeditor"
 vscode "ms-vscode.makefile-tools"
 vscode "ms-vscode.powershell"
@@ -272,12 +266,9 @@ vscode "pdamianik.folder-archiver"
 vscode "peterschmalfeldt.explorer-exclude"
 vscode "pflannery.vscode-versionlens"
 vscode "philosowaffle.openapi-designer"
-vscode "pkief.material-icon-theme"
-vscode "pkief.material-product-icons"
+vscode "pkief.copy-branch-name"
 vscode "pmneo.tsimporter"
-vscode "pnp.polacode"
 vscode "postman.postman-for-vscode"
-vscode "quantum.qsharp-lang-vscode"
 vscode "randomfractalsinc.vscode-data-preview"
 vscode "redhat.fabric8-analytics"
 vscode "redhat.java"
@@ -287,8 +278,6 @@ vscode "rogalmic.bash-debug"
 vscode "salesforce.analyticsdx-vscode"
 vscode "salesforce.analyticsdx-vscode-core"
 vscode "salesforce.analyticsdx-vscode-templates"
-vscode "salesforce.codey-high-noon"
-vscode "salesforce.codey-midnight"
 vscode "salesforce.commercedx-vscode"
 vscode "salesforce.mule-dx-api-component"
 vscode "salesforce.mule-dx-apikit-component"
@@ -324,7 +313,6 @@ vscode "sleistner.vscode-fileutils"
 vscode "slevesque.vscode-multiclip"
 vscode "sqrtt.prophet"
 vscode "stkb.rewrap"
-vscode "streetsidesoftware.code-spell-checker"
 vscode "stringham.move-ts"
 vscode "sumneko.lua"
 vscode "svipas.control-snippets"
@@ -350,6 +338,7 @@ vscode "vscjava.vscode-java-debug"
 vscode "vscjava.vscode-java-dependency"
 vscode "vscjava.vscode-java-pack"
 vscode "vscjava.vscode-maven"
+vscode "vscodevim.vim"
 vscode "vsls-contrib.gistfs"
 vscode "walkme.html5-extension-pack"
 vscode "willmendesneto.vscode-file-extra"
