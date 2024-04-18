@@ -5,10 +5,6 @@
 # CLI
 alias quiet=" >& /dev/null "
 
-# Git (adding to .zshrc)
-alias gpa='gp --all'
-alias gstum='gst -u -M'
-
 # Sudo
 askpass -c && alias sudo='sudo -A '
 askpass -c || askpass -s && alias sudo='sudo -A ' 
@@ -58,15 +54,6 @@ function see() {
 alias vim="e"
 alias ez="e $ZDOTDIR/.zsh.local && reload"
 
-# iTerm2 Shell Integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
-
-# Allows to pass variables into the app UI
-iterm2_print_user_vars() {
-    iterm2_set_user_var today $(echo $(date +'%a\xC2\xA0%H:%M'))
-    iterm2_set_user_var where $(echo "$(whoami)@$(hostname):$(pwd)")
-}
-
 # Reboot without user password on login - useful for encrypted system with Bluetooth keyboards
 alias restart="sudo fdesetup authrestart -delayminutes 0"
 
@@ -80,3 +67,12 @@ HB_CNF_HANDLER="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-command
 if [ -f "$HB_CNF_HANDLER" ]; then
     source "$HB_CNF_HANDLER"
 fi
+
+# iTerm2 Shell Integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
+
+# Allows to pass variables into the app UI
+iterm2_print_user_vars() {
+    iterm2_set_user_var today $(echo $(date +'%a\xC2\xA0%H:%M'))
+    iterm2_set_user_var where $(echo "$(whoami)@$(hostname):$(pwd)")
+}
