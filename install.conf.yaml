@@ -23,9 +23,6 @@
     - description: Installing zgenom
       command: ./scripts/zgenom
 
-    - description: iTerm2 Shell Integration
-      command: ./scripts/iterm
-
     - description: Pointing Services to iCloud
       command: ./scripts/services
 
