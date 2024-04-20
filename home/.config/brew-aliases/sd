@@ -1,6 +1,0 @@
-#! /bin/bash
-# alias: brew sd
-#:  * `sd` [args...]
-#:    `brew sd` is an alias for `brew search --desc --eval-all`
-brew search --desc --eval-all $*
-
