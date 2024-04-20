@@ -28,7 +28,8 @@ alias cat="bat --paging=never"
 
 # Editing
 alias vim="$EDITOR" # Fallback
-alias ez="$EDITOR $ZDOTDIR/.zsh.local $ZDOTDIR/.zshrc $ZDOTDIR/.zprofile"
+alias ez="$EDITOR $ZDOTDIR/.zsh.local"
+alias ezz="$EDITOR $ZDOTDIR/.zsh.local $ZDOTDIR/.zshrc"
 
 # Reboot without user password on login - useful for encrypted system with Bluetooth keyboards
 alias restart="sudo fdesetup authrestart -delayminutes 0"
@@ -37,6 +38,11 @@ alias restart="sudo fdesetup authrestart -delayminutes 0"
 export HOMEBREW_NO_ENV_HINTS="true"
 export HOMEBREW_INSTALL_BADGE="☕️"
 export HOMEBREW_COLOR="true"
+
+# Aliases
+alias bi="brew install"
+alias bs="brew search"
+alias bsd="brew search --desc --eval-all"
 
 # Plugin config
 HB_CNF_HANDLER="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
@@ -50,8 +56,10 @@ iterm2_print_user_vars() {
     iterm2_set_user_var titlePrompt $(echo "$(whoami)@$(hostname):$(pwd)")
     iterm2_set_user_var spaceshipPrompt $(spaceship::prompt)
     iterm2_set_user_var spaceshipPs2 $(spaceship::ps2)
+    iterm2_set_user_var editor $(echo $(which $EDITOR))
 }
 
-# iTerm2 Shell Integration
-# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
-
+# https://github.com/zimfw/termtitle
+zstyle ':zim:termtitle' hooks 'preexec' 'precmd'
+zstyle ':zim:termtitle:preexec' format '${${(A)=1}[1]}'
+zstyle ':zim:termtitle:precmd'  format '%1~'

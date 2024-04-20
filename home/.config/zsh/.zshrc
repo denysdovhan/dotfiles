@@ -149,6 +149,8 @@ if ! zgenom saved; then
     zgenom load spaceship-prompt/spaceship-vi-mode
     zgenom load unixorn/autoupdate-zgenom
     zgenom load unixorn/fzf-zsh-plugin
+    zgenom load amyreese/zsh-titles 
+    zgenom load stefanheule/zsh-llm-suggestions
     
     # Files
     zgenom load $DOTFILES/lib
