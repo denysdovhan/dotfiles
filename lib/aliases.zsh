@@ -51,7 +51,7 @@ alias bootstrap="source $DOTFILES/scripts/bootstrap"
 alias dotfiles="code $DOTFILES"
 
 # Quick reload of zsh environment
-alias reload="source $ZDOTDIR/.zprofile && source $ZDOTDIR/.zshrc"
+alias reload="source $HOME/.profile && source $ZDOTDIR/.zshrc"
 
 # My IP
 alias myip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'

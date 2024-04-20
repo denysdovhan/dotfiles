@@ -14,7 +14,7 @@
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>AllowTabbarInTitlebarAccessoryBigSur</key>
-	<false/>
+	<true/>
 	<key>AlternateMouseScroll</key>
 	<true/>
 	<key>AlwaysUseStatusBarComposer</key>
@@ -84035,6 +84035,8 @@
 	<false/>
 	<key>FocusFollowsMouse</key>
 	<false/>
+	<key>FunctionKey</key>
+	<integer>10</integer>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideActivityIndicator</key>
@@ -84048,11 +84050,17 @@
 	<key>HideTab</key>
 	<true/>
 	<key>HideTabNumber</key>
-	<false/>
+	<true/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>IRMemory</key>
 	<integer>4</integer>
+	<key>LeftCommand</key>
+	<integer>7</integer>
+	<key>LeftControl</key>
+	<integer>11</integer>
+	<key>LeftOption</key>
+	<integer>2</integer>
 	<key>MaxVertically</key>
 	<false/>
 	<key>MinimalSplitPaneDividerProminence</key>
@@ -84083,7 +84091,7 @@
 			<key>Allow Paste Bracketing</key>
 			<true/>
 			<key>Allow Title Reporting</key>
-			<true/>
+			<false/>
 			<key>Allow Title Setting</key>
 			<true/>
 			<key>Ambiguous Double Width</key>
@@ -84870,6 +84878,7 @@
 				<string>ssh</string>
 				<string>slogin</string>
 				<string>telnet</string>
+				<string>zsh</string>
 			</array>
 			<key>Keyboard Map</key>
 			<dict>
@@ -85404,9 +85413,9 @@
 			<key>Minimum Contrast (Light)</key>
 			<real>0.0</real>
 			<key>Mouse Reporting</key>
-			<true/>
+			<false/>
 			<key>Name</key>
-			<string>Hotkey</string>
+			<string>Terminal</string>
 			<key>Non Ascii Font</key>
 			<string>Monaco 12</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -85420,7 +85429,7 @@
 			<key>Prevent Opening in a Tab</key>
 			<true/>
 			<key>Prompt Before Closing 2</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Right Option Key Changeable</key>
 			<true/>
 			<key>Right Option Key Sends</key>
@@ -85837,7 +85846,7 @@
 				</array>
 			</dict>
 			<key>Subtitle</key>
-			<string>\(path) → \(jobName)</string>
+			<string></string>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -85882,7 +85891,7 @@
 			<key>Use Bright Bold (Light)</key>
 			<true/>
 			<key>Use Cursor Guide</key>
-			<true/>
+			<false/>
 			<key>Use Cursor Guide (Dark)</key>
 			<true/>
 			<key>Use Cursor Guide (Light)</key>
@@ -85946,7 +85955,7 @@
 	<key>PasteSpecialUseRegexSubstitution</key>
 	<false/>
 	<key>PerPaneBackgroundImage</key>
-	<true/>
+	<false/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -85983,9 +85992,15 @@
 	<key>PreserveWindowSizeWhenTabBarVisibilityChanges</key>
 	<true/>
 	<key>PromptOnQuit</key>
-	<true/>
+	<false/>
 	<key>PromptOnQuitEvenIfThereAreNoWindows</key>
 	<false/>
+	<key>RightCommand</key>
+	<integer>8</integer>
+	<key>RightControl</key>
+	<integer>12</integer>
+	<key>RightOption</key>
+	<integer>3</integer>
 	<key>SGTRecentFileSearches</key>
 	<array>
 		<dict>
@@ -86081,6 +86096,8 @@
 	<true/>
 	<key>ShowPaneTitles</key>
 	<true/>
+	<key>ShowWindowTitleWhenTabBarInvisible</key>
+	<true/>
 	<key>SmartPlacement</key>
 	<false/>
 	<key>SoundForEsc</key>
@@ -86107,6 +86124,8 @@
 	<integer>0</integer>
 	<key>TerminalVMargin</key>
 	<integer>0</integer>
+	<key>TmuxSyncClipboard</key>
+	<true/>
 	<key>UIElementRequiresHotkeys</key>
 	<true/>
 	<key>URLHandlersByGuid</key>

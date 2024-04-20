@@ -4,7 +4,6 @@
 # ------------------------------------------------------------------------------
 # Taps
 # ------------------------------------------------------------------------------
-tap "homebrew/aliases"
 tap "homebrew/autoupdate"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"

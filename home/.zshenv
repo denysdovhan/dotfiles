@@ -14,3 +14,5 @@ export ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump-$UID"
 export PATH="$PATH:$HOME/.local/bin"
 export SUDO_ASKPASS="$HOME/.local/bin/askpass"
 
+# Spaceship config
+export SPACESHIP_CONFIG="$XDG_CONFIG_HOME/spaceship/config.zsh"

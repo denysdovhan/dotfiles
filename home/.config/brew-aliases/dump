@@ -1,6 +1,0 @@
-#! /bin/bash
-# alias: brew dump
-#:  * `dump` [args...]
-#:    `brew dump` is an alias for `brew bundle dump --all --describe --force --global`
-brew bundle dump --all --describe --force --global $*
-

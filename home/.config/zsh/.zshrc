@@ -21,24 +21,6 @@ export LANGUAGE=en_US.UTF-8
 # Do not override files using `>`, but it's still possible using `>!`
 set -o noclobber
 
-# Extend $PATH without duplicates
-_extend_path() {
-  [[ -d "$1" ]] || return
-
-  if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
-    export PATH="$1:$PATH"
-  fi
-}
-
-# Add custom bin to $PATH
-_extend_path "$HOME/.local/bin"
-_extend_path "$DOTFILES/bin"
-_extend_path "$HOME/.npm-global/bin"
-_extend_path "$HOME/.rvm/bin"
-_extend_path "$HOME/.yarn/bin"
-_extend_path "$XDG_CONFIG_HOME/yarn/global/node_modules/.bin"
-_extend_path "$HOME/.bun/bin"
-
 # Extend $NODE_PATH
 if [ -d ~/.npm-global ]; then
   export NODE_PATH="$NODE_PATH:$HOME/.npm-global/lib/node_modules"
@@ -95,11 +77,11 @@ fi
 # ------------------------------------------------------------------------------
 
 ZGEN_RESET_ON_CHANGE=(
+  ${SPACESHIP_CONFIG}
+  ${HOME}/.zshenv
   ${ZDOTDIR}/.zshrc
   ${ZDOTDIR}/.zsh.local
-  ${ZDOTDIR}/.zprofile
   ${DOTFILES}/lib/*.zsh
-  ${XDG_CONFIG_HOME}/*.zsh
 )
 
 # Automatically add symlinks
@@ -135,7 +117,6 @@ if ! zgenom saved; then
     zgenom ohmyzsh plugins/aliases
     zgenom ohmyzsh plugins/iterm2
     zgenom ohmyzsh plugins/thefuck
-    zgenom ohmyzsh plugins/vi-mode
 
     # Custom plugins
     zgenom load jeffreytse/zsh-vi-mode
@@ -146,11 +127,9 @@ if ! zgenom saved; then
     zgenom load zsh-users/zsh-syntax-highlighting
     zgenom load zdharma-continuum/fast-syntax-highlighting
     zgenom load zsh-users/zsh-autosuggestions
-    zgenom load spaceship-prompt/spaceship-vi-mode
     zgenom load unixorn/autoupdate-zgenom
     zgenom load unixorn/fzf-zsh-plugin
     zgenom load amyreese/zsh-titles 
-    zgenom load stefanheule/zsh-llm-suggestions
     
     # Files
     zgenom load $DOTFILES/lib
@@ -166,8 +145,10 @@ if ! zgenom saved; then
     zgenom save
     
     # Compile your zsh files
-    zgenom compile $ZDOTDIR
+    zgenom compile $ZGEN_RESET_ON_CHANGE
 fi
+
+zgenom clean
 
 # ------------------------------------------------------------------------------
 # Direnv

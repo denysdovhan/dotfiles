@@ -13,6 +13,10 @@ alias quiet=" >& /dev/null "
 askpass -c && alias sudo='sudo -A '
 askpass -c || askpass -s && alias sudo='sudo -A ' 
 
+# GitHub Copilot Suggestions
+alias cops="gh copilot suggest"
+alias cope="gh copilot explain"
+
 # Z Navigation
 export _Z_DATA="$ZDOTDIR/.z"
 
@@ -30,6 +34,7 @@ alias cat="bat --paging=never"
 alias vim="$EDITOR" # Fallback
 alias ez="$EDITOR $ZDOTDIR/.zsh.local"
 alias ezz="$EDITOR $ZDOTDIR/.zsh.local $ZDOTDIR/.zshrc"
+alias ezzz="$EDITOR $ZDOTDIR/.zsh.local $ZDOTDIR/.zshrc $HOME/.profile $HOME/.zshenv"
 
 # Reboot without user password on login - useful for encrypted system with Bluetooth keyboards
 alias restart="sudo fdesetup authrestart -delayminutes 0"
@@ -43,6 +48,8 @@ export HOMEBREW_COLOR="true"
 alias bi="brew install"
 alias bs="brew search"
 alias bsd="brew search --desc --eval-all"
+alias bdump="brew bundle dump --all --describe --force --global"
+alias badopt="brew install --cask --adopt"
 
 # Plugin config
 HB_CNF_HANDLER="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
