@@ -46,6 +46,7 @@ export HOMEBREW_COLOR="true"
 
 # Aliases
 alias bi="brew install"
+alias brm="brew remove"
 alias bs="brew search"
 alias bsd="brew search --desc --eval-all"
 alias bdump="brew bundle dump --all --describe --force --global"
