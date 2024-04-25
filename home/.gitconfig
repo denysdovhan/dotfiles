@@ -15,6 +15,7 @@
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
   ignorecase = false
+	pager = diff-so-fancy | less --tabs=4 -RF
 
 [push]
   default = current
@@ -122,3 +123,5 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/local/bin/gh auth git-credential
+[interactive]
+	diffFilter = diff-so-fancy --patch
