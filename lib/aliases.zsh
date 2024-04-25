@@ -1,15 +1,8 @@
+# .zshenv → .zprofile → .zshrc → .zlogin → .zlogout
+
 #
 # Aliases
 #
-
-# Helper
-_exists() {
-  command -v $1 > /dev/null 2>&1
-}
-
-# Enable aliases to be sudo’ed
-#   http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
-alias sudo='sudo '
 
 # Enable askpass for Sudo
 if _exists askpass; then
@@ -23,6 +16,7 @@ fi
 
 # CLI
 alias quiet=" >& /dev/null "
+alias grab="sudo chown $USER"
 alias alias rmf="rm -f"
 
 # Reboot without user password on login - useful for encrypted system with Bluetooth keyboards
@@ -42,7 +36,8 @@ alias clr='clear'
 alias q="~ && clear"
 
 # Fast config edit
-alias ez="$EDITOR $ZDOTDIR/*(ND) && reload"
+alias ez="$EDITOR $ZDOTDIR/{aliases.zsh,zshenv,.zshrc,.zprofile} && reload"
+alias ezhost="$EDITOR $ZDOTDIR/zsh.$HOST && reload"
 
 # Folders Shortcuts
 [ -d ~/Downloads ]            && alias dl='cd ~/Downloads'
@@ -81,7 +76,7 @@ alias bootstrap="source $DOTFILES/scripts/bootstrap"
 alias dotfiles="code $DOTFILES"
 
 # Quick reload of zsh environment
-alias reload="source $HOME/.profile && source $ZDOTDIR/.zshrc"
+alias reload="source $HOME/.zshenv && source $ZDOTDIR/.zprofile && source $ZDOTDIR/.zshrc"
 
 # My IP
 alias myip='ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p"'
@@ -110,9 +105,6 @@ alias cope="gh copilot explain"
 
 # Editing
 alias vim="$EDITOR" # Fallback
-alias ez="$EDITOR $ZDOTDIR/.zsh.local"
-alias ezz="$EDITOR $ZDOTDIR/.zsh.local $ZDOTDIR/.zshrc"
-alias ezzz="$EDITOR $ZDOTDIR/.zsh.local $ZDOTDIR/.zshrc $HOME/.profile $HOME/.zshenv"
 
 if _exists lsd; then
   unalias ls
