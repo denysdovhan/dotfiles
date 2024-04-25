@@ -1,11 +1,10 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-[[ -f "$ZDOTDIR/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$ZDOTDIR/.fig/shell/zshrc.pre.zsh"
-# ------------------------------------------------------------------------------
+# .zshenv → .zprofile → .zshrc → .zlogin → .zlogout
+#
+# .zshrc is for interactive shells.
+#   You set options for the interactive shell there with the setopt and unsetopt commands.
+#   You can also load shell modules, set your history options, change your prompt, set up zle and completion, et cetera.
+#   You also set any variables that are only used in the interactive shell (e.g. $LS_COLORS).
 
-#
-# ~/.zshrc
-#
 # ------------------------------------------------------------------------------
 # Environment
 # ------------------------------------------------------------------------------
@@ -94,11 +93,13 @@ fi
 # ------------------------------------------------------------------------------
 
 ZGEN_RESET_ON_CHANGE=(
-  ${SPACESHIP_CONFIG}
   ${HOME}/.zshenv
+  ${ZDOTDIR}/.zprofile
   ${ZDOTDIR}/.zshrc
-  ${ZDOTDIR}/.zsh.local
-  ${DOTFILES}/lib/*.zsh
+  ${ZDOTDIR}/.zlogin
+  ${ZDOTDIR}/.zlogout
+  ${DOTFILES}/lib/*.zsh # Upstream scripts
+  ${SPACESHIP_CONFIG}
 )
 
 # Automatically add symlinks
@@ -167,6 +168,14 @@ fi
 
 zgenom clean
 
+# Diff - lib/theme-and-appearance.zsh has its own function which we override here
+if _exists diff-so-fancy; then
+  quiet unset diff
+  diff() {
+    command diff --color -u "$@" | diff-so-fancy | less
+  }
+fi
+
 # ------------------------------------------------------------------------------
 # Direnv
 # ------------------------------------------------------------------------------
@@ -208,13 +217,7 @@ fi
 # ------------------------------------------------------------------------------
 
 # Source local configuration
-if [[ -f "$ZDOTDIR/.zsh.local" ]]; then
-  source "$ZDOTDIR/.zsh.local"
+if [ -f "zsh.$HOST" ]; then
+  source "zsh.$HOST"
 fi
-
-# ------------------------------------------------------------------------------
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-[[ -f "$ZDOTDIR/.fig/shell/zshrc.post.zsh" ]] && builtin source "$ZDOTDIR/.fig/shell/zshrc.post.zsh"
 
