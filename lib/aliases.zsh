@@ -2,13 +2,31 @@
 # Aliases
 #
 
+# Helper
+_exists() {
+  command -v $1 > /dev/null 2>&1
+}
+
 # Enable aliases to be sudo’ed
 #   http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias sudo='sudo '
 
-_exists() {
-  command -v $1 > /dev/null 2>&1
-}
+# Enable askpass for Sudo
+if _exists askpass; then
+  if askpass -c; then
+    alias sudo='sudo -A '
+  else
+    askpass -s
+    alias sudo='sudo -A '
+  fi
+fi
+
+# CLI
+alias quiet=" >& /dev/null "
+alias alias rmf="rm -f"
+
+# Reboot without user password on login - useful for encrypted system with Bluetooth keyboards
+alias restart="sudo fdesetup authrestart -delayminutes 0"
 
 # Avoid stupidity with trash-cli:
 # https://github.com/sindresorhus/trash-cli
@@ -22,6 +40,9 @@ alias clr='clear'
 
 # Go to the /home/$USER (~) directory and clears window of your terminal
 alias q="~ && clear"
+
+# Fast config edit
+alias ez="$EDITOR $ZDOTDIR/*(ND) && reload"
 
 # Folders Shortcuts
 [ -d ~/Downloads ]            && alias dl='cd ~/Downloads'
@@ -42,6 +63,15 @@ alias open='open_command'
 alias o='open'
 alias oo='open .'
 alias term='open -a iterm.app'
+
+# Homebrew
+alias bi="brew install"
+alias brm="brew remove"
+alias bs="brew search"
+alias bsd="brew search --desc --eval-all"
+alias bdump="brew bundle dump --all --describe --force --global"
+alias badopt="brew install --cask --adopt"
+alias bl="brew list -ltr"
 
 # Run scripts
 alias update="source $DOTFILES/scripts/update"
@@ -70,7 +100,19 @@ if _exists tldr; then
   alias help="tldr"
 fi
 
+# Git
+alias grc="gh repo create"
 alias git-root='cd $(git rev-parse --show-toplevel)'
+
+# GitHub Copilot Suggestions
+alias cops="gh copilot suggest"
+alias cope="gh copilot explain"
+
+# Editing
+alias vim="$EDITOR" # Fallback
+alias ez="$EDITOR $ZDOTDIR/.zsh.local"
+alias ezz="$EDITOR $ZDOTDIR/.zsh.local $ZDOTDIR/.zshrc"
+alias ezzz="$EDITOR $ZDOTDIR/.zsh.local $ZDOTDIR/.zshrc $HOME/.profile $HOME/.zshenv"
 
 if _exists lsd; then
   unalias ls
@@ -83,6 +125,10 @@ fi
 if _exists bat; then
   # Run to list all themes:
   #   bat --list-themes
-  export BAT_THEME='base16'
-  alias cat='bat'
+  export BAT_THEME='gruvbox-dark'
+  alias bat="bat --color=always"
+  alias cat="bat --paging=never"
 fi
+
+# Fuck helper
+_exists fuck && alias f="fuck"

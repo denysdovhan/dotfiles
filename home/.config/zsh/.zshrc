@@ -10,6 +10,9 @@
 # Environment
 # ------------------------------------------------------------------------------
 
+# Title
+export DISABLE_AUTO_TITLE="true"
+
 # Export path to root of dotfiles repo
 export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
 
@@ -17,6 +20,19 @@ export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
+
+# Z Navigation
+export _Z_DATA="$ZDOTDIR/.z"
+
+# Homebrew
+export HOMEBREW_NO_ENV_HINTS="true"
+export HOMEBREW_INSTALL_BADGE="☕️"
+export HOMEBREW_COLOR="true"
+
+HB_CNF_HANDLER="$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
+if [ -f "$HB_CNF_HANDLER" ]; then
+    source "$HB_CNF_HANDLER"
+fi
 
 # Do not override files using `>`, but it's still possible using `>!`
 set -o noclobber
@@ -28,6 +44,7 @@ fi
 
 # Default pager
 export PAGER='less'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # less options
 less_opts=(
@@ -158,6 +175,16 @@ zgenom clean
 if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
+
+# ------------------------------------------------------------------------------
+# iTerm
+# ------------------------------------------------------------------------------
+# Allows to pass variables into the app UI
+iterm2_print_user_vars() {
+    iterm2_set_user_var now $(echo $(date +'%a\xC2\xA0%H:%M'))
+    iterm2_set_user_var title $(echo "$(whoami)@$(hostname):$(pwd)")
+    iterm2_set_user_var editor $(echo $(which $EDITOR))
+}
 
 # ------------------------------------------------------------------------------
 # Load additional zsh files
