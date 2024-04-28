@@ -36,8 +36,7 @@ alias clr='clear'
 alias q="~ && clear"
 
 # Fast config edit
-alias ez="$EDITOR $ZDOTDIR/{aliases.zsh,zshenv,.zshrc,.zprofile} && reload"
-alias ezhost="$EDITOR $ZDOTDIR/zsh.$HOST && reload"
+alias ez="$EDITOR $ZDOTDIR/{aliases.zsh,zshenv,.zshrc,.zprofile,zsh.$HOST} && zgenom reset && reload"
 
 # Folders Shortcuts
 [ -d ~/Downloads ]            && alias dl='cd ~/Downloads'
@@ -96,7 +95,8 @@ if _exists tldr; then
 fi
 
 # Git
-alias grc="gh repo create"
+alias ghrc="gh repo create"
+alias ghrv="gh repo view --web"
 alias git-root='cd $(git rev-parse --show-toplevel)'
 
 # GitHub Copilot Suggestions

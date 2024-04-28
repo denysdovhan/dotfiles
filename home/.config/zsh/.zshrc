@@ -98,6 +98,7 @@ ZGEN_RESET_ON_CHANGE=(
   ${ZDOTDIR}/.zshrc
   ${ZDOTDIR}/.zlogin
   ${ZDOTDIR}/.zlogout
+  ${ZDOTDIR}/zsh.${HOST}
   ${DOTFILES}/lib/*.zsh # Upstream scripts
   ${SPACESHIP_CONFIG}
 )

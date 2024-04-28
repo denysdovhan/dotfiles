@@ -1,4 +1,4 @@
-tap "homebrew/aliases"
+tap "glezseoane/tap"
 tap "homebrew/autoupdate"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
@@ -6,6 +6,7 @@ tap "homebrew/command-not-found"
 tap "homebrew/services"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
+tap "oven-sh/bun"
 tap "qmk/qmk"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
@@ -29,8 +30,12 @@ brew "git-crypt"
 brew "git-filter-repo"
 # Git extension for versioning large files
 brew "git-lfs"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
 # GNU grep, egrep and fgrep
 brew "grep"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Command-line launcher for macOS, in the spirit of `open`
@@ -71,6 +76,8 @@ brew "transmission-cli", restart_service: true
 brew "tree"
 # Build, bundle & ship your Rust WASM application to the web
 brew "trunk"
+# Meta-level vim package manager
+brew "volt"
 # Watch files and take action when they change
 brew "watchman"
 # Internet file retriever
@@ -87,6 +94,12 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 # Application uninstaller
 cask "appcleaner"
+# Menu bar weather app
+cask "datweatherdoe"
+# Voice and text chat software
+cask "discord"
+# Utility to show apps badges from the dock in the menu bar
+cask "doll"
 # Free monospaced font with programming ligatures
 cask "font-fira-code"
 # Developer targeted fonts with a high number of glyphs
@@ -95,6 +108,8 @@ cask "font-fira-code-nerd-font"
 cask "github"
 # Utility to provide quick look previews for files that aren't natively supported
 cask "glance"
+# Tools to protect your emails and files
+cask "gpg-suite"
 # Desktop automation application
 cask "hammerspoon"
 # Windows manager and desktop organiser
@@ -105,10 +120,16 @@ cask "iterm2"
 cask "jetbrains-toolbox"
 # Keyboard customiser
 cask "karabiner-elements"
-# Optimise your webcam, headset, and Logi Dock for video meetings
-cask "logitune"
+# Mouse utility to add gesture functions and smooth scrolling to 3rd party mice
+cask "mac-mouse-fix"
+# Helps you learn to play your instrument
+cask "melodics"
 # Utility to move and zoom windows—on one display
 cask "moom"
+# All system and utility switches in one place
+cask "one-switch"
+# Digital audio production application
+cask "reaper"
 # Salesforce CLI tools
 cask "sf"
 # Music streaming service
@@ -117,6 +138,8 @@ cask "spotify"
 cask "steam"
 # Enable Windows-like program quitting when all windows are closed
 cask "swift-quit"
+# Control windows and applications right from your trackpad
+cask "swish"
 # Quicklook extension for source files
 cask "syntax-highlight"
 # Unpacks archive files
@@ -128,19 +151,29 @@ cask "via"
 # Open-source code editor
 cask "visual-studio-code"
 mas "Actions", id: 1586435171
+mas "Affinity Photo", id: 824183456
 mas "Amphetamine", id: 937984704
+mas "Barbee", id: 1548711022
 mas "Consent-O-Matic", id: 1606897889
 mas "DaisyDisk", id: 411643860
-mas "Display Maid", id: 450063525
+mas "Dato", id: 1470584107
+mas "FastZip", id: 1565629813
 mas "GarageBand", id: 682658836
 mas "Ghostery – Privacy Ad Blocker", id: 1436953057
 mas "Home Assistant", id: 1099568401
+mas "iCopy", id: 1638023723
+mas "iRightMouse", id: 1497428978
+mas "iShot", id: 1485844094
+mas "Mapper", id: 1589391989
 mas "Noir", id: 1592917505
-mas "Notify for Spotify", id: 1517312650
 mas "Paste", id: 967805235
+mas "Photomator", id: 1444636541
+mas "Signal Shifter", id: 6446061552
+mas "Spaced", id: 1666327168
+mas "Spotica Menu", id: 570549457
 mas "StopTheMadness Pro", id: 6471380298
-mas "Super Agent", id: 1568262835
 mas "Typist", id: 415166115
+mas "Vimkey", id: 1585682577
 mas "Xcode", id: 497799835
 mas "Xnip", id: 1221250572
 vscode "aaron-bond.better-comments"
@@ -342,6 +375,7 @@ vscode "vscodevim.vim"
 vscode "vsls-contrib.gistfs"
 vscode "walkme.html5-extension-pack"
 vscode "willmendesneto.vscode-file-extra"
+vscode "withfig.fig"
 vscode "wix.vscode-import-cost"
 vscode "xabikos.javascriptsnippets"
 vscode "xaver.clang-format"
