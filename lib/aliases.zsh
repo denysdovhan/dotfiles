@@ -49,6 +49,7 @@ alias ez="$EDITOR $ZDOTDIR/{aliases.zsh,zshenv,.zshrc,.zprofile,zsh.$HOST} && zg
 
 # Commands Shortcuts
 alias e="$EDITOR"
+alias v="$VIEWER"
 alias -- +x='chmod +x'
 alias x+='chmod +x'
 

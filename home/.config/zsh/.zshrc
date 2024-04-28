@@ -36,42 +36,6 @@ fi
 # Do not override files using `>`, but it's still possible using `>!`
 set -o noclobber
 
-# Extend $NODE_PATH
-if [ -d ~/.npm-global ]; then
-  export NODE_PATH="$NODE_PATH:$HOME/.npm-global/lib/node_modules"
-fi
-
-# Default pager
-export PAGER='less'
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-# less options
-less_opts=(
-  # Quit if entire file fits on first screen.
-  -FX
-  # Ignore case in searches that do not contain uppercase.
-  --ignore-case
-  # Allow ANSI colour escapes, but no other escapes.
-  --RAW-CONTROL-CHARS
-  # Quiet the terminal bell. (when trying to scroll past the end of the buffer)
-  --quiet
-  # Do not complain when we are on a dumb terminal.
-  --dumb
-)
-export LESS="${less_opts[*]}"
-
-# Default editor for local and remote sessions
-if [[ -n "$SSH_CONNECTION" ]]; then
-  # on the server
-  if command -v vim >/dev/null 2>&1; then
-    export EDITOR='vim'
-  else
-    export EDITOR='vi'
-  fi
-else
-  export EDITOR='nvim'
-fi
-
 # Better formatting for time command
 export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
 
