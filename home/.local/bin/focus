@@ -1,4 +1,12 @@
 #!/bin/zsh
+# Define the cron job
+CRON_JOB="* * * * * focus"
+
+# Check if the cron job already exists
+if ! crontab -l | grep -q "$CRON_JOB"; then
+    # If it doesn't exist, add it to the crontab
+    (crontab -l 2>/dev/null; echo "$CRON_JOB") | crontab -
+fi
 
 function _get_focus {
 osascript <<EOF
