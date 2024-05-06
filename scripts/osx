@@ -332,7 +332,7 @@ echo Dock, Dashboard, and hot corners
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
 # Set the icon size of Dock items to 16 pixels
-defaults write com.apple.dock tilesize -int 16
+defaults write com.apple.dock tilesize -int 48
 
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
@@ -357,8 +357,8 @@ defaults write com.apple.dock persistent-apps -array ""
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
 
-# Don't bounce icons in the Dock
-defaults write com.apple.dock no-bouncing -bool true
+# Bounce icons in the Dock
+defaults write com.apple.dock no-bouncing -bool false
 
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
@@ -368,9 +368,6 @@ defaults write com.apple.dock mru-spaces -bool false
 
 # Remove the auto-hiding Dock delay
 defaults write com.apple.dock autohide-delay -float 0
-
-# ... and then increase it since Dock is not used 
-defaults write com.apple.dock autohide-delay -float 0.2
 
 # Remove the animation when hiding/showing the Dock
 defaults write com.apple.dock autohide-time-modifier -float 0

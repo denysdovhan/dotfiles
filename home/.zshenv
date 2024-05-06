@@ -52,14 +52,14 @@ export LESS="${less_opts[*]}"
 if [[ -n "$SSH_CONNECTION" ]]; then
   # on the server
   export VIEWER='cat'
-  if command -v vim >/dev/null 2>&1; then
+  if _exists vim; then
     export EDITOR='vim'
   else
     export EDITOR='vi'
   fi
 else
   export EDITOR='nvim'
-  if [ _exists bat ]; then
+  if _exists bat; then
     export VIEWER='bat'
   else
     export VIEWER='cat'
@@ -93,7 +93,7 @@ if [ ! -f "$HOME/.hushlogin" ]; then
 fi
 
 # Add custom bin to $PATH
-_extend_path "/usr/local/bin" # Added by Toolbox
+_extend_path "/usr/local/bin" # Added for Jetbrains Toolbox
 _extend_path "$HOME/.local/bin"
 _extend_path "$HOME/.npm-global/bin"
 _extend_path "$HOME/.rvm/bin"
@@ -101,4 +101,3 @@ _extend_path "$HOME/.yarn/bin"
 _extend_path "$HOME/.bun/bin"
 _extend_path "$DOTFILES/bin"
 _extend_path "$XDG_CONFIG_HOME/yarn/global/node_modules/.bin"
-
