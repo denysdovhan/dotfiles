@@ -1,0 +1,65 @@
+#!/bin/zsh
+
+function _get_focus {
+osascript <<EOF
+try
+  tell application "Shortcuts"
+    run shortcut named "Get Focus"
+    return result
+  end tell
+end try
+EOF
+}
+
+function _set_focus {
+osascript <<EOF
+try
+  tell application "Shortcuts"
+    run shortcut named "Set Focus" with input "${1}"
+    return result
+  end tell
+end try
+EOF
+}
+
+function _focus_logic {
+  CURRENT_FOCUS="${1}"
+
+echo "Current Focus is ${CURRENT_FOCUS}"
+
+echo ${CURRENT_FOCUS} > ~/.focus # No use yet. .focus.prev could be added to toggle back, if needed, etc.
+
+if [ "${CURRENT_FOCUS}" = "Do Not Disturb" ]; then
+  # Use pkill to close the apps
+elif [ "${CURRENT_FOCUS}" = "Work" ]; then
+  echo "Setting Arc as default browser..."
+  # Open apps
+else
+  echo "Default Focus"
+  # Use pkill to close the apps
+fi
+
+}
+
+# Check provided arguments
+
+if [[ '--get' = "${1}" || '-g' = "${1}" ]]; then
+  # Just get focus name and exit
+  _get_focus
+  exit 0
+elif [[ '--set' = "${1}" || '-s' = "${1}" ]]; then
+  # Set focus, pass output to _focus_logic and exit
+  _focus_logic $(_set_focus "${2}") # (unsets focus if $2 is empty)
+  exit 0
+else
+  # Just execute per-focus event logic
+  _focus_logic $(_get_focus)
+  exit 0
+fi
+
+#DATA=$(echo $1 $2 | shortcuts run Syncer)
+
+unfunction _get_focus
+unfunction _set_focus
+unfunction _focus_logic
+
