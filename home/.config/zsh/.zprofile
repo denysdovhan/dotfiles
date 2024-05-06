@@ -7,3 +7,6 @@
 
 # Added by Homebrew
 eval "$(/usr/local/bin/brew shellenv)"
+
+# Added by The Fuck
+eval $(thefuck --alias)
