@@ -84012,7 +84012,7 @@
 		</dict>
 	</dict>
 	<key>Default Bookmark Guid</key>
-	<string>16B42EEF-E70D-4D97-8425-5EE76C56175A</string>
+	<string>55997DDD-91CE-4114-8856-C01C31C89B7C</string>
 	<key>DeleteProfile_SilenceUntil</key>
 	<real>735277041.26959705</real>
 	<key>DeleteProfile_selection</key>
@@ -84143,7 +84143,7 @@
 	<key>HideActivityIndicator</key>
 	<false/>
 	<key>HideFromDockAndAppSwitcher</key>
-	<true/>
+	<false/>
 	<key>HideMenuBarInFullscreen</key>
 	<true/>
 	<key>HideScrollbar</key>
@@ -85502,7 +85502,7 @@
 			<key>Mouse Reporting</key>
 			<false/>
 			<key>Name</key>
-			<string>Terminal</string>
+			<string>Quake Terminal</string>
 			<key>Non Ascii Font</key>
 			<string>Monaco 12</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -87352,7 +87352,7 @@
 			<key>Mouse Reporting</key>
 			<false/>
 			<key>Name</key>
-			<string>Tabbed Terminal</string>
+			<string>Tab Terminal</string>
 			<key>Non Ascii Font</key>
 			<string>Monaco 12</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -87438,7 +87438,7 @@
 			<key>Session Close Undo Timeout</key>
 			<integer>10</integer>
 			<key>Shortcut</key>
-			<string>N</string>
+			<string></string>
 			<key>Show Mark Indicators</key>
 			<false/>
 			<key>Show Status Bar</key>

@@ -8,3 +8,6 @@
 [submodule "home/.config/iterm2/awesome-terminal-backgrounds"]
 	path = home/.config/iterm2/awesome-terminal-backgrounds
 	url = git@github.com:drwpow/awesome-terminal-backrounds.git
+[submodule "home/.local/repos/focus-manager"]
+	path = home/.local/repos/focus-manager
+	url = git@github.com:nickmorozov/focus-manager.git
