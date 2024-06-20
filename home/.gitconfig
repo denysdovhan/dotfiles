@@ -15,6 +15,7 @@
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
   ignorecase = false
+	compression = 0
 
 [push]
   default = current
@@ -24,7 +25,7 @@
   rebase = false
 
 [protocol "file"]
-  allow = always
+	allow = always
 
 [alias]
   a = add
@@ -32,22 +33,26 @@
   b = branch
   c = commit
   m = merge
-  co = checkout
-  cb = checkout -b
+  co = checkout    # Checkout
+  cb = checkout -b # Checkout branch
+  sw = switch      # Change branch
+  swc = switch -c  # Create new branch
   ap = add -p      # Patch mode for specified files
   ca = commit -a   # Add all files and commit
   cm = commit -m   # Commit message
   cam = commit -am # Add all files and commit with message
   s = status -sb   # Short status with current branch
 
-  # Checkout to the latest master
+  # Checkout to the latest master/main
   master = !git checkout master && git pull --prune
+  main = !git checkout main && git pull --prune
   
   # Checkout to the latest develop
   develop = !git checkout develop && git pull --prune
 
-  # Merge latest master to current branch
+  # Merge latest master/main to current branch
   remaster = !git checkout master && git pull --rebase --prune && git checkout - && git merge master
+  remain = !git checkout main && git pull --rebase --prune && git checkout - && git merge main
   
   # When doing "git git log" or some such, do not complain about "git"
   git = !git
