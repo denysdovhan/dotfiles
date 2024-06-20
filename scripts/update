@@ -125,7 +125,7 @@ main() {
   on_start "$*"
   update_dotfiles "$*"
   update_brew "$*"
-  update_apt "$*"
+  update_apt_get "$*"
   on_finish "$*"
 }
 
