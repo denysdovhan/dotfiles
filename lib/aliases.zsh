@@ -72,10 +72,15 @@ fi
 
 alias git-root='cd $(git rev-parse --show-toplevel)'
 
-if _exists lsd; then
+# Better ls with icons, tree view and more
+# https://github.com/eza-community/eza
+if _exists eza; then
   unalias ls
-  alias ls='lsd'
-  alias lt='lsd --tree'
+  alias ls='eza --icons --header --git'
+  alias lt='eza --icons --tree'
+  unalias l
+  alias l='ls -l'
+  alias la='ls -lAh'
 fi
 
 # cat with syntax highlighting
