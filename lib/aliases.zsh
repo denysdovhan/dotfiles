@@ -65,6 +65,11 @@ alias getpage='wget --no-clobber --page-requisites --html-extension --convert-li
 # Download file with original filename
 alias get="curl -O -L"
 
+# Yarn
+alias ybw="yarn build:watch"
+alias yba="yarn build:all"
+alias ytw="yarn test:watch"
+
 # Use tldr as help util
 if _exists tldr; then
   alias help="tldr"
