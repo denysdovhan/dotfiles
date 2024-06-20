@@ -82,7 +82,7 @@ update_brew() {
   finish
 }
 
-update_apt_get() {
+update_apt() {
   if ! _exists apt; then
     return
   fi
