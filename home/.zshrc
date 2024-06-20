@@ -131,7 +131,6 @@ if ! zgen saved; then
     # Custom plugins
     zgen load chriskempson/base16-shell
     zgen load djui/alias-tips
-    zgen load agkozak/zsh-z
     zgen load marzocchi/zsh-notify
     zgen load hlissner/zsh-autopair
     zgen load zsh-users/zsh-syntax-highlighting
@@ -159,12 +158,17 @@ if [[ -d "$SPACESHIP_PROJECT" ]]; then
 fi
 
 # ------------------------------------------------------------------------------
-# Direnv
+# Init tools
 # ------------------------------------------------------------------------------
 
-# Per-directory configs
+# # Per-directory configs
 if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
+fi
+
+# Like cd but with z-zsh capabilities
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
 fi
 
 # ------------------------------------------------------------------------------

@@ -91,3 +91,9 @@ if _exists bat; then
   export BAT_THEME='base16'
   alias cat='bat'
 fi
+
+# cd with zsh-z capabilities
+# https://github.com/ajeetdsouza/zoxide
+if _exists zoxide; then
+  alias cd='z'
+fi
