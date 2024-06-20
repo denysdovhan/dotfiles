@@ -1,5 +1,5 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 # ------------------------------------------------------------------------------
 
 #
@@ -119,6 +119,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/npm
     zgen oh-my-zsh plugins/yarn
     zgen oh-my-zsh plugins/nvm
+    zgen oh-my-zsh plugins/fnm
     zgen oh-my-zsh plugins/extract
     zgen oh-my-zsh plugins/ssh-agent
     zgen oh-my-zsh plugins/gpg-agent
@@ -126,7 +127,11 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/vscode
     zgen oh-my-zsh plugins/gh
     zgen oh-my-zsh plugins/common-aliases
+    zgen oh-my-zsh plugins/direnv
     zgen oh-my-zsh plugins/docker
+    zgen oh-my-zsh plugins/docker-compose
+    zgen oh-my-zsh plugins/node
+    zgen oh-my-zsh plugins/deno
 
     # Custom plugins
     zgen load chriskempson/base16-shell
@@ -198,5 +203,5 @@ fi
 
 # ------------------------------------------------------------------------------
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
