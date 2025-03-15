@@ -33,6 +33,7 @@
   b = branch
   c = commit
   m = merge
+  mc = merge --continue
   co = checkout    # Checkout
   cb = checkout -b # Checkout branch
   sw = switch      # Change branch
@@ -89,6 +90,9 @@
 
   # Pull data from remore and push local data
   sync = !git pull && git push
+
+  # Lazygit
+  lazy = !lazygit
 
 # URL shorthands
 [url "git@github.com:"]
