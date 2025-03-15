@@ -1,0 +1,6 @@
+theme = tokyonight_night
+font-size = 16
+font-family = "FiraCode Nerd Font Mono"
+cursor-style = block
+window-height = 25
+window-width = 80
