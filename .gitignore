@@ -7,3 +7,6 @@ custom/**/*.*sh
 # Home Configs
 home/.config/*
 !home/.config/gh/config.yml
+!home/.config/ghostty
+!home/.config/husky
+
