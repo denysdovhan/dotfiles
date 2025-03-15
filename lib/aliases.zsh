@@ -10,13 +10,6 @@ _exists() {
   command -v $1 > /dev/null 2>&1
 }
 
-# Avoid stupidity with trash-cli:
-# https://github.com/sindresorhus/trash-cli
-# or use default rm -i
-if _exists trash; then
-  alias rm='trash'
-fi
-
 # Just bcoz clr shorter than clear
 alias clr='clear'
 
@@ -45,10 +38,10 @@ alias term='open -a iterm.app'
 
 # Run scripts
 alias update="source $DOTFILES/scripts/update"
-alias bootstap="source $DOTFILES/scripts/bootstrap"
+alias bootstrap="source $DOTFILES/scripts/bootstrap"
 
 # Quick jump to dotfiles
-alias dotfiles="code $DOTFILES"
+alias dotfiles="cd $DOTFILES"
 
 # Quick reload of zsh environment
 alias reload="source $HOME/.zshrc"
@@ -76,6 +69,14 @@ if _exists tldr; then
 fi
 
 alias git-root='cd $(git rev-parse --show-toplevel)'
+alias cdgr='git-root'
+
+# Avoid stupidity with trash-cli:
+# https://github.com/sindresorhus/trash-cli
+# or use default rm -i
+if _exists trash; then
+  alias rm='trash'
+fi
 
 # Better ls with icons, tree view and more
 # https://github.com/eza-community/eza
@@ -101,4 +102,10 @@ fi
 # https://github.com/ajeetdsouza/zoxide
 if _exists zoxide; then
   alias cd='z'
+fi
+
+# Lazygit
+# https://github.com/jesseduffield/lazygit
+if _exists lazygit; then
+  alias lg='lazygit'
 fi
