@@ -17,6 +17,7 @@
   ignorecase = false
 	compression = 0
 	sshCommand = ssh.exe
+	autocrlf = true
 
 [push]
   default = current
@@ -122,4 +123,4 @@
 #   name = Denys Dovhan
 #   email = denysdovhan@gmail.com
 [include]
-  path = ~/.gitlocal
+	path = /Users/pdss/.gitlocal
