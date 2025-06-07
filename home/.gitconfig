@@ -1,5 +1,5 @@
 [init]
-  defaultBranch = main
+	defaultBranch = development
 
 [color]
   ui = auto
@@ -12,14 +12,15 @@
 
 [core]
   editor = vim
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/pdss/.gitignore
   attributesfile = ~/.gitattributes
   ignorecase = false
 	compression = 0
+	sshCommand = ssh.exe
 
 [push]
   default = current
-  autoSetupRemote = true
+	autoSetupRemote = true
 
 [pull]
   rebase = false

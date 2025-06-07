@@ -5,8 +5,11 @@
 # Environment
 # ------------------------------------------------------------------------------
 
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+
 # Export path to root of dotfiles repo
 export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
+
 
 # Locale
 export LC_ALL=en_US.UTF-8
@@ -96,7 +99,7 @@ SPACESHIP_PROJECT="$HOME/Projects/Repos/spaceship/spaceship-prompt"
 ZGEN_RESET_ON_CHANGE=(
   ${HOME}/.zshrc
   ${DOTFILES}/lib/*.zsh
-  ${DOTFILES}/custom/*.zsh
+  #${DOTFILES}/custom/*.zsh
 )
 
 # Load zgen
@@ -200,3 +203,26 @@ if [[ -f "$HOME/.zshlocal" ]]; then
 fi
 
 # ------------------------------------------------------------------------------
+PATH=$(pyenv root)/shims:$PATH
+eval "$(pyenv init -)"
+
+PATH="/Users/pdss/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/pdss/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/pdss/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/pdss/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/pdss/perl5"; export PERL_MM_OPT;
+export PATH="/usr/local/opt/apr-util/bin:$PATH"
+export PATH="/usr/local/opt/m4/bin:$PATH"
+export PATH=/usr/libexec:${PATH}
+
+
+eval "$(pkgx --quiet dev --shellcode)"  # https://github.com/pkgxdev/dev
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+eval "(op signin)"
+eval "$(gh copilot alias -- zsh)"
+export PATH="/usr/local/opt/ncurses/bin:$PATH"
+export PATH="/usr/local/opt/expat/bin:$PATH"
+export PATH="/usr/local/opt/unzip/bin:$PATH"
+export PATH="/usr/local/opt/berkeley-db@5/bin:$PATH"
