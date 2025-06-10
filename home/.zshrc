@@ -20,7 +20,7 @@ set -o noclobber
 _extend_path() {
   [[ -d "$1" ]] || return
 
-  if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
+  if ! echo "$PATH" | tr ":" "\n" | grep -qx "$1" ; then
     export PATH="$1:$PATH"
   fi
 }
@@ -75,7 +75,7 @@ export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E
 # ------------------------------------------------------------------------------
 # Oh My Zsh
 # ------------------------------------------------------------------------------
-ZSH_DISABLE_COMPFIX=true
+export ZSH_DISABLE_COMPFIX=true
 
 # Autoload node version when changing cwd
 zstyle ':omz:plugins:nvm' autoload true
@@ -93,12 +93,11 @@ fi
 SPACESHIP_PROJECT="$HOME/Projects/Repos/spaceship/spaceship-prompt"
 
 # Reset zgen on change
-ZGEN_RESET_ON_CHANGE=(
-  ${HOME}/.zshrc
-  ${DOTFILES}/lib/*.zsh
-  ${DOTFILES}/custom/*.zsh
+export ZGEN_RESET_ON_CHANGE=(
+  "${HOME}/.zshrc"
+  "${DOTFILES}"/lib/*.zsh
+  "${DOTFILES}"/custom/*.zsh
 )
-
 # Load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
@@ -121,6 +120,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/ssh-agent
     zgen oh-my-zsh plugins/gpg-agent
     zgen oh-my-zsh plugins/macos
+    zgen oh-my-zsh plugins/bgnotify
     zgen oh-my-zsh plugins/vscode
     zgen oh-my-zsh plugins/gh
     zgen oh-my-zsh plugins/common-aliases
@@ -129,11 +129,22 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/docker-compose
     zgen oh-my-zsh plugins/node
     zgen oh-my-zsh plugins/deno
+    zgen oh-my-zsh plugins/bun
+    zgen oh-my-zsh plugins/tldr
+
+    # Like cd but with z-zsh capabilities
+    if command -v zoxide >/dev/null 2>&1; then
+      zgen oh-my-zsh plugins/zoxide
+    fi
+
+    # Per-directory env vars
+    if command -v direnv >/dev/null 2>&1; then
+      zgen oh-my-zsh plugins/direnv
+    fi
 
     # Custom plugins
     zgen load chriskempson/base16-shell
     zgen load djui/alias-tips
-    zgen load marzocchi/zsh-notify
     zgen load hlissner/zsh-autopair
     zgen load zsh-users/zsh-syntax-highlighting
     zgen load zsh-users/zsh-autosuggestions
@@ -161,29 +172,8 @@ if [[ -d "$SPACESHIP_PROJECT" ]]; then
 fi
 
 # ------------------------------------------------------------------------------
-# Init tools
-# ------------------------------------------------------------------------------
-
-# # Per-directory configs
-if command -v direnv >/dev/null 2>&1; then
-  eval "$(direnv hook zsh)"
-fi
-
-# Like cd but with z-zsh capabilities
-if command -v zoxide >/dev/null 2>&1; then
-  eval "$(zoxide init zsh)"
-fi
-
-# ------------------------------------------------------------------------------
 # Load additional zsh files
 # ------------------------------------------------------------------------------
-
-# bun completions
-if [ -s "$HOME/.bun/_bun" ]; then
-  source "$HOME/.bun/_bun"
-  export BUN_INSTALL="$HOME/.bun"
-  export PATH="$BUN_INSTALL/bin:$PATH"
-fi
 
 # Fuzzy finder bindings
 if [ -f "$HOME/.fzf.zsh" ]; then
@@ -200,3 +190,4 @@ if [[ -f "$HOME/.zshlocal" ]]; then
 fi
 
 # ------------------------------------------------------------------------------
+
