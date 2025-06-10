@@ -52,8 +52,8 @@
   develop = !git checkout develop && git pull --prune
 
   # Merge latest master/main to current branch
-  remaster = !git checkout master && git pull --rebase --prune && git checkout - && git merge master
-  remain = !git checkout main && git pull --rebase --prune && git checkout - && git merge main
+  remaster = !git fetch origin master:master && git merge master
+  remain = !git fetch origin main:main && git merge main
   
   # When doing "git git log" or some such, do not complain about "git"
   git = !git
@@ -88,7 +88,7 @@
   # See how many lines of code you have written today.
   today = diff --shortstat --since="0 day ago"
 
-  # Pull data from remore and push local data
+  # Pull data from remote and push local data
   sync = !git pull && git push
 
   # Lazygit
