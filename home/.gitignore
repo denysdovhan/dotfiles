@@ -22,3 +22,7 @@ bower_components
 
 # Ignore Westorm files
 .idea
+
+# VSCode: Todo extension files
+# https://marketplace.visualstudio.com/items/?itemName=fabiospampinato.vscode-todo-plus
+*.todo
