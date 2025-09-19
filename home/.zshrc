@@ -150,6 +150,10 @@ if ! zgen saved; then
     zgen load zsh-users/zsh-autosuggestions
     zgen load Aloxaf/fzf-tab
 
+    # Load bgnotify with a fix for Ghostty and Alacritty
+    # FIXME: remove when merged in ohmyzsh
+    zgen load https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/08163e44a0d92c824a3531259a26fcca91d2dbaa/plugins/bgnotify/bgnotify.plugin.zsh
+
     # Files
     zgen load $DOTFILES/lib
     zgen load $DOTFILES/custom
