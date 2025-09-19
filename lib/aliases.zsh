@@ -62,6 +62,7 @@ alias get="curl -O -L"
 alias ybw="yarn build:watch"
 alias yba="yarn build:all"
 alias ytw="yarn test:watch"
+alias ytu="yarn test:unit":
 
 # Use tldr as help util
 if _exists tldr; then
