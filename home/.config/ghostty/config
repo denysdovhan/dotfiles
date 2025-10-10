@@ -2,6 +2,7 @@ theme = TokyoNight Night
 font-size = 16
 font-family = "FiraCode Nerd Font Mono"
 cursor-style = block
+Cursor-style-blink = true
 window-height = 25
 window-width = 80
 shell-integration-features = sudo, no-cursor

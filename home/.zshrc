@@ -131,6 +131,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/deno
     zgen oh-my-zsh plugins/bun
     zgen oh-my-zsh plugins/tldr
+    zgen oh-my-zsh plugins/fzf
 
     # Like cd but with z-zsh capabilities
     if command -v zoxide >/dev/null 2>&1; then
@@ -149,10 +150,6 @@ if ! zgen saved; then
     zgen load zsh-users/zsh-syntax-highlighting
     zgen load zsh-users/zsh-autosuggestions
     zgen load Aloxaf/fzf-tab
-
-    # Load bgnotify with a fix for Ghostty and Alacritty
-    # FIXME: remove when merged in ohmyzsh
-    zgen load https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/08163e44a0d92c824a3531259a26fcca91d2dbaa/plugins/bgnotify/bgnotify.plugin.zsh
 
     # Files
     zgen load $DOTFILES/lib
