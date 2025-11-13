@@ -4,6 +4,9 @@
 [color]
   ui = auto
 
+[column]
+  ui = auto
+
 [color "diff"]
   meta = white bold
   frag = cyan bold
@@ -17,12 +20,20 @@
   ignorecase = false
 	compression = 0
 
+[branch]
+  sort = -committerdate
+
 [push]
   default = current
   autoSetupRemote = true
 
 [pull]
   rebase = false
+
+# Automatically resolve conflicts
+# https://x.com/dillon_mulroy/status/1982514256340983981
+[rerere]
+  enabled = true
 
 [protocol "file"]
 	allow = always
