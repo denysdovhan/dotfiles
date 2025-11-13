@@ -2,7 +2,12 @@ theme = TokyoNight Night
 font-size = 16
 font-family = "FiraCode Nerd Font Mono"
 cursor-style = block
-Cursor-style-blink = true
+cursor-style-blink = true
 window-height = 25
 window-width = 80
 shell-integration-features = sudo, no-cursor
+
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:down
+keybind = ctrl+k=goto_split:up
+keybind = ctrl+l=goto_split:right
