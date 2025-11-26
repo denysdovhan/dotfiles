@@ -78,7 +78,6 @@ install_homebrew() {
 
     info "Installing Homebrew..."
     bash -c "$(curl -fsSL ${HOMEBREW_INSTALLER_URL})"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
   else
     success "You already have Homebrew installed. Skipping..."
   fi
