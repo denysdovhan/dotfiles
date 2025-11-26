@@ -181,6 +181,12 @@ if [ -f "$HOME/.fzf.zsh" ]; then
   source "$HOME/.fzf.zsh"
 fi
 
+# OpenAI Codex CLI completions
+if _exists codex; then
+  eval "$(codex completion zsh)"
+fi
+
+
 # ------------------------------------------------------------------------------
 # Overrides
 # ------------------------------------------------------------------------------
