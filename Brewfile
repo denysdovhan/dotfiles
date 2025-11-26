@@ -27,6 +27,8 @@ brew "bat"
 brew "trash-it"
 brew "youtube-dl"
 brew "watchman" # Watching files for Jest
+brew "codex"
+brew "gemini-cli"
 
 # ------------------------------------------------------------------------------
 # Taps
