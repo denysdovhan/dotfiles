@@ -28,7 +28,7 @@
   autoSetupRemote = true
 
 [pull]
-  rebase = false
+	rebase = true
 
 # Automatically resolve conflicts
 # https://x.com/dillon_mulroy/status/1982514256340983981
