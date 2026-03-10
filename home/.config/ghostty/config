@@ -1,3 +1,4 @@
+# General settings
 theme = TokyoNight Night
 font-size = 16
 font-family = "FiraCode Nerd Font Mono"
@@ -10,6 +11,17 @@ shell-integration-features = sudo, no-cursor
 background-opacity = 0.95
 background-blur = 25
 
+# Notify
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = bell,notify
+notify-on-command-finish-after = 10s
+
+# Working directory
+window-inherit-working-directory = false
+tab-inherit-working-directory = false
+split-inherit-working-directory = true
+
+# Keybindings
 keybind = ctrl+h=goto_split:left
 keybind = ctrl+j=goto_split:down
 keybind = ctrl+k=goto_split:up

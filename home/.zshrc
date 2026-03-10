@@ -123,7 +123,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/ssh-agent
     zgen oh-my-zsh plugins/gpg-agent
     zgen oh-my-zsh plugins/macos
-    zgen oh-my-zsh plugins/bgnotify
+    # zgen oh-my-zsh plugins/bgnotify # TODO: Testing Ghostty notify
     zgen oh-my-zsh plugins/vscode
     zgen oh-my-zsh plugins/gh
     zgen oh-my-zsh plugins/common-aliases
