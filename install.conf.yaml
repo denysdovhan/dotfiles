@@ -6,12 +6,29 @@
 - clean: ['~']
 
 - link:
+    # Home files
     ~/:
       glob: true
       path: home/.*
       create: true
       relink: true
       force: true
+    # Agents Instructions
+    ~/.codex/AGENTS.md:
+      path: agents/AGENTS.md
+      if: test -d ~/.codex
+    ~/.cursor/AGENTS.md:
+      path: agents/AGENTS.md
+      if: test -d ~/.cursor
+    ~/.config/agents/AGENTS.md:
+      path: agents/AGENTS.md
+      if: test -d ~/.config/agents
+    ~/.config/github-copilot/AGENTS.md:
+      path: agents/AGENTS.md
+      if: test -d ~/.config/github-copilot
+    ~/.config/opencode/AGENTS.md:
+      path: agents/AGENTS.md
+      if: test -d ~/.config/opencode
 
 - create:
     - ~/.config
