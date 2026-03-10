@@ -26,16 +26,17 @@ _extend_path() {
 }
 
 # Add custom bin to $PATH
-_extend_path "$HOME/.local/bin"
-_extend_path "$DOTFILES/bin"
-_extend_path "$HOME/.npm-global/bin"
-_extend_path "$HOME/.rvm/bin"
-_extend_path "$HOME/.yarn/bin"
-_extend_path "$HOME/.config/yarn/global/node_modules/.bin"
-_extend_path "$HOME/.bun/bin"
+_extend_path "$HOME/.local/bin" # local bins
+_extend_path "$DOTFILES/bin" # custom scripts
+_extend_path "$HOME/.npm-global/bin" # npm global packages
+_extend_path "$HOME/.rvm/bin" # RVM
+_extend_path "$HOME/.yarn/bin" # Yarn
+_extend_path "$HOME/.config/yarn/global/node_modules/.bin" # Yarn global packages
+_extend_path "$HOME/.bun/bin" # Bun
+_extend_path "$HOME/.rd/bin" # Rancher Desktop
 
 # Extend $NODE_PATH
-if [ -d ~/.npm-global ]; then
+if [ -d "$HOME/.npm-global" ]; then
   export NODE_PATH="$NODE_PATH:$HOME/.npm-global/lib/node_modules"
 fi
 
@@ -117,6 +118,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/yarn
     zgen oh-my-zsh plugins/nvm
     zgen oh-my-zsh plugins/fnm
+    zgen oh-my-zsh plugins/pyenv
     zgen oh-my-zsh plugins/extract
     zgen oh-my-zsh plugins/ssh-agent
     zgen oh-my-zsh plugins/gpg-agent
@@ -182,6 +184,10 @@ if _exists codex; then
   eval "$(codex completion zsh)"
 fi
 
+if [[ -f "$HOME/.bazelenv" ]]; then
+  source "$HOME/.bazelenv"
+fi
+
 # ------------------------------------------------------------------------------
 # Overrides
 # ------------------------------------------------------------------------------
@@ -192,4 +198,3 @@ if [[ -f "$HOME/.zshlocal" ]]; then
 fi
 
 # ------------------------------------------------------------------------------
-
