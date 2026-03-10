@@ -5,7 +5,10 @@ cursor-style = block
 cursor-style-blink = true
 window-height = 25
 window-width = 80
+unfocused-split-opacity = 0.5
 shell-integration-features = sudo, no-cursor
+background-opacity = 0.95
+background-blur = 25
 
 keybind = ctrl+h=goto_split:left
 keybind = ctrl+j=goto_split:down
