@@ -46,6 +46,8 @@ cd $HOME/.dotfiles
 ./install
 ```
 
+`./install` also links [`agents/AGENTS.md`](./agents/AGENTS.md) into supported agent config directories when those directories already exist (`~/.codex`, `~/.cursor`, `~/.config/agents`, `~/.config/github-copilot`, and `~/.config/opencode`).
+
 ## Updating
 
 Use single command to get the latest updates:
@@ -104,8 +106,8 @@ Aliases are going to make your work fast and enjoyable. See code in `$DOTFILES/l
   - **`oo`** — open current folder.
   - **`term`** — open iTerm.
 - Misc
-  - **`update`** — get updates (Runs `$DOTFILES/scripts/update`).
-  - **`bootstrap`** — run machine bootstrap (Runs `$DOTFILES/scripts/bootstrap`).
+  - **`update`** — get updates (Runs `$DOTFILES/scripts/update.sh`).
+  - **`bootstrap`** — run machine bootstrap (Runs `$DOTFILES/scripts/bootstrap.sh`).
   - **`dotfiles`** — jump quickly into dotfiles folder.
   - **`myip`** — my local IP address.
   - **`password`** — generate random password, copies it into clipboard and outputs it to terminal.

@@ -6,29 +6,12 @@
 - clean: ['~']
 
 - link:
-    # Home files
     ~/:
       glob: true
       path: home/.*
       create: true
       relink: true
       force: true
-    # Agents Instructions
-    ~/.codex/AGENTS.md:
-      path: agents/AGENTS.md
-      if: test -d ~/.codex
-    ~/.cursor/AGENTS.md:
-      path: agents/AGENTS.md
-      if: test -d ~/.cursor
-    ~/.config/agents/AGENTS.md:
-      path: agents/AGENTS.md
-      if: test -d ~/.config/agents
-    ~/.config/github-copilot/AGENTS.md:
-      path: agents/AGENTS.md
-      if: test -d ~/.config/github-copilot
-    ~/.config/opencode/AGENTS.md:
-      path: agents/AGENTS.md
-      if: test -d ~/.config/opencode
 
 - create:
     - ~/.config
@@ -38,10 +21,13 @@
       command: git submodule update --init --recursive
 
     - description: Installing zgen
-      command: ./scripts/zgen
+      command: ./scripts/zgen.sh
 
     - description: Scaffolding Project folders
-      command: ./scripts/projects
+      command: ./scripts/projects.sh
 
-    - description: Run ./scripts/bootstrap to bootstrap new machine
-      command: echo "bash $DOTFILES/scripts/bootstrap"
+    - description: Linking Agents instructions
+      command: ./scripts/agents.sh
+
+    - description: Run ./scripts/bootstrap.sh to bootstrap new machine
+      command: echo "bash $DOTFILES/scripts/bootstrap.sh"
