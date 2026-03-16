@@ -7,9 +7,10 @@ cursor-style-blink = true
 window-height = 25
 window-width = 80
 unfocused-split-opacity = 0.5
-shell-integration-features = sudo, no-cursor
+shell-integration-features = no-cursor
 background-opacity = 0.95
 background-blur = 25
+window-save-state = always
 
 # Notify
 notify-on-command-finish = unfocused
