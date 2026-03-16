@@ -63,8 +63,12 @@
   develop = !git checkout develop && git pull --prune
 
   # Merge latest master/main to current branch
-  remaster = !git fetch origin master:master && git merge master
-  remain = !git fetch origin main:main && git merge main
+  memaster = !git fetch origin master && git merge origin/master
+  memain = !git fetch origin main && git merge origin/main
+
+  # Rebase current branch on latest master/main
+  remaster = !git fetch origin master && git rebase --autostash origin/master
+  remain = !git fetch origin main && git rebase --autostash origin/main
   
   # When doing "git git log" or some such, do not complain about "git"
   git = !git
