@@ -144,14 +144,14 @@ These OMZ plugins are included:
 
 Dotfiles also include some functions that will make your life easier. See code in [`bin/`](./bin).
 
-- `emptytrash` — empty the Trash on all mounted volumes and the main HDD.
-- `git-cleanup` — removes old Git branches and does other cleanup.
-- `git-fork` — add remote upstream.
-- `git-upstream` — sync branch with upstream.
-- `gz` — get gzipped file size
-- `n` — runs given command using binary in `node_modules/.bin` of the current project.
-- `nyan` — print [nyan cat](https://www.youtube.com/watch?v=QH2-TGUlwu4).
-- `password` — generate a random password and copy it to the clipboard.
+- [`emptytrash`](./bin/emptytrash) — empty the Trash on all mounted volumes and the main HDD.
+- [`git-cleanup`](./bin/git-cleanup) — removes old Git branches and does other cleanup.
+- [`git-fork`](./bin/git-fork) — add remote upstream.
+- [`git-upstream`](./bin/git-upstream) — sync branch with upstream.
+- [`gz`](./bin/gz) — get gzipped file size
+- [`n`](./bin/n) — runs given command using binary in `node_modules/.bin` of the current project.
+- [`nyan`](./bin/nyan) — print [nyan cat](https://www.youtube.com/watch?v=QH2-TGUlwu4).
+- [`password`](./bin/password) — generate a random password and copy it to the clipboard.
 
 ### Git
 
