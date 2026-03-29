@@ -37,8 +37,8 @@ alias oo='open .'
 alias term='open -a iterm.app'
 
 # Run scripts
-alias update="./$DOTFILES/scripts/update.sh"
-alias bootstrap="./$DOTFILES/scripts/bootstrap.sh"
+alias update="$DOTFILES/scripts/update.sh"
+alias bootstrap="$DOTFILES/scripts/bootstrap.sh"
 
 # Quick jump to dotfiles
 alias dotfiles="cd $DOTFILES"
