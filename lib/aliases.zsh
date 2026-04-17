@@ -110,3 +110,23 @@ fi
 if _exists lazygit; then
   alias lg='lazygit'
 fi
+
+# Glow
+# https://github.com/charmbracelet/glow
+if _exists glow; then
+  alias md='glow -t'
+fi
+
+# Claude Code
+# https://claude.ai/code
+if _exists claude; then
+  alias cc='claude'
+  alias ccx='cd ~/Projects/Playground && claude --dangerously-skip-permissions'
+fi
+
+# Codex
+# https://github.com/openai/codex
+if _exists codex; then
+  alias cx='codex'
+  alias cxx='codex -C ~/Projects/Playground --full-auto'
+fi
