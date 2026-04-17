@@ -81,6 +81,10 @@ export ZSH_DISABLE_COMPFIX=true
 # Autoload node version when changing cwd
 zstyle ':omz:plugins:nvm' autoload true
 
+# SSH agent lazy loading and quiet mode
+zstyle :omz:plugins:ssh-agent lazy yes
+zstyle :omz:plugins:ssh-agent quiet yes
+
 # Use passphase from macOS keychain
 if [[ "$OSTYPE" == "darwin"* ]]; then
   zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
@@ -123,7 +127,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/ssh-agent
     zgen oh-my-zsh plugins/gpg-agent
     zgen oh-my-zsh plugins/macos
-    # zgen oh-my-zsh plugins/bgnotify # TODO: Testing Ghostty notify
     zgen oh-my-zsh plugins/vscode
     zgen oh-my-zsh plugins/gh
     zgen oh-my-zsh plugins/common-aliases
