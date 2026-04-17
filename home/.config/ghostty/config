@@ -11,6 +11,7 @@ shell-integration-features = no-cursor
 background-opacity = 0.95
 background-blur = 25
 window-save-state = always
+window-new-tab-position = end
 
 # Notify
 notify-on-command-finish = unfocused
