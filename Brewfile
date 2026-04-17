@@ -24,8 +24,9 @@ brew "terminal-notifier"
 brew "wifi-password"
 brew "speedtest"
 brew "bat"
+brew "glow"
 brew "trash-it"
-brew "youtube-dl"
+brew "yt-dlp"
 brew "watchman" # Watching files for Jest
 brew "codex"
 brew "gemini-cli"
@@ -62,6 +63,11 @@ cask "iterm2"
 cask "visual-studio-code"
 cask "github"
 cask "ghostty"
+
+# Agents
+cask "claude"
+cask "claude-code"
+cask "codex-app"
 
 # Desktop applications
 cask "telegram"
