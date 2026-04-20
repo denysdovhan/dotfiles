@@ -18,7 +18,7 @@
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
   ignorecase = false
-	compression = 0
+  pager = delta # brew install git-delta
 
 [branch]
   sort = -committerdate
@@ -28,7 +28,10 @@
   autoSetupRemote = true
 
 [pull]
-	rebase = true
+  rebase = true
+
+[interactive]
+  diffFilter = delta --color-only
 
 # Automatically resolve conflicts
 # https://x.com/dillon_mulroy/status/1982514256340983981
@@ -36,7 +39,13 @@
   enabled = true
 
 [protocol "file"]
-	allow = always
+  allow = always
+
+[delta]
+  navigate = true      # use n and N to move between diff sections
+  line-numbers = true  # show line numbers in the diff
+  hyperlinks = true    # make file paths and commit hashes clickable in supported terminals
+  hyperlinks-file-link-format = "vscode://file/{path}:{line}"
 
 [alias]
   a = add

@@ -12,23 +12,26 @@ brew "node"
 brew "coreutils"
 brew "nvm"
 brew "tree"
-brew "eza"
-brew "zoxide"
-brew "fzf"
+brew "eza"        # better ls
+brew "zoxide"     # better cd
+brew "fzf"        # fuzzy finder
+brew "yazi"       # terminal file explorer
+brew "bat"        # better cat
+brew "tldr"       # short and simple man pages
+brew "glow"       # makrdown rendererer in terminal
+brew "trash-it"   # safe rm command
+brew "git-delta"  # better git diff
 brew "wget"
 brew "yarn"
-brew "tldr"
 brew "mas"
 brew "gh"
 brew "terminal-notifier"
 brew "wifi-password"
 brew "speedtest"
-brew "bat"
-brew "glow"
-brew "trash-it"
 brew "yt-dlp"
 brew "watchman" # Watching files for Jest
 brew "codex"
+brew "claude-code"
 brew "gemini-cli"
 
 # ------------------------------------------------------------------------------

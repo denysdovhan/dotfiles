@@ -83,7 +83,7 @@ fi
 # https://github.com/eza-community/eza
 if _exists eza; then
   unalias ls
-  alias ls='eza --icons --header --git'
+  alias ls='eza --icons --header --git --hyperlink=auto'
   alias lt='eza --icons --tree'
   unalias l
   alias l='ls -l'
@@ -96,6 +96,8 @@ if _exists bat; then
   # Run to list all themes:
   #   bat --list-themes
   export BAT_THEME='base16'
+  export BAT_STYLE='full'
+  export MANPAGER='bat -plman'
   alias cat='bat'
 fi
 
