@@ -4,10 +4,13 @@ backup
 # Custom files (*sh includes sh, bash, zsh)
 custom/**/*.*sh
 
-# Home Configs
-home/.config/**
-!home/.config/gh/config.yml
-!home/.config/ghostty
-!home/.config/husky
+# All configs
+home/.config/*
+
+# Exclude specific files from home/.config
 !home/.config/agents/AGENTS.md
+!home/.config/gh/config.yml
+!home/.config/ghostty/config
+!home/.config/husky/init.sh
+!home/.config/yazi
 !home/.config/yazi/yazi.toml

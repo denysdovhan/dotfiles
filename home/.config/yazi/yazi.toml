@@ -1,0 +1,5 @@
+# yazi.toml
+# https://yazi-rs.github.io/
+[mgr]
+show_hidden = true
+show_symlink = true
