@@ -27,3 +27,6 @@ bower_components
 # https://marketplace.visualstudio.com/items/?itemName=fabiospampinato.vscode-todo-plus
 TODO
 *.todo
+
+# Agents
+.claude/*.local.json
