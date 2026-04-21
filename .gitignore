@@ -12,5 +12,4 @@ home/.config/*
 !home/.config/gh/config.yml
 !home/.config/ghostty/config
 !home/.config/husky/init.sh
-!home/.config/yazi
 !home/.config/yazi/yazi.toml
