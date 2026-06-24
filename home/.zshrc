@@ -138,6 +138,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/bun
     zgen oh-my-zsh plugins/tldr
     zgen oh-my-zsh plugins/fzf
+    zgen oh-my-zsh plugins/mise
 
     # Like cd but with z-zsh capabilities
     if command -v zoxide >/dev/null 2>&1; then
