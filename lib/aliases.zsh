@@ -82,13 +82,14 @@ fi
 # Better ls with icons, tree view and more
 # https://github.com/eza-community/eza
 if _exists eza; then
-  unalias ls
+  unalias ls 2>/dev/null
   alias ls='eza --icons --header --git --hyperlink'
   alias lt='eza --icons --tree'
-  unalias l
+  unalias l 2>/dev/null
   alias l='ls -l'
   alias la='ls -lAh'
 fi
+
 
 # cat with syntax highlighting
 # https://github.com/sharkdp/bat
