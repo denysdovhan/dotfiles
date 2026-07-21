@@ -115,6 +115,7 @@ if ! zgen saved; then
     # Oh-My-Zsh plugins
     zgen oh-my-zsh plugins/brew
     zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/tmux
     zgen oh-my-zsh plugins/history-substring-search
     zgen oh-my-zsh plugins/sudo
     zgen oh-my-zsh plugins/command-not-found
@@ -187,6 +188,7 @@ if _exists codex; then
   eval "$(codex completion zsh)"
 fi
 
+# Bazel environment variables
 if [[ -f "$HOME/.bazelenv" ]]; then
   source "$HOME/.bazelenv"
 fi
