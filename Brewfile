@@ -7,6 +7,7 @@
 brew "git"
 brew "zsh"
 brew "zsh-completions"
+brew "tmux"
 brew "nvim"
 brew "node"
 brew "coreutils"
@@ -19,25 +20,15 @@ brew "yazi"       # terminal file explorer
 brew "bat"        # better cat
 brew "tldr"       # short and simple man pages
 brew "glow"       # makrdown rendererer in terminal
-brew "trash-it"   # safe rm command
-brew "git-delta"  # better git diff
 brew "wget"
 brew "yarn"
 brew "mas"
 brew "gh"
-brew "terminal-notifier"
 brew "wifi-password"
 brew "speedtest"
 brew "yt-dlp"
-brew "watchman" # Watching files for Jest
 brew "codex"
 brew "claude-code"
-brew "gemini-cli"
-
-# ------------------------------------------------------------------------------
-# Taps
-# ------------------------------------------------------------------------------
-tap "homebrew/cask-fonts"
 
 # ------------------------------------------------------------------------------
 # Cask
@@ -50,13 +41,12 @@ cask "font-hasklug-nerd-font"
 
 # Utils
 cask "raycast"
-cask "ukrainian-typographic-keyboard"
 cask "gpg-suite"
 cask "openvpn-connect"
 
 # Media
 cask "transmission"
-cask "handbrake"
+cask "handbrake-app"
 cask "vlc"
 cask "obs"
 
@@ -76,7 +66,6 @@ cask "codex-app"
 cask "telegram"
 cask "google-chrome"
 cask "firefox"
-cask "brave-browser"
 cask "slack"
 cask "steam"
 cask "spotify"
@@ -95,8 +84,5 @@ cask "webpquicklook" # https://github.com/dchest/webp-quicklook
 # ------------------------------------------------------------------------------
 mas "Home Assistant", id: 1099568401
 mas "Bitwarden", id: 1352778147
-mas "Spark", id: 1176895641
-mas "Unsplash Wallpapers", id: 12848638472
-mas "NordVPN", id: 905953485
 mas "The Unarchiver",  id: 425424353
 mas "Pandan", id: 1569600264
