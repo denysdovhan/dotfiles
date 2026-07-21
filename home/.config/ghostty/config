@@ -2,12 +2,9 @@
 theme = light:Ayu Light,dark:Ayu
 font-size = 14
 font-family = "FiraCode Nerd Font Mono"
-cursor-style = block
-cursor-style-blink = true
 window-height = 25
 window-width = 80
 unfocused-split-opacity = 0.5
-shell-integration-features = no-cursor
 background-opacity = 0.95
 background-blur = 25
 window-save-state = always
