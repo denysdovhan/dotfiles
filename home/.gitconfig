@@ -19,6 +19,7 @@
   attributesfile = ~/.gitattributes
   ignorecase = false
   pager = delta # brew install git-delta
+  quotePath = false # normal display of non-ASCII file names
 
 [branch]
   sort = -committerdate
