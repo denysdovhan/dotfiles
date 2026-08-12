@@ -182,10 +182,8 @@ install_npm() {
   info "Installing global npm packages..."
 
   packages=(
-    commitizen
     npkill
     fkill-cli
-    cz-conventional-changelog
   )
 
   echo "Installing: ${packages[*]}"
