@@ -29,6 +29,7 @@ brew "speedtest"
 brew "yt-dlp"
 brew "codex"
 brew "claude-code"
+brew "ctx7"
 
 # ------------------------------------------------------------------------------
 # Cask
