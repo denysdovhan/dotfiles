@@ -78,6 +78,10 @@ export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E
 # ------------------------------------------------------------------------------
 export ZSH_DISABLE_COMPFIX=true
 
+# Start tmux automatically.
+ZSH_TMUX_AUTOSTART=true
+# ZSH_TMUX_AUTOQUIT=false
+
 # Autoload node version when changing cwd
 zstyle ':omz:plugins:nvm' autoload true
 

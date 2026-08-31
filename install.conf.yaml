@@ -23,6 +23,9 @@
     - description: Installing zgen
       command: ./scripts/zgen.sh
 
+    - description: Installing tpm
+      command: ./scripts/tpm.sh
+
     - description: Scaffolding Project folders
       command: ./scripts/projects.sh
 
