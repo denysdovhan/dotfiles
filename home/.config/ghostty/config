@@ -1,6 +1,6 @@
 # General settings
 theme = light:Ayu Light,dark:Ayu
-font-size = 14
+font-size = 16
 font-family = "FiraCode Nerd Font Mono"
 window-height = 25
 window-width = 80
@@ -21,7 +21,21 @@ tab-inherit-working-directory = false
 split-inherit-working-directory = true
 
 # Keybindings
-keybind = ctrl+h=goto_split:left
-keybind = ctrl+j=goto_split:down
-keybind = ctrl+k=goto_split:up
-keybind = ctrl+l=goto_split:right
+# These outer Ghostty split bindings previously used Ctrl-h/j/k/l.
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+l=goto_split:right
+
+# Ctrl-number has no distinct legacy terminal encoding, so Ghostty sends a plain digit.
+# `csi:` adds ESC [, then xterm's modifyOtherKeys payload encodes Ctrl (`5`)
+# and the digit's ASCII code (`49`-`57`); tmux decodes these as C-1 through C-9.
+keybind = ctrl+1=csi:27;5;49~
+keybind = ctrl+2=csi:27;5;50~
+keybind = ctrl+3=csi:27;5;51~
+keybind = ctrl+4=csi:27;5;52~
+keybind = ctrl+5=csi:27;5;53~
+keybind = ctrl+6=csi:27;5;54~
+keybind = ctrl+7=csi:27;5;55~
+keybind = ctrl+8=csi:27;5;56~
+keybind = ctrl+9=csi:27;5;57~

@@ -26,8 +26,8 @@ _extend_path() {
 }
 
 # Add custom bin to $PATH
-_extend_path "$HOME/.local/bin" # local bins
 _extend_path "$DOTFILES/bin" # custom scripts
+_extend_path "$HOME/.local/bin" # local bins
 _extend_path "$HOME/.npm-global/bin" # npm global packages
 _extend_path "$HOME/.rvm/bin" # RVM
 _extend_path "$HOME/.yarn/bin" # Yarn
@@ -77,10 +77,6 @@ export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E
 # Oh My Zsh
 # ------------------------------------------------------------------------------
 export ZSH_DISABLE_COMPFIX=true
-
-# Start tmux automatically.
-ZSH_TMUX_AUTOSTART=true
-# ZSH_TMUX_AUTOQUIT=false
 
 # Autoload node version when changing cwd
 zstyle ':omz:plugins:nvm' autoload true

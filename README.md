@@ -8,6 +8,7 @@ There are tons of useful things in here:
 
 - The usefulness of [Oh My ZSH!](http://ohmyz.sh/) is already built–in.
 - [Spaceship](https://github.com/spaceship-prompt/spaceship-prompt) as a prompt.
+- Tmux configured in [`~/.tmux.conf`](home/.tmux.conf), with [tmux-lean](https://github.com/denysdovhan/tmux-lean): a minimal theme with process icons and light/dark colors.
 - [Fish](https://fishshell.com/)-like autosuggestion in Zsh.
 - Syntax highlighting of commands while they are typed.
 - Automatically closing and deleting of quotes and brackets when you type them.
