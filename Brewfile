@@ -2,6 +2,11 @@
 # https://github.com/Homebrew/homebrew-bundle
 
 # ------------------------------------------------------------------------------
+# Taps
+# ------------------------------------------------------------------------------
+tap "abue-ammar/tinycast", trusted: true
+
+# ------------------------------------------------------------------------------
 # CLI Tools
 # ------------------------------------------------------------------------------
 brew "git"
@@ -50,6 +55,7 @@ cask "transmission"
 cask "handbrake-app"
 cask "vlc"
 cask "obs"
+cask "abue-ammar/tinycast/tinycast"
 
 # Development
 cask "multipass"
